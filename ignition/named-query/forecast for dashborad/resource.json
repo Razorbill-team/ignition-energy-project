@@ -1,0 +1,40 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "postgresDB",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "a09bb4f8a4c8d289cd06717e6209ce7da25bc799769eeb3d1ca1f163fa8886bd",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "external",
+      "timestamp": "2025-12-15T04:17:13Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "param_farmids",
+        "sqlType": 7
+      }
+    ]
+  }
+}

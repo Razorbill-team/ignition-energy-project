@@ -1,0 +1,157 @@
+{
+  "pages": {
+    "/Control": {
+      "title": "",
+      "viewPath": "Control/Control"
+    },
+    "/ancillary_services_market": {
+      "title": "",
+      "viewPath": "Forecast/Ancillary_Services_Market"
+    },
+    "/asset-view": {
+      "title": "",
+      "viewPath": "Asset View/f_widget_view/page_widget_view"
+    },
+    "/client-view": {
+      "viewPath": "Trade/Client_view"
+    },
+    "/contract-view": {
+      "viewPath": "Trade/Contract_view"
+    },
+    "/control": {
+      "title": "",
+      "viewPath": "Control/Control"
+    },
+    "/cross_border": {
+      "title": "",
+      "viewPath": "Forecast/Cross_Border"
+    },
+    "/dashboard-view": {
+      "title": "",
+      "viewPath": "Site View/f_dashboard_view/dashboard_view"
+    },
+    "/dashboard-view1": {
+      "title": "",
+      "viewPath": "Asset View/f_dashboard_view/dashboard_view"
+    },
+    "/dashboardf": {
+      "title": "",
+      "viewPath": "Forecast/Dashboard"
+    },
+    "/final-results": {
+      "title": "",
+      "viewPath": "Trade/Final_Results"
+    },
+    "/forecast": {
+      "title": "",
+      "viewPath": "Forecast/table_filter"
+    },
+    "/forex": {
+      "viewPath": "Forecast/Forex"
+    },
+    "/fullscreenview": {
+      "title": "",
+      "viewPath": "Forecast/fullscreenview"
+    },
+    "/header": {
+      "docks": {
+        "cornerPriority": "top-bottom"
+      },
+      "title": "",
+      "viewPath": "Header/Header"
+    },
+    "/historical": {
+      "viewPath": "Historical/Historical"
+    },
+    "/iframe": {
+      "title": "",
+      "viewPath": "test"
+    },
+    "/map-view": {
+      "title": "",
+      "viewPath": "Site View/f_map_view/map_view"
+    },
+    "/map-view1": {
+      "title": "",
+      "viewPath": "Asset View/f_map_view/map_view"
+    },
+    "/market_prices": {
+      "viewPath": "Forecast/Market_prices"
+    },
+    "/pre-results": {
+      "title": "",
+      "viewPath": "Trade/Pre_Results"
+    },
+    "/site-view": {
+      "title": "",
+      "viewPath": "Site View/f_widget_view/widget_view"
+    },
+    "/tabelar-view": {
+      "title": "",
+      "viewPath": "Site View/f_tabelar_view/tabelar_view"
+    },
+    "/tabelar-view1": {
+      "title": "",
+      "viewPath": "Asset View/f_tabelar_view/tabelar_view"
+    },
+    "/tabelar_view": {
+      "title": "",
+      "viewPath": "Test1/f_control_view/tabelar_view"
+    },
+    "/test": {
+      "title": "",
+      "viewPath": "Test1/f_control_view/tabelar_view"
+    },
+    "/trade": {
+      "title": "",
+      "viewPath": "Trade/Trade_view"
+    },
+    "/viewstatus": {
+      "title": "",
+      "viewPath": "Left Bar/status_filter"
+    },
+    "/widget-view": {
+      "title": "",
+      "viewPath": "Asset View/f_widget_view/page_widget_view"
+    },
+    "/widget-view1": {
+      "title": "",
+      "viewPath": "Site View/f_widget_view/widget_view"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom",
+    "left": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 405,
+        "viewParams": {},
+        "viewPath": "Left Bar/general_layout"
+      }
+    ],
+    "top": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 100,
+        "viewParams": {},
+        "viewPath": "Header/Header"
+      }
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "custom": {},
+  "params": {
+    "value": ""
+  },
+  "propConfig": {
+    "params.value": {
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 23,
+      "width": 87
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "height": 0.8696,
+          "width": 0.1839,
+          "x": 0.069,
+          "y": 0.087
+        },
+        "propConfig": {
+          "props.color": {
+            "binding": {
+              "config": {
+                "expression": "switch(\r\n  {view.params.value},\r\n  \"Alarm\", \"Production\", \"Curtailment\", \"Stop\", \"Warning\", \"Set point\", \"Noconnection\",\r\n  \"#C0CA33\", \"#00C853\", \"#9CCC65\", \"#F44336\", \"#FFB300\", \"#FF00FF\", \"#9E9E9E\", \"#9E9E9E\")\r\n"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "path": "material/brightness_1"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Label",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "height": 0.5217,
+          "width": 0.6897,
+          "x": 0.2644,
+          "y": 0.2174
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.value"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "whiteSpace": "nowrap"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "mode": "percent"
+    },
+    "type": "ia.container.coord"
+  }
+}

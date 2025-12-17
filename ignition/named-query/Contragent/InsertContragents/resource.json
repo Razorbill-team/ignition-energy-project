@@ -1,0 +1,145 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "postgresDB",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "da6cfc96771970f9ef4adfedf7a669767d0ee2288de34e1495c3929f8ae5f7bb",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2025-12-12T12:47:22Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "client_name",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "idno",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "open_date",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "close_date",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "address",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "admin_name",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "country",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "admin_phone",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "admin_email",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "contact_person_1_role_id",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "contact_person_1_name",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "contact_person_1_phone",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "contact_person_1_email",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "contact_person_2_role_id",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "contact_person_2_name",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "contact_person_2_phone",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "contact_person_2_email",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "contact_person_3_role_id",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "contact_person_3_name",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "contact_person_3_phone",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "contact_person_3_email",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "is_active",
+        "sqlType": 1
+      }
+    ]
+  }
+}

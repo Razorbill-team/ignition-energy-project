@@ -1,0 +1,372 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 1401
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "flex_headerspace"
+        },
+        "position": {
+          "height": 53,
+          "width": "100%"
+        },
+        "props": {
+          "alignContent": "space-around",
+          "alignItems": "baseline",
+          "direction": "row-reverse",
+          "justify": "space-evenly",
+          "style": {
+            "backgroundColor": "#182d47",
+            "left": "0px",
+            "position": "absolute",
+            "width": "100vw "
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "style": {
+                    "color": "#B0B3B8"
+                  },
+                  "text": "Map View"
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/map-view1\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_6"
+            },
+            "position": {
+              "basis": "103px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomWidth": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "style": {
+                    "color": "#B0B3B8"
+                  },
+                  "text": "Dashboard View"
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/dashboard-view1\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_8"
+            },
+            "position": {
+              "basis": "150px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomWidth": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true,
+                    "width": "50px"
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "style": {
+                    "color": "#B0B3B8"
+                  },
+                  "text": "Tabelar View"
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/tabelar-view1\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_5"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomWidth": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Widget View"
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": [
+                  {
+                    "config": {
+                      "script": "\tsystem.perspective.navigate(\"/widget-view\")"
+                    },
+                    "scope": "G",
+                    "type": "script"
+                  },
+                  {
+                    "config": {
+                      "script": "\tself.parent.custom.selectedView \u003d \"Widget\""
+                    },
+                    "scope": "G",
+                    "type": "script"
+                  }
+                ]
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_7"
+            },
+            "position": {
+              "basis": "130px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomColor": "#FFFFFF",
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": 2,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "custom": {
+          "selectedView": "Widget"
+        },
+        "meta": {
+          "name": "flex_header"
+        },
+        "position": {
+          "height": 53,
+          "width": 551,
+          "x": -3.5
+        },
+        "props": {
+          "alignContent": "space-around",
+          "alignItems": "baseline",
+          "direction": "row-reverse",
+          "justify": "space-evenly",
+          "style": {
+            "backgroundColor": "#182d47",
+            "borderBottomColor": "#555555",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 0.6,
+            "position": "fixed"
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "custom": {
+              "link": "value"
+            },
+            "meta": {
+              "name": "flex_repeater_widgets"
+            },
+            "position": {
+              "height": 0,
+              "width": 0,
+              "x": 9,
+              "y": 8.469999999999999
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.myFlexRepeater_session"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "alignContent": "flex-start",
+              "elementStyle": {
+                "backgroundColor": "#414141"
+              },
+              "path": "Asset View/f_widget_view/widget_view",
+              "wrap": "wrap"
+            },
+            "scripts": {
+              "customMethods": [],
+              "extensionFunctions": null,
+              "messageHandlers": [
+                {
+                  "messageType": "recieve_list_of_children",
+                  "pageScope": true,
+                  "script": "\tlist_of_children \u003d payload[\u0027list\u0027]\n\tinstances \u003d []\n\tfor elem in list_of_children:\n\t\tsystem.perspective.print(str(elem[\"label\"]))\n\t\tif elem[\u0027icon\u0027][\u0027path\u0027] \u003d\u003d \"material/check_box\":\n\t\t\t#system.perspective.print(\u0027elem path: \u0027+ str(elem[\u0027icon\u0027][\u0027path\u0027]))\n\t\t\tnew_instance \u003d {\n\t\t\t\t\"instanceStyle\": {\"classes\": \"\"}, \n\t\t\t\t\"instancePosition\": {}, \n\t\t\t\t\"widget_farm_id\": elem[\"farm_id\"]}\n\t\t\tsystem.perspective.print(\"new_instance: \" + str(new_instance))\n\t\t\tinstances.append(new_instance)",
+                  "sessionScope": false,
+                  "viewScope": false
+                }
+              ]
+            },
+            "type": "ia.display.flex-repeater"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "height": "90%",
+          "width": "99%",
+          "x": 10.991,
+          "y": 60
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root",
+      "tooltip": {
+        "style": {
+          "backgroundColor": "#3A3A3A"
+        }
+      }
+    },
+    "position": {
+      "x": -656,
+      "y": -309
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "#182d47"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

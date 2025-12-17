@@ -1,0 +1,77 @@
+{
+  "custom": {},
+  "params": {
+    "value": ""
+  },
+  "propConfig": {
+    "params.value": {
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 27,
+      "width": 51
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "custom": {
+          "key": "value"
+        },
+        "events": {
+          "dom": {
+            "onClick": [
+              {
+                "config": {
+                  "script": "\n    rid \u003d self.view.params.get(\"rowIndex\", -1)\n    pid \u003d \"{}_{}\".format(self.view.params.get(\"popupIdPrefix\",\"info\"), rid)\n    params \u003d {\"row\": self.view.params.get(\"row\", {})}\n\n    try:\n        system.perspective.closePopup(pid)\n    except:\n        pass\n\n    system.perspective.openPopup(\n        id\u003dpid,\n        view\u003dself.view.params.get(\"targetViewPath\"),\n        params\u003dparams,\n        title\u003dself.view.params.get(\"popupTitle\",\"Details\"),\n        modal\u003dFalse,\n        draggable\u003dTrue,\n        resizable\u003dFalse,\n        showCloseIcon\u003dTrue,\n        overlayDismiss\u003dTrue,\n        size\u003d{\"width\": self.view.params.get(\"popupWidth\", 560),\n              \"height\": self.view.params.get(\"popupHeight\", 420)},\n        position\u003d{\"left\": 120, \"top\": 80}\n    )"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "draggable": true,
+                  "id": "IMfr9RfE",
+                  "modal": false,
+                  "overlayDismiss": false,
+                  "resizable": true,
+                  "showCloseIcon": true,
+                  "type": "open",
+                  "viewPath": "Test1/f_control_view/control_popup",
+                  "viewportBound": false
+                },
+                "scope": "C",
+                "type": "popup"
+              }
+            ]
+          }
+        },
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "height": 0.72,
+          "width": 0.4118,
+          "x": 0.29,
+          "y": 0.1404
+        },
+        "props": {
+          "color": "#FFFFFF",
+          "path": "material/info"
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "mode": "percent"
+    },
+    "type": "ia.container.coord"
+  }
+}

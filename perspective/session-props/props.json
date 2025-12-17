@@ -1,0 +1,1637 @@
+{
+  "custom": {
+    "clicked_schedule_event": {
+      "data": {
+        "farm_id": 24,
+        "location_type": 1,
+        "setpoint_value": 1234.56,
+        "site_id": 12
+      },
+      "endDate": 1756134000000,
+      "eventId": 1,
+      "itemId": 1,
+      "label": "set point",
+      "leadStyle": {
+        "classes": ""
+      },
+      "leadTime": 0,
+      "percentDone": 0,
+      "startDate": 1755712705000,
+      "style": {
+        "classes": ""
+      }
+    },
+    "dataset_forecast_table": {
+      "$": [
+        "ds",
+        192,
+        1760719347102
+      ],
+      "$columns": [
+        {
+          "data": [
+            "",
+            "09-09-2025",
+            "09-09-2025",
+            "09-09-2025",
+            "09-09-2025",
+            "09-09-2025",
+            "09-09-2025",
+            "09-09-2025",
+            "09-09-2025",
+            "09-09-2025",
+            "09-09-2025",
+            "09-09-2025",
+            "09-09-2025",
+            "09-09-2025",
+            "09-09-2025",
+            "09-09-2025",
+            "09-09-2025",
+            "09-09-2025",
+            "09-09-2025"
+          ],
+          "name": "date",
+          "type": "String"
+        },
+        {
+          "data": [
+            "",
+            "Negureni",
+            "Negureni",
+            "Negureni",
+            "Negureni",
+            "Negureni",
+            "Negureni",
+            "Negureni",
+            "Radeni",
+            "Radeni",
+            "Radeni",
+            "Radeni",
+            "Ungheni",
+            "Ungheni",
+            "Ungheni",
+            "Ungheni",
+            "Ungheni",
+            "Ungheni",
+            "Ungheni"
+          ],
+          "name": "site_name",
+          "type": "String"
+        },
+        {
+          "data": [
+            "",
+            "PV1_Negureni",
+            "PV1_Negureni",
+            "PV1_Negureni",
+            "PV1_Negureni",
+            "PV1_Negureni",
+            "PV1_Negureni",
+            "PV1_Negureni",
+            "PV1_Radeni",
+            "PV1_Radeni",
+            "PV1_Radeni",
+            "PV1_Radeni",
+            "PV1_Ungheni",
+            "PV1_Ungheni",
+            "PV1_Ungheni",
+            "PV1_Ungheni",
+            "PV1_Ungheni",
+            "PV1_Ungheni",
+            "PV1_Ungheni"
+          ],
+          "name": "farm_name",
+          "type": "String"
+        },
+        {
+          "data": [
+            "",
+            "Production",
+            "Production",
+            "Production",
+            "Production",
+            "Production",
+            "Production",
+            "Production",
+            "Curtailment",
+            "Curtailment",
+            "Curtailment",
+            "Curtailment",
+            "Production",
+            "Production",
+            "Production",
+            "Production",
+            "Production",
+            "Production",
+            "Production"
+          ],
+          "name": "status_name",
+          "type": "String"
+        },
+        {
+          "data": [
+            null,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            null,
+            1,
+            1,
+            1,
+            null,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            null
+          ],
+          "name": "selection",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            "total_general",
+            "source_1",
+            "source_2",
+            "source_3",
+            "avg_sources",
+            "auto_correction",
+            "manual_correction",
+            "final_forecast",
+            "avg_sources",
+            "auto_correction",
+            "manual_correction",
+            "final_forecast",
+            "source_1",
+            "source_2",
+            "source_3",
+            "avg_sources",
+            "auto_correction",
+            "manual_correction",
+            "final_forecast"
+          ],
+          "name": "Source_name",
+          "type": "String"
+        },
+        {
+          "data": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12
+          ],
+          "name": "siteid",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            24,
+            24,
+            24,
+            24,
+            24,
+            24,
+            24
+          ],
+          "name": "farmid",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            16901,
+            16253,
+            0,
+            0,
+            0,
+            1966,
+            0,
+            0,
+            0,
+            8858524,
+            0,
+            7849,
+            8242,
+            0,
+            0,
+            0,
+            887411,
+            0
+          ],
+          "name": "08:00",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            18866,
+            18776,
+            0,
+            0,
+            0,
+            978900,
+            0,
+            0,
+            0,
+            55555,
+            0,
+            9807,
+            9671,
+            0,
+            0,
+            0,
+            78,
+            0
+          ],
+          "name": "08:15",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            22294,
+            21714,
+            0,
+            0,
+            0,
+            891500,
+            0,
+            0,
+            0,
+            85230,
+            0,
+            10747,
+            10317,
+            0,
+            0,
+            0,
+            8,
+            0
+          ],
+          "name": "08:30",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            24293,
+            23807,
+            0,
+            0,
+            0,
+            9630,
+            0,
+            0,
+            0,
+            555,
+            0,
+            12239,
+            11728,
+            0,
+            0,
+            0,
+            7887,
+            0
+          ],
+          "name": "08:45",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            25708,
+            26022,
+            0,
+            0,
+            0,
+            650,
+            0,
+            0,
+            0,
+            5540,
+            0,
+            13500,
+            13173,
+            0,
+            0,
+            0,
+            855,
+            0
+          ],
+          "name": "09:00",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            29210,
+            27841,
+            0,
+            0,
+            0,
+            520,
+            0,
+            0,
+            0,
+            650,
+            0,
+            14243,
+            13826,
+            0,
+            0,
+            0,
+            8752,
+            0
+          ],
+          "name": "09:15",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            31797,
+            31405,
+            0,
+            0,
+            0,
+            555,
+            0,
+            0,
+            0,
+            444,
+            0,
+            15075,
+            15124,
+            0,
+            0,
+            0,
+            952,
+            0
+          ],
+          "name": "09:30",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            33554,
+            33715,
+            0,
+            0,
+            0,
+            9889,
+            0,
+            0,
+            0,
+            80,
+            0,
+            15789,
+            15923,
+            0,
+            0,
+            0,
+            977555,
+            0
+          ],
+          "name": "09:45",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            35571,
+            34692,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            17882,
+            16763,
+            0,
+            0,
+            0,
+            999,
+            0
+          ],
+          "name": "10:00",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            35381,
+            36695,
+            0,
+            0,
+            0,
+            1250,
+            0,
+            0,
+            0,
+            350,
+            0,
+            18398,
+            18477,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "10:15",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            37532,
+            38838,
+            0,
+            0,
+            0,
+            1500,
+            0,
+            0,
+            0,
+            0,
+            0,
+            18710,
+            19140,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "10:30",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            38480,
+            37912,
+            0,
+            0,
+            0,
+            1650,
+            0,
+            0,
+            0,
+            1650,
+            0,
+            19629,
+            19885,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "10:45",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            42572,
+            41175,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            20991,
+            20172,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "11:00",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            41311,
+            41345,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            21552,
+            20997,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "11:15",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            44443,
+            43451,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            21923,
+            22120,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "11:30",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            43278,
+            45000,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            22284,
+            22500,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "11:45",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            45000,
+            43002,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            22500,
+            22252,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "12:00",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            43864,
+            45000,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            22500,
+            22500,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "12:15",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            45000,
+            45000,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            22500,
+            22500,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "12:30",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            45000,
+            45000,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            22500,
+            22329,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "12:45",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            44984,
+            45000,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            22500,
+            22113,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "13:00",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            45000,
+            45000,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            22500,
+            22500,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "13:15",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            45000,
+            45000,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            22427,
+            22500,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "13:30",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            43835,
+            45000,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            22450,
+            22500,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "13:45",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            43210,
+            43492,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            22500,
+            21593,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "14:00",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            43498,
+            43083,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            21305,
+            22500,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "14:15",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            43743,
+            42918,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            21162,
+            20996,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "14:30",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            40847,
+            41354,
+            4170,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            20375,
+            20538,
+            2406,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "14:45",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            41643,
+            39272,
+            9356,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            21172,
+            19823,
+            4726,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "15:00",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            38091,
+            38132,
+            16138,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            20195,
+            19763,
+            5947,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "15:15",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            37507,
+            37458,
+            21180,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            18688,
+            19374,
+            10205,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "15:30",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            37856,
+            36051,
+            18709,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            18713,
+            17648,
+            11178,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "15:45",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            35000,
+            35497,
+            22783,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            17650,
+            17960,
+            13298,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "16:00",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            32347,
+            31722,
+            24341,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            16168,
+            15689,
+            13633,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "16:15",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            31812,
+            29447,
+            27851,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            15182,
+            14653,
+            17427,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "16:30",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            29543,
+            28806,
+            28107,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            14761,
+            14150,
+            14667,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "16:45",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            26266,
+            25961,
+            31351,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            12978,
+            13286,
+            16162,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "17:00",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            23225,
+            23681,
+            36698,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            12437,
+            11460,
+            15040,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "17:15",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            21454,
+            21271,
+            31213,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            10606,
+            10588,
+            20346,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "17:30",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            18893,
+            18508,
+            32098,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            9740,
+            9278,
+            15380,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "17:45",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            16623,
+            16177,
+            31961,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8177,
+            8072,
+            19106,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "18:00",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            13498,
+            14019,
+            36835,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            7092,
+            6759,
+            17535,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "18:15",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            11414,
+            11442,
+            31485,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5499,
+            5359,
+            16215,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "18:30",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            8056,
+            8668,
+            30683,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4328,
+            4217,
+            15717,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "18:45",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            5445,
+            5586,
+            25907,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2705,
+            2851,
+            13810,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "19:00",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            2835,
+            2878,
+            19627,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1362,
+            1383,
+            13046,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "19:15",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            0,
+            0,
+            21048,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            9155,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "19:30",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            0,
+            0,
+            12899,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8026,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "19:45",
+          "type": "Integer"
+        },
+        {
+          "data": [
+            0,
+            0,
+            0,
+            11079,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4727,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "20:00",
+          "type": "Integer"
+        }
+      ]
+    },
+    "farmFilter": "NONE",
+    "filterTable": [
+      "parameters/source_1",
+      "parameters/source_2",
+      "parameters/source_3",
+      "parameters/avg_sources",
+      "parameters/auto_correction",
+      "parameters/manual_correction"
+    ],
+    "forecast_source_filter": [
+      "source_1",
+      "source_2",
+      "source_3",
+      "avg_sources",
+      "auto_correction",
+      "manual_correction"
+    ],
+    "iframeRefreshNonce": 1760774574656,
+    "myFlexRepeater_session": [
+      {
+        "instancePosition": {},
+        "instanceStyle": {
+          "classes": "",
+          "marginBottom": 10,
+          "marginLeft": 10,
+          "marginTop": 10
+        },
+        "widget_farm_id": 1,
+        "widget_farm_type": "pv",
+        "widget_site_id": 1
+      },
+      {
+        "instancePosition": {},
+        "instanceStyle": {
+          "classes": "",
+          "marginBottom": 10,
+          "marginLeft": 10,
+          "marginTop": 10
+        },
+        "widget_farm_id": 24,
+        "widget_farm_type": "pv",
+        "widget_site_id": 12
+      },
+      {
+        "instancePosition": {},
+        "instanceStyle": {
+          "classes": "",
+          "marginBottom": 10,
+          "marginLeft": 10,
+          "marginTop": 10
+        },
+        "widget_farm_id": 2,
+        "widget_farm_type": "pv",
+        "widget_site_id": 2
+      }
+    ],
+    "selectedStatuses": [
+      5,
+      2,
+      7,
+      1,
+      3,
+      6,
+      4
+    ]
+  },
+  "propConfig": {
+    "custom.list_of_farms": {
+      "binding": {
+        "config": {
+          "path": "this.custom.myFlexRepeater_session"
+        },
+        "transforms": [
+          {
+            "code": "\n    # value is your raw repeater payload: a list of dicts\n    # 1) pull out the farm IDs\n    ids \u003d [item[\u0027widget_farm_id\u0027] for item in (value or [])]\n    # 2) join them into \"1,5,6,17,…\"\n    if ids:\n        return \",\".join(str(i) for i in ids)\n    else:\n        return \"\"",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.list_of_sites": {
+      "binding": {
+        "config": {
+          "path": "this.custom.myFlexRepeater_session"
+        },
+        "transforms": [
+          {
+            "code": "\tsite_ids \u003d set([str(item[\u0027widget_site_id\u0027]) for item in value])\n\treturn \",\".join(site_ids)",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.sites_info": {
+      "binding": {
+        "config": {
+          "path": "this.custom.myFlexRepeater_session"
+        },
+        "transforms": [
+          {
+            "code": "\tfrom collections import defaultdict\n\tfinal_list \u003d []\n\t# Default dictionary for nested count dictionaries\n\tsite_type_counts \u003d defaultdict(lambda: {\"pv\": 0, \"wt\": 0})\n\t\n\tgrouped \u003d {}\n\tfor item in value:\n\t\t\n\t\tsite_id \u003d item.get(\"widget_site_id\")\n\t\tfarm_id \u003d item[\"widget_farm_id\"]\n\t\tfarm_type \u003d item.get(\"widget_farm_type\", \"\")\n\n\t\tif site_id is not None and farm_type in (\"pv\", \"wt\"):\n\t\t\tsite_type_counts[site_id][farm_type] +\u003d 1\n\t\t\t\n\t\tif site_id not in grouped:\n\t\t\tgrouped[site_id] \u003d []\n\n\t\tgrouped[site_id].append(farm_id)\n\t\t# Result: grouped \u003d {4: [5, 6], 3: [3]}\n\t\t\n\t\t\n\ttype_counts_dict \u003d dict(site_type_counts)\n\t\n\t#return type_counts_dict\n\tfor key, value in grouped.items():\n\t\t\n\t\tnew_elem \u003d {\n  \t\t\t\"widget_farm_id\": value,\n  \t\t\t\"widget_site_id\": key,\n  \t\t\t\"farm_pv_count\": type_counts_dict[key][\u0027pv\u0027],\n  \t\t\t\"farm_wt_count\": type_counts_dict[key][\u0027wt\u0027]\n\t\t}\n\t\tfinal_list.append(new_elem)\n\t\t\n\treturn final_list",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "props.auth": {
+      "access": "PRIVATE",
+      "persistent": false
+    },
+    "props.device.accelerometer": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.identifier": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.timezone": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.type": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.userAgent": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.gateway": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.geolocation.data": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.geolocation.permissionGranted": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.host": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.id": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.lastActivity": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.offline.capable": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.offline.enabled": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.offline.lastSynced": {
+      "access": "SYSTEM",
+      "persistent": false
+    }
+  },
+  "props": {
+    "address": "127.0.0.1",
+    "device": {},
+    "geolocation": {},
+    "locale": "en-US",
+    "offline": {},
+    "theme": "dark",
+    "timeZoneId": "Europe/Chisinau"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "ac5b44fd0b97f8915cb070c43f7c3363cee654523aa1fd58e37b5cd21de8b951",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2025-12-12T12:27:04Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "contragent_id",
+        "sqlType": 3
+      },
+      {
+        "type": "Parameter",
+        "identifier": "dealno",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "contract_typeid",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "contract_currencyid",
+        "sqlType": 3
+      },
+      {
+        "type": "Parameter",
+        "identifier": "price_mwh",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "price_eq_mdl",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "quantity_kwh",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "x_border_costs",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "x_border_cost_ccyid",
+        "sqlType": 3
+      },
+      {
+        "type": "Parameter",
+        "identifier": "contragent_countryid",
+        "sqlType": 3
+      },
+      {
+        "type": "Parameter",
+        "identifier": "date_from",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "date_to",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "sign_date",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "datetime",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "notes",
+        "sqlType": 7
+      }
+    ]
+  }
+}

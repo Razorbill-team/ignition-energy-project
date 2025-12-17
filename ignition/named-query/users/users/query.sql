@@ -1,0 +1,2 @@
+
+select user_role_id,user_role_name from contract.contragent_roles

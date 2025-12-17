@@ -1,0 +1,1791 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 93,
+      "width": 1942
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Total AC"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If using query binding, the result is a dataset\n        if hasattr(value, \"getValueAt\"):\n            # Get value from first row, first column\n            active_power \u003d value.getValueAt(0, 0)\n        elif isinstance(value, list) and len(value) \u003e 0:\n            active_power \u003d value[0].get(\u0027active_power\u0027, 0)\n        else:\n            active_power \u003d 0\n\n        return \"{} MW\".format(round(active_power))\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 13,
+                "fontWeight": "normal"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0",
+              "tooltip": {
+                "width": 20
+              }
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "props": {
+              "text": "Monthly production",
+              "textStyle": {
+                "color": "#D5D5D5",
+                "fontFamily": "Roboto",
+                "fontSize": 11,
+                "fontWeight": "normal"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_2"
+        },
+        "position": {
+          "height": 38,
+          "rotate": {
+            "anchor": "50% 25%"
+          },
+          "width": 128.6,
+          "x": 961.17328125,
+          "y": 50.5
+        },
+        "props": {
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Total AC"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If using query binding, the result is a dataset\n        if hasattr(value, \"getValueAt\"):\n            # Get value from first row, first column\n            active_power \u003d value.getValueAt(0, 0)\n        elif isinstance(value, list) and len(value) \u003e 0:\n            active_power \u003d value[0].get(\u0027active_power\u0027, 0)\n        else:\n            active_power \u003d 0\n\n        return \"{} MW\".format(round(active_power))\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 13,
+                "fontWeight": "normal"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0",
+              "tooltip": {
+                "width": 20
+              }
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "props": {
+              "text": "Total reactive power",
+              "textStyle": {
+                "color": "#D5D5D5",
+                "fontFamily": "Roboto",
+                "fontSize": 11,
+                "fontWeight": "normal"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_3"
+        },
+        "position": {
+          "height": 38,
+          "width": 128.59,
+          "x": 1130.61328125,
+          "y": 50.5
+        },
+        "props": {
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Total AC"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If using query binding, the result is a dataset\n        if hasattr(value, \"getValueAt\"):\n            # Get value from first row, first column\n            active_power \u003d value.getValueAt(0, 0)\n        elif isinstance(value, list) and len(value) \u003e 0:\n            active_power \u003d value[0].get(\u0027active_power\u0027, 0)\n        else:\n            active_power \u003d 0\n\n        return \"{} MW\".format(round(active_power))\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 13,
+                "fontWeight": "normal"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0",
+              "tooltip": {
+                "width": 20
+              }
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "props": {
+              "text": "Daily production",
+              "textStyle": {
+                "color": "#D5D5D5",
+                "fontFamily": "Roboto",
+                "fontSize": 11,
+                "fontWeight": "normal"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_1"
+        },
+        "position": {
+          "height": 38,
+          "width": 103.27,
+          "x": 810.77328125,
+          "y": 50.5
+        },
+        "props": {
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Total AC"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If using query binding, the result is a dataset\n        if hasattr(value, \"getValueAt\"):\n            # Get value from first row, first column\n            active_power \u003d value.getValueAt(0, 0)\n        elif isinstance(value, list) and len(value) \u003e 0:\n            active_power \u003d value[0].get(\u0027active_power\u0027, 0)\n        else:\n            active_power \u003d 0\n\n        return \"{} MW\".format(round(active_power))\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 13,
+                "fontWeight": "normal"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0",
+              "tooltip": {
+                "width": 20
+              }
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "props": {
+              "text": "Total output",
+              "textStyle": {
+                "color": "#D5D5D5",
+                "fontFamily": "Roboto",
+                "fontSize": 11,
+                "fontWeight": "normal"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "height": 38,
+          "width": 98.4,
+          "x": 662.9332812499999,
+          "y": 50.5
+        },
+        "props": {
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Total AC"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If using query binding, the result is a dataset\n        if hasattr(value, \"getValueAt\"):\n            # Get value from first row, first column\n            active_power \u003d value.getValueAt(0, 0)\n        elif isinstance(value, list) and len(value) \u003e 0:\n            active_power \u003d value[0].get(\u0027active_power\u0027, 0)\n        else:\n            active_power \u003d 0\n\n        return \"{} MW\".format(round(active_power))\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 13,
+                "fontWeight": "normal"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0",
+              "tooltip": {
+                "width": 20
+              }
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "props": {
+              "text": "Total active power",
+              "textStyle": {
+                "color": "#D5D5D5",
+                "fontFamily": "Roboto",
+                "fontSize": 11,
+                "fontWeight": "normal"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "height": 38,
+          "width": 128.6,
+          "x": 500.18328125,
+          "y": 50.5
+        },
+        "props": {
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "space-between"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 32,
+          "width": 204.59,
+          "x": 370.68,
+          "y": 4.9765625
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "queryPath": "CountPVandWT"
+              },
+              "transforms": [
+                {
+                  "code": "    # Convert the dataset to a Python list of dictionaries\n    pyData \u003d system.dataset.toPyDataSet(value)\n\n    # Check if there is at least one row returned\n    if len(pyData) \u003e 0:\n        row \u003d pyData[0]\n        assetcount \u003d row[\u0027assetcount\u0027]\n        sitecount \u003d row[\u0027sitecount\u0027]\n        return \"Wind: {} assets in {} sites\".format(assetcount, sitecount)\n\n    # Fallback if no data\n    return \"Wind: 0 assets in 0 sites\"",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "color": "#D5D5D5"
+          },
+          "textStyle": {
+            "fontFamily": "Roboto",
+            "fontSize": 14,
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "solar_power_25dp_F3F3F3_FILL0_wght400_GRAD0_opsz24 (2)"
+        },
+        "position": {
+          "height": 26,
+          "width": 25.33,
+          "x": 930.49,
+          "y": 4.9765625
+        },
+        "props": {
+          "source": "/system/images/solar_power_25dp_F3F3F3_FILL0_wght400_GRAD0_opsz24 (2).svg",
+          "text": "Solar: 0 assets in 0 sites"
+        },
+        "type": "ia.display.image"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "height": 32,
+          "width": 204.59,
+          "x": 957.06,
+          "y": 4.9765625
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "queryPath": "CountPV"
+              },
+              "transforms": [
+                {
+                  "code": "    # Convert the dataset to a Python list of dictionaries\n    pyData \u003d system.dataset.toPyDataSet(value)\n\n    # Check if there is at least one row returned\n    if len(pyData) \u003e 0:\n        row \u003d pyData[0]\n        assetcount \u003d row[\u0027assetcount\u0027]\n        sitecount \u003d row[\u0027sitecount\u0027]\n        return \"Solar: {} assets in {} sites\".format(assetcount, sitecount)\n\n    # Fallback if no data\n    return \"Solar: 0 assets in 0 sites\"",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "color": "#D5D5D5"
+          },
+          "textStyle": {
+            "fontFamily": "Roboto",
+            "fontSize": 14,
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "18px"
+            },
+            "props": {
+              "color": "#00AC00",
+              "path": "material/lens"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Status"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If the value is a dataset (query binding)\n        if hasattr(value, \"getValueAt\"):\n            production_sum \u003d value.getValueAt(0, 0)  # First row, first column\n        else:\n            production_sum \u003d 0\n\n        return \"{}\".format(int(production_sum))  # or round(), depending on decimal\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_5"
+        },
+        "position": {
+          "height": 29,
+          "rotate": {
+            "anchor": "-111% -325%"
+          },
+          "width": 55.53,
+          "x": 535.77,
+          "y": 4.9765625
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "wind_power_25dp_FFFFFF_FILL0_wght400_GRAD0_opsz24"
+        },
+        "position": {
+          "height": 28,
+          "width": 25.32,
+          "x": 336.9,
+          "y": 8.9375
+        },
+        "props": {
+          "source": "/system/images/wind_power_25dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"
+        },
+        "type": "ia.display.image"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "18px"
+            },
+            "props": {
+              "color": "#C0CA33",
+              "path": "material/lens"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Status"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If the value is a dataset (query binding)\n        if hasattr(value, \"getValueAt\"):\n            production_sum \u003d value.getValueAt(0, 0)  # First row, first column\n        else:\n            production_sum \u003d 0\n\n        return \"{}\".format(int(production_sum))  # or round(), depending on decimal\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_6"
+        },
+        "position": {
+          "height": 29,
+          "rotate": {
+            "anchor": "-111% -325%"
+          },
+          "width": 55.53,
+          "x": 575.5,
+          "y": 4.9765625
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "18px"
+            },
+            "props": {
+              "color": "#9CCC65",
+              "path": "material/lens"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Status"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If the value is a dataset (query binding)\n        if hasattr(value, \"getValueAt\"):\n            production_sum \u003d value.getValueAt(0, 0)  # First row, first column\n        else:\n            production_sum \u003d 0\n\n        return \"{}\".format(int(production_sum))  # or round(), depending on decimal\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_7"
+        },
+        "position": {
+          "height": 29,
+          "rotate": {
+            "anchor": "-111% -325%"
+          },
+          "width": 55.53,
+          "x": 615.23,
+          "y": 4.9765625
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "18px"
+            },
+            "props": {
+              "color": "#9E9E9E",
+              "path": "material/lens"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Status"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If the value is a dataset (query binding)\n        if hasattr(value, \"getValueAt\"):\n            production_sum \u003d value.getValueAt(0, 0)  # First row, first column\n        else:\n            production_sum \u003d 0\n\n        return \"{}\".format(int(production_sum))  # or round(), depending on decimal\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_8"
+        },
+        "position": {
+          "height": 29,
+          "rotate": {
+            "anchor": "-111% -325%"
+          },
+          "width": 55.53,
+          "x": 654.96,
+          "y": 4.9765625
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "18px"
+            },
+            "props": {
+              "color": "#FFB300",
+              "path": "material/lens"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Status"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If the value is a dataset (query binding)\n        if hasattr(value, \"getValueAt\"):\n            production_sum \u003d value.getValueAt(0, 0)  # First row, first column\n        else:\n            production_sum \u003d 0\n\n        return \"{}\".format(int(production_sum))  # or round(), depending on decimal\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_9"
+        },
+        "position": {
+          "height": 29,
+          "rotate": {
+            "anchor": "-111% -325%"
+          },
+          "width": 55.53,
+          "x": 774.13,
+          "y": 4.9765625
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "18px"
+            },
+            "props": {
+              "color": "#F44336",
+              "path": "material/lens"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Status"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If the value is a dataset (query binding)\n        if hasattr(value, \"getValueAt\"):\n            production_sum \u003d value.getValueAt(0, 0)  # First row, first column\n        else:\n            production_sum \u003d 0\n\n        return \"{}\".format(int(production_sum))  # or round(), depending on decimal\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_15"
+        },
+        "position": {
+          "height": 29,
+          "rotate": {
+            "anchor": "-111% -325%"
+          },
+          "width": 55.53,
+          "x": 734.41,
+          "y": 4.9765625
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "18px"
+            },
+            "props": {
+              "color": "#FF00FF",
+              "path": "material/lens"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Status"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If the value is a dataset (query binding)\n        if hasattr(value, \"getValueAt\"):\n            production_sum \u003d value.getValueAt(0, 0)  # First row, first column\n        else:\n            production_sum \u003d 0\n\n        return \"{}\".format(int(production_sum))  # or round(), depending on decimal\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_16"
+        },
+        "position": {
+          "height": 29,
+          "rotate": {
+            "anchor": "-111% -325%"
+          },
+          "width": 55.53,
+          "x": 694.68,
+          "y": 4.9765625
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "18px"
+            },
+            "props": {
+              "color": "#FFB300",
+              "path": "material/lens"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Status"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If the value is a dataset (query binding)\n        if hasattr(value, \"getValueAt\"):\n            production_sum \u003d value.getValueAt(0, 0)  # First row, first column\n        else:\n            production_sum \u003d 0\n\n        return \"{}\".format(int(production_sum))  # or round(), depending on decimal\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_10"
+        },
+        "position": {
+          "height": 29,
+          "rotate": {
+            "anchor": "-111% -325%"
+          },
+          "width": 56.45,
+          "x": 1363,
+          "y": 4.9765625
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "18px"
+            },
+            "props": {
+              "color": "#F44336",
+              "path": "material/lens"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Status"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If the value is a dataset (query binding)\n        if hasattr(value, \"getValueAt\"):\n            production_sum \u003d value.getValueAt(0, 0)  # First row, first column\n        else:\n            production_sum \u003d 0\n\n        return \"{}\".format(int(production_sum))  # or round(), depending on decimal\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_17"
+        },
+        "position": {
+          "height": 29,
+          "rotate": {
+            "anchor": "-111% -325%"
+          },
+          "width": 56.45,
+          "x": 1323,
+          "y": 4.9765625
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "18px"
+            },
+            "props": {
+              "color": "#FF00FF",
+              "path": "material/lens"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Status"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If the value is a dataset (query binding)\n        if hasattr(value, \"getValueAt\"):\n            production_sum \u003d value.getValueAt(0, 0)  # First row, first column\n        else:\n            production_sum \u003d 0\n\n        return \"{}\".format(int(production_sum))  # or round(), depending on decimal\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_18"
+        },
+        "position": {
+          "height": 29,
+          "rotate": {
+            "anchor": "-111% -325%"
+          },
+          "width": 56.45,
+          "x": 1283,
+          "y": 4.9765625
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "18px"
+            },
+            "props": {
+              "color": "#9E9E9E",
+              "path": "material/lens"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Status"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If the value is a dataset (query binding)\n        if hasattr(value, \"getValueAt\"):\n            production_sum \u003d value.getValueAt(0, 0)  # First row, first column\n        else:\n            production_sum \u003d 0\n\n        return \"{}\".format(int(production_sum))  # or round(), depending on decimal\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_11"
+        },
+        "position": {
+          "height": 29,
+          "rotate": {
+            "anchor": "-111% -325%"
+          },
+          "width": 56.45,
+          "x": 1243,
+          "y": 4.9765625
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "18px"
+            },
+            "props": {
+              "color": "#9CCC65",
+              "path": "material/lens"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Status"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If the value is a dataset (query binding)\n        if hasattr(value, \"getValueAt\"):\n            production_sum \u003d value.getValueAt(0, 0)  # First row, first column\n        else:\n            production_sum \u003d 0\n\n        return \"{}\".format(int(production_sum))  # or round(), depending on decimal\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_12"
+        },
+        "position": {
+          "height": 29,
+          "rotate": {
+            "anchor": "-111% -325%"
+          },
+          "width": 55.53,
+          "x": 1203.31,
+          "y": 4.9765625
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "18px"
+            },
+            "props": {
+              "color": "#C0CA33",
+              "path": "material/lens"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Status"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If the value is a dataset (query binding)\n        if hasattr(value, \"getValueAt\"):\n            production_sum \u003d value.getValueAt(0, 0)  # First row, first column\n        else:\n            production_sum \u003d 0\n\n        return \"{}\".format(int(production_sum))  # or round(), depending on decimal\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_13"
+        },
+        "position": {
+          "height": 29,
+          "rotate": {
+            "anchor": "-111% -325%"
+          },
+          "width": 55.53,
+          "x": 1163.58,
+          "y": 4.9765625
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "18px"
+            },
+            "props": {
+              "color": "#00AC00",
+              "path": "material/lens"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "queryPath": "Status"
+                  },
+                  "transforms": [
+                    {
+                      "code": "    try:\n        # If the value is a dataset (query binding)\n        if hasattr(value, \"getValueAt\"):\n            production_sum \u003d value.getValueAt(0, 0)  # First row, first column\n        else:\n            production_sum \u003d 0\n\n        return \"{}\".format(int(production_sum))  # or round(), depending on decimal\n\n    except Exception as e:\n        return \"Error\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "fontWeight": "bold"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_14"
+        },
+        "position": {
+          "height": 29,
+          "rotate": {
+            "anchor": "-111% -325%"
+          },
+          "width": 55.53,
+          "x": 1123.8600000000001,
+          "y": 4.9765625
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "height": 32,
+          "width": 172.44,
+          "x": 370.68,
+          "y": 4.9765625
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "queryPath": "CountPVandWT"
+              },
+              "transforms": [
+                {
+                  "code": "    # Convert the dataset to a Python list of dictionaries\n    pyData \u003d system.dataset.toPyDataSet(value)\n\n    # Check if there is at least one row returned\n    if len(pyData) \u003e 0:\n        row \u003d pyData[0]\n        assetcount \u003d row[\u0027assetcount\u0027]\n        sitecount \u003d row[\u0027sitecount\u0027]\n        return \"Wind: {} assets in {} sites\".format(assetcount, sitecount)\n\n    # Fallback if no data\n    return \"Wind: 0 assets in 0 sites\"",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "color": "#D5D5D5"
+          },
+          "textStyle": {
+            "fontFamily": "Roboto",
+            "fontSize": 14,
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "schedule_32dp_F3F3F3_FILL0_wght400_GRAD0_opsz40"
+        },
+        "position": {
+          "height": 27,
+          "rotate": {
+            "anchor": "-57% -25%"
+          },
+          "width": 29.22,
+          "x": 795.51328125,
+          "y": 58
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "m622-288.67 48.67-48.66-155.34-156v-195.34h-66.66v222l173.33 178ZM480-80q-82.33 0-155.33-31.5-73-31.5-127.34-85.83Q143-251.67 111.5-324.67T80-480q0-82.33 31.5-155.33 31.5-73 85.83-127.34Q251.67-817 324.67-848.5T480-880q82.33 0 155.33 31.5 73 31.5 127.34 85.83Q817-708.33 848.5-635.33T880-480q0 82.33-31.5 155.33-31.5 73-85.83 127.34Q708.33-143 635.33-111.5T480-80Zm0-400Zm0 333.33q137.67 0 235.5-97.83 97.83-97.83 97.83-235.5 0-137.67-97.83-235.5-97.83-97.83-235.5-97.83-137.67 0-235.5 97.83-97.83 97.83-97.83 235.5 0 137.67 97.83 235.5 97.83 97.83 235.5 97.83Z",
+              "name": "path",
+              "type": "path"
+            }
+          ],
+          "fill": {
+            "paint": "#F3F3F3"
+          },
+          "viewBox": "0 -960 960 960"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "electric_bolt_27dp_F3F3F3_FILL0_wght400_GRAD0_opsz24"
+        },
+        "position": {
+          "height": 24,
+          "width": 24.36,
+          "x": 492.95328125000003,
+          "y": 58
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "m280-80 160-300-320-40 480-460h80L520-580l320 40L360-80h-80Zm222-247 161-154-269-34 63-117-160 154 268 33-63 118Zm-22-153Z",
+              "name": "path",
+              "type": "path"
+            }
+          ],
+          "fill": {
+            "paint": "#F3F3F3"
+          },
+          "viewBox": "0 -960 960 960"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "electric_bolt_27dp_F3F3F3_FILL0_wght400_GRAD0_opsz25"
+        },
+        "position": {
+          "height": 24,
+          "width": 24.36,
+          "x": 1121.98328125,
+          "y": 58
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "m280-80 160-300-320-40 480-460h80L520-580l320 40L360-80h-80Zm222-247 161-154-269-34 63-117-160 154 268 33-63 118Zm-22-153Z",
+              "name": "path",
+              "type": "path"
+            }
+          ],
+          "fill": {
+            "paint": "#F3F3F3"
+          },
+          "viewBox": "0 -960 960 960"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "electrical_services_30dp_F3F3F3_FILL0_wght400_GRAD0_opsz24"
+        },
+        "position": {
+          "height": 24,
+          "width": 24.35,
+          "x": 648.17328125,
+          "y": 58
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "M720-360v-80h80q17 0 28.5 11.5T840-400q0 17-11.5 28.5T800-360h-80Zm0 160v-80h80q17 0 28.5 11.5T840-240q0 17-11.5 28.5T800-200h-80Zm-160 40q-33 0-56.5-23.5T480-240h-80v-160h80q0-33 23.5-56.5T560-480h120v320H560ZM280-280q-66 0-113-47t-47-113q0-66 47-113t113-47h60q25 0 42.5-17.5T400-660q0-25-17.5-42.5T340-720H200q-17 0-28.5-11.5T160-760q0-17 11.5-28.5T200-800h140q58 0 99 41t41 99q0 58-41 99t-99 41h-60q-33 0-56.5 23.5T200-440q0 33 23.5 56.5T280-360h80v80h-80Z",
+              "name": "path",
+              "type": "path"
+            }
+          ],
+          "fill": {
+            "paint": "#F3F3F3"
+          },
+          "viewBox": "0 -960 960 960"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "calendar_clock_26dp_F3F3F3_FILL0_wght400_GRAD0_opsz25"
+        },
+        "position": {
+          "height": 24,
+          "width": 24.36,
+          "x": 946.73328125,
+          "y": 58
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "M200-640h560v-80H200v80Zm0 0v-80 80Zm0 560q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v227q-19-9-39-15t-41-9v-43H200v400h252q7 22 16.5 42T491-80H200Zm520 40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40Zm67-105 28-28-75-75v-112h-40v128l87 87Z",
+              "name": "path",
+              "type": "path"
+            }
+          ],
+          "fill": {
+            "paint": "#F3F3F3"
+          },
+          "viewBox": "0 -960 960 960"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "FlexContainer_4"
+        },
+        "position": {
+          "height": 2,
+          "width": "100%",
+          "y": 36.96875
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "#555555",
+            "left": "0px",
+            "position": "absolute",
+            "width": "100vw "
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "action": "Enter",
+                "type": "Page"
+              },
+              "scope": "C",
+              "type": "fullscreen"
+            }
+          }
+        },
+        "meta": {
+          "name": "Icon",
+          "tooltip": {
+            "enabled": true,
+            "style": {
+              "backgroundColor": "#695252",
+              "color": "#D5D5D5",
+              "fontFamily": "Roboto",
+              "fontSize": 12,
+              "textAlign": "center"
+            },
+            "text": "Full Screen"
+          }
+        },
+        "position": {
+          "height": 36,
+          "width": 51,
+          "x": 1449,
+          "y": 0.8731253814697265
+        },
+        "props": {
+          "path": "material/fullscreen",
+          "tooltip": "auzi ai pula"
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "#0f1e30"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

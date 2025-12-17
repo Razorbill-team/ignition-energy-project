@@ -1,0 +1,60 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "postgresDB",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "5e54aa7aac4e86c0ebb9c949cc16b73fc63604b91b9d39c6f1429e61a4aa63af",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "external",
+      "timestamp": "2025-12-15T04:17:13Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "p_slot_ts",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "p_farmid",
+        "sqlType": 3
+      },
+      {
+        "type": "Parameter",
+        "identifier": "p_value",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "p_siteid",
+        "sqlType": 3
+      },
+      {
+        "type": "Parameter",
+        "identifier": "p_userid",
+        "sqlType": 3
+      }
+    ]
+  }
+}

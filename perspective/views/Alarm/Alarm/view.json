@@ -1,0 +1,20 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 670
+    }
+  },
+  "root": {
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "#2D2D2D"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

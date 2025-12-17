@@ -1,0 +1,404 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 809,
+      "width": 1564
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "IFrame"
+        },
+        "position": {
+          "height": "100%",
+          "width": "100%",
+          "y": 53
+        },
+        "props": {
+          "allowFullScreen": true,
+          "src": "/system/webdev/energy_project_1/aggrid_contragents_modif/contragents/ui"
+        },
+        "type": "ia.display.iframe"
+      },
+      {
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "height": 53,
+          "width": "100%",
+          "x": -3.5,
+          "y": 0.22
+        },
+        "props": {
+          "alignContent": "space-around",
+          "alignItems": "baseline",
+          "direction": "row-reverse",
+          "justify": "space-evenly",
+          "style": {
+            "backgroundColor": "#182d47",
+            "borderBottomColor": "#555555",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 0.6
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true,
+                    "width": "50px"
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Dashboard View",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/dashboardf\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_5"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomColor": "#FFFFFF",
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Final-Result View ",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/final-results\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_7"
+            },
+            "position": {
+              "basis": "130px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomWidth": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Pre-Result View",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/pre-results\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_10"
+            },
+            "position": {
+              "basis": "130px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomWidth": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Contracts View",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/contract-view\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_9"
+            },
+            "position": {
+              "basis": "130px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomColor": "#FFFFFF",
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Client View",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/client-view\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_8"
+            },
+            "position": {
+              "basis": "130px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomColor": "#FFFFFF",
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": 2,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_1"
+        },
+        "position": {
+          "height": 53,
+          "rotate": {
+            "anchor": "43% 25%"
+          },
+          "width": 696,
+          "x": -3.5
+        },
+        "props": {
+          "alignContent": "space-around",
+          "alignItems": "baseline",
+          "direction": "row-reverse",
+          "justify": "space-evenly",
+          "style": {
+            "backgroundColor": "#182d47",
+            "borderBottomColor": "#555555",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 0.6
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "action": "Toggle",
+                "type": "View"
+              },
+              "scope": "C",
+              "type": "fullscreen"
+            }
+          }
+        },
+        "meta": {
+          "name": "Icon",
+          "tooltip": {
+            "enabled": true,
+            "style": {
+              "backgroundColor": "#695252",
+              "color": "#D5D5D5",
+              "fontFamily": "Roboto",
+              "fontSize": 12,
+              "textAlign": "center"
+            },
+            "text": "Full Screen"
+          }
+        },
+        "position": {
+          "height": 36,
+          "width": 51,
+          "x": 158,
+          "y": 60.1892
+        },
+        "props": {
+          "path": "material/fullscreen",
+          "tooltip": "auzi ai pula"
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

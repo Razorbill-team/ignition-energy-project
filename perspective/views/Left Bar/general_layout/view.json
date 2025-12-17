@@ -1,0 +1,1031 @@
+{
+  "custom": {
+    "farmFilter": "NONE",
+    "solarSelected": true,
+    "windSelected": true
+  },
+  "params": {},
+  "propConfig": {
+    "custom.farmFilter": {
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 808,
+      "width": 378
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "custom": {
+          "toggled": false
+        },
+        "meta": {
+          "name": "checkbox_solar"
+        },
+        "position": {
+          "height": 36,
+          "width": 88,
+          "x": 210,
+          "y": 16
+        },
+        "propConfig": {
+          "props.selected": {
+            "onChange": {
+              "enabled": null,
+              "script": "\twind \u003d self.getSibling(\"checkbox_wind\").props.selected\n\tsolar \u003d self.getSibling(\"checkbox_solar\").props.selected\n\tbess \u003d self.getSibling(\"checkbox_bess\").props.selected\n\n\tif wind and solar and bess:\n\t    self.view.custom.farmFilter \u003d \"NONE\"  # Show all\n\telif wind and solar:\n\t    self.view.custom.farmFilter \u003d \"W,PV\"  # wind and solar\n\telif wind and bess:\n\t    self.view.custom.farmFilter \u003d \"W,B\"  # wind and battery\n\telif solar and bess:\n\t    self.view.custom.farmFilter \u003d \"PV,B\"  # wind and battery\n\telif wind:\n\t    self.view.custom.farmFilter \u003d \"W\"   # Only wind\n\telif solar:\n\t    self.view.custom.farmFilter \u003d \"PV\"  # Only solar\n\telif bess:\n\t    self.view.custom.farmFilter \u003d \"B\"  # Only bess    \n\telse:\n\t    self.view.custom.farmFilter \u003d None  # Show nothing"
+            }
+          }
+        },
+        "props": {
+          "checkedIcon": {
+            "color": {
+              "enabled": "#FFFFFF"
+            }
+          },
+          "selected": true,
+          "style": {
+            "backgroundColor": "transparent",
+            "borderBottomLeftRadius": 15,
+            "borderBottomRightRadius": 15,
+            "borderTopLeftRadius": 15,
+            "borderTopRightRadius": 15,
+            "boxShadow": "none",
+            "classes": "Shadow",
+            "cursor": "pointer",
+            "overflow": "auto"
+          },
+          "text": "Solar",
+          "uncheckedIcon": {
+            "color": {
+              "enabled": "#FF8A8A"
+            }
+          }
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "custom": {
+          "toggled": false
+        },
+        "meta": {
+          "name": "checkbox_wind"
+        },
+        "position": {
+          "height": 36,
+          "rotate": {
+            "anchor": "75% 133%"
+          },
+          "width": 88,
+          "x": 125,
+          "y": 16
+        },
+        "propConfig": {
+          "props.selected": {
+            "onChange": {
+              "enabled": null,
+              "script": "\twind \u003d self.getSibling(\"checkbox_wind\").props.selected\n\tsolar \u003d self.getSibling(\"checkbox_solar\").props.selected\n\tbess \u003d self.getSibling(\"checkbox_bess\").props.selected\n\n\tif wind and solar and bess:\n\t    self.view.custom.farmFilter \u003d \"NONE\"  # Show all\n\telif wind and solar:\n\t    self.view.custom.farmFilter \u003d \"W,PV\"  # wind and solar\n\telif wind and bess:\n\t    self.view.custom.farmFilter \u003d \"W,B\"  # wind and battery\n\telif solar and bess:\n\t    self.view.custom.farmFilter \u003d \"PV,B\"  # wind and battery\n\telif wind:\n\t    self.view.custom.farmFilter \u003d \"W\"   # Only wind\n\telif solar:\n\t    self.view.custom.farmFilter \u003d \"PV\"  # Only solar\n\telif bess:\n\t    self.view.custom.farmFilter \u003d \"B\"  # Only bess    \n\telse:\n\t    self.view.custom.farmFilter \u003d None  # Show nothing"
+            }
+          }
+        },
+        "props": {
+          "checkedIcon": {
+            "color": {
+              "enabled": "#FFFFFF"
+            }
+          },
+          "selected": true,
+          "style": {
+            "backgroundColor": "transparent",
+            "borderBottomLeftRadius": 15,
+            "borderBottomRightRadius": 15,
+            "borderTopLeftRadius": 15,
+            "borderTopRightRadius": 15,
+            "boxShadow": "none",
+            "classes": "Shadow",
+            "cursor": "pointer",
+            "overflow": "auto"
+          },
+          "text": "Wind",
+          "uncheckedIcon": {
+            "color": {
+              "enabled": "#FF8A8A"
+            }
+          }
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "interface"
+            },
+            "position": {
+              "basis": "34px"
+            },
+            "props": {
+              "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAjhJREFUWEftl82rTVEYxn/PHyBlYqBkokwY+ZgYuKV8RVHkIoyVkztzM8CAa4TcMidfRRT5KuUODHzNDCgjysBEyR/w2O9pbS37rn3uOZcTg7MmZ7f22u/7rOd91vOuI/7xUJ7f9ingJHBaUjy3Dtsb0tpYE+tn5lhfjP0LgO0twKMsyFZJj9uC2n4OBIgYM5LGeqxtjZ0DqBHWcXqy4IquPKEqynoAaI09AjBiYF4M2F4NvGmIbo2ktyUhZsd7lsAHBmD7GHChRfETki423/01ALYXAF8qA4ojeAZ4nZKtBU5UhhQbWiLpR4vB/RkDtseBG8BTSZsbSZ4Am4B9km4OBMD2LuAysDj78CtwRNLdei5zy+uSDjSSXAP2V6zMctCeJbB9ELhSW2r6XQSsSs+HJF3NQHwE4v0t4Haa3w3sBb5JWj6QBmzHDndWH3ckTWeJJoDzwD1JwVB32F6f2FrZSPQuMfZiUABdTy95ee33vd7VyebdC2xfAo7mLdj2MuBwarfTkjqFXc3ZjGxHOUJbGwvH9lmXsSSsUO3CwqLvwHipLffTDW2fBSaBiH8nNJJyxJ0jWvlU14hsL01It2UgHqaafi6ZTp8A3ldiXQHskVQLNvJF8rhPfBjYCTMx9lOCl8A6YCy/MWUAXg0bQGgrNBbU3wc+ZSWIx85QAaTyTgHHC2U8J2ly6AASiNGVbMTAiIG+GKjtsT6yv7lXoRmFsWxP8w8k7ShZdjqGrbH/nz+nbeiHPf8Tzy7e2EdxlnIAAAAASUVORK5CYII\u003d"
+            },
+            "type": "ia.display.image"
+          },
+          {
+            "custom": {
+              "toggled": false
+            },
+            "meta": {
+              "name": "Label",
+              "tooltip": {
+                "enabled": true
+              }
+            },
+            "position": {
+              "basis": "25px"
+            },
+            "props": {
+              "style": {
+                "color": "#937D7D"
+              },
+              "text": "Control"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "custom": {
+          "toggled": false
+        },
+        "events": {
+          "dom": {
+            "onClick": [
+              {
+                "config": {
+                  "script": "\tsystem.perspective.navigate(\"/control\")\n\t"
+                },
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "\timport exchange.ColorareButonShareScript as script\n\tscript.runAction(self, event)"
+                },
+                "scope": "G",
+                "type": "script"
+              }
+            ]
+          }
+        },
+        "meta": {
+          "name": "flex_control_button"
+        },
+        "position": {
+          "height": 84,
+          "width": 96,
+          "x": 13,
+          "y": 380
+        },
+        "props": {
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "style": {
+            "backgroundColor": "transparent",
+            "borderBottomLeftRadius": 15,
+            "borderBottomRightRadius": 15,
+            "borderTopLeftRadius": 15,
+            "borderTopRightRadius": 15,
+            "boxShadow": "none",
+            "classes": "Shadow",
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "custom": {
+              "toggled": false
+            },
+            "meta": {
+              "name": "siren(1) (1)"
+            },
+            "position": {
+              "basis": "45px"
+            },
+            "props": {
+              "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAADtUlEQVR42u2VW2xMeRzHq512htHsqjWKsLemWyR7eZGsJrK2uhtLurbZZNPtjl3ZhD6sbNxJXBO0cUncRVCXeMCLRw9I2gSDkBqiRXkorUZdh2pr6Hx8kxnmnHHC/AcPEt9fcuY/v/P9fT8z55z/TNoHvU8ijb78z1T68M4ARbTQzOh3ByjhlqqEtxDVQ+UEaFOV4Ow3iPeykI0M0+q1AFRybmIxvUkakE8Q2IsvKYBPTjhLXvKAnqziKV3MJ5NX3gP1slhAl9wr8ZhcpMEcBloZawsrpJHLjLT1fpELjmjC5CarRnEFOEY+1m/2J3/gsXQKCICco7Q2fI5cTOUBsEyr2JMiQK6qp1bRTibLQa7/kMf8Uf2YrYRYQgbpDKKc7dRwUlXDNsoYqK6LKtrZwkekuBs+YQR98fK3YjuIEJNWHQSE7EUu38vxRlvOxzLacdIDFpNDkjHpeMmiB4n9bKp4TBs1hLAqRC236BSiFy/vare66diemaHsppJivhQm3s9gCg+5w3TmcA+r7jKLGdxVt1yB1l2Rp5QqdlGgdxbA7wA8IsA6/HyFC3VlPs9TgStoJVE3mMwKujnFYKIfJh+/pgNKgQildsAXbOQy7USAhwQZg7rMVvxRwS/ipHp+4xhhpiAvYwlqUtFKaWQ9n6tnu24eBjCBTQS4KctE9XpzCFhEpTBOesISnYUD6LLyD52aPK6ECUry2O6nDZTLeMrxaT2cem7jFyYWqPEq1nKSMFEdlPMOdXwqdy6TGEd/JST9gBbSxBUmKgCgmz3kkYGLAvYTAeA0f3FVNYKUdsAYWrjJPtpiN/Ubnp/5llaA2NlmOVMC/KTRuE7Q5zlAqzPE1SxnSoBiG+ASA14ABtJoAxSnCrhOXJ1Mw4P6Ok7Xu7iuGwBQkcPXeEm8RNDAd0TvwAVIvER4NZWj11dEu+nHaJZSSz3jHQDX+BH5dLzmAPiVBmo1/YNSsrBHq7IZx2rqCNENdDDJAdAkvLw6NjkA/tUUmg4pZZXSsrEC1AgBEOY825lMP2OAT1PVmg4DcJ+f1Uv4Bw6yhlKGRtmmgNiP+zBKlXKOBgrtv0WZDKE/7thGNwfY/g2UNAgXhhsNWihjiKpMK97GRiuikS46XtR9ghxVBbWKd7vkKkoN8BkVzGaWpeYyTzXX2pOjQk7j8AwKqaSanUlUtZwjSccIMJwgJqqjwAwwjzAmesxMM8B6IhhI7nVmgA3GgA1mgM2YarMZwM8OdhrUDvxmADfZhuUm7YNS0jNTb88S2I+wLAAAAABJRU5ErkJggg\u003d\u003d",
+              "style": {
+                "backgroundColor": "transparent",
+                "borderBottomLeftRadius": 15,
+                "borderBottomRightRadius": 15,
+                "borderTopLeftRadius": 15,
+                "borderTopRightRadius": 15,
+                "boxShadow": "none",
+                "classes": "Shadow",
+                "cursor": "pointer",
+                "overflow": "auto"
+              }
+            },
+            "type": "ia.display.image"
+          },
+          {
+            "custom": {
+              "toggled": true
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\timport exchange.ColorareButonShareScript as script\n\tscript.runAction(self, event)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Label",
+              "tooltip": {
+                "enabled": true
+              }
+            },
+            "position": {
+              "basis": "25px"
+            },
+            "props": {
+              "style": {
+                "color": "#937D7D"
+              },
+              "text": "Alarm"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "custom": {
+          "toggled": false
+        },
+        "events": {
+          "dom": {
+            "onClick": [
+              {
+                "config": {
+                  "script": "\tsystem.perspective.navigate(\"/alarm\")"
+                },
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "\timport exchange.ColorareButonShareScript as script\n\tscript.runAction(self, event)"
+                },
+                "scope": "G",
+                "type": "script"
+              }
+            ]
+          }
+        },
+        "meta": {
+          "name": "flex_alarm_button"
+        },
+        "position": {
+          "height": 84,
+          "rotate": {
+            "anchor": "50% 25%"
+          },
+          "width": 96,
+          "x": 13,
+          "y": 198
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "style": {
+            "backgroundColor": "transparent",
+            "borderBottomLeftRadius": 15,
+            "borderBottomRightRadius": 15,
+            "borderTopLeftRadius": 15,
+            "borderTopRightRadius": 15,
+            "boxShadow": "none",
+            "classes": "Shadow",
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "clock-up-arrow (1)"
+            },
+            "position": {
+              "basis": "34px"
+            },
+            "props": {
+              "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAlBJREFUWEetVotNAzEMjSeBTgLdhE4CnYQyCcckdJPQF9knn2PHuZaTqla95Pn592wqO55a63Mp5a2U8lJKwW98rgyBb3x+iOgyC0vZQWX0PTur3oPI143ghYiEoHt9SKDW+lFK8QxrrwH8GpBrRIgIOPME2OtPAzz0iu8gJSBjSePu0YtGFwEG+rXhHHlhXQvS5pLYEOCL31xcwF2I6Lgj95ujTiQ7EpYAjEs+U+NsoIwKzSNBRAdhuhIwBZcaB0C9XWIg5HeJIuVE9iwp1QQEDB7NtCf0AIWK55T1vqmtNRXNUK0VQACcAuM7uwg4d6ARJyEg3l91fkbFV2u9hwDaVDqs2SIDtOYmq/x7CHAUdKEfQUCH/5BJpxB7gAC6DCTwXEBgZTRTfP9AAGkQrWkEkBP8OdV6jxLgNMhUbQSkAFtVZrlXAHpWpG0Y4WoCaQSi0bwndZaIroFhC5qiExyoH7x3Zz6r61PgPcb0MkVAFyqDwSAMj+RXV3uUgRMI6KWj03RnPE9pRbBTWCJXENBMXXAVSrwfrljJQNJ7RjsKAp08znTCnjNOFNfr3jCaCvEsAcc46gZRbMNPCGyiEO1v1ih3Bu6i0rv0eMaxYWn51/uAnm7pVAw6Y92AI+MsZOv80QTgiVa3UBkd4zo4Z8i6Gjh4txE53XnZUuq1pR6nyCUM4pHtyGaqU1ilqEu0lrdxaZcT4/lGjCKlzLbqdPdT08963ikhewZdkekaKqXgThEYeT7bjuE0zACMUqYzIMPrpmF2QWk6wjocQBmW9/4Pz7iUILcA1E8AAAAASUVORK5CYII\u003d"
+            },
+            "type": "ia.display.image"
+          },
+          {
+            "custom": {
+              "toggled": false
+            },
+            "meta": {
+              "name": "Label",
+              "tooltip": {
+                "enabled": true
+              }
+            },
+            "position": {
+              "basis": "25px"
+            },
+            "props": {
+              "style": {
+                "color": "#937D7D"
+              },
+              "text": "Historical"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "custom": {
+          "toggled": false
+        },
+        "events": {
+          "dom": {
+            "onClick": [
+              {
+                "config": {
+                  "script": "\tsystem.perspective.navigate(\"/historical\")"
+                },
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "\timport exchange.ColorareButonShareScript as script\n\tscript.runAction(self, event)"
+                },
+                "scope": "G",
+                "type": "script"
+              }
+            ]
+          }
+        },
+        "meta": {
+          "name": "flex_historical_button"
+        },
+        "position": {
+          "height": 84,
+          "width": 96,
+          "x": 13,
+          "y": 289
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "style": {
+            "backgroundColor": "transparent",
+            "borderBottomLeftRadius": 15,
+            "borderBottomRightRadius": 15,
+            "borderTopLeftRadius": 15,
+            "borderTopRightRadius": 15,
+            "boxShadow": "none",
+            "classes": "Shadow",
+            "cursor": "pointer"
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "custom": {
+              "toggled": false
+            },
+            "meta": {
+              "name": "solar-energy(1)222_1"
+            },
+            "position": {
+              "basis": "48px"
+            },
+            "props": {
+              "source": "data:image/png;base64,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\u003d\u003d",
+              "style": {
+                "backgroundColor": "transparent",
+                "borderBottomLeftRadius": 15,
+                "borderBottomRightRadius": 15,
+                "borderTopLeftRadius": 15,
+                "borderTopRightRadius": 15,
+                "boxShadow": "none",
+                "classes": "Shadow",
+                "cursor": "pointer",
+                "overflow": "auto"
+              }
+            },
+            "type": "ia.display.image"
+          },
+          {
+            "custom": {
+              "toggled": true
+            },
+            "meta": {
+              "name": "Label",
+              "tooltip": {
+                "enabled": true
+              }
+            },
+            "position": {
+              "basis": "25px"
+            },
+            "props": {
+              "style": {
+                "color": "#937D7D"
+              },
+              "text": "Asset View"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "custom": {
+          "toggled": false
+        },
+        "events": {
+          "dom": {
+            "onClick": [
+              {
+                "config": {
+                  "script": "\tsystem.perspective.navigate(\"/widget-view\")"
+                },
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "\timport exchange.ColorareButonShareScript as script\n\tscript.runAction(self, event)"
+                },
+                "scope": "G",
+                "type": "script"
+              }
+            ]
+          }
+        },
+        "meta": {
+          "name": "flex_asset_view_button"
+        },
+        "position": {
+          "height": 84,
+          "rotate": {
+            "anchor": "255% 177%"
+          },
+          "width": 96,
+          "x": 13,
+          "y": 107
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "style": {
+            "backgroundColor": "transparent",
+            "borderBottomLeftRadius": 15,
+            "borderBottomRightRadius": 15,
+            "borderTopLeftRadius": 15,
+            "borderTopRightRadius": 15,
+            "boxShadow": "none",
+            "classes": "Shadow",
+            "cursor": "pointer"
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "site-alt"
+            },
+            "position": {
+              "basis": "36px"
+            },
+            "props": {
+              "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAABCtJREFUWEe1l1moVlUUx3//twiaB5GIJl/qIRoeUspIk8iQpIcsmqGH0oq4UD00qWE0EYiRRQ8hljRI0UhEg5eMJkvzxSC0bhlRaTNZ1MO/sz7W+djf6bvfPX33uuA8nL3XXvu/95r+W7QU2wcA5wMLgWOBQ4FDcvmPwG7gc+AZ4E1Jv7cxrYmUbB8P3FAZvwQIEG3kZ+DpCuBDkj4btGAgANsrcvP9G0a+B6a1GPstQdw+HohxAdh+FriwWLgF2JAbX5rj7wJ/AfPyfx3wLXA2cEqxdqOkM/uB6AvA9pfA0blgDFguaY3tZcDSHP8aOB34B3gv4yKmQneZ7atSt7azW9JhTRD/AWB7VwZY6K4HbpE0ZjtO/WRhYIGkV+Pf9jnA68XcZZLW2Y7N7y9uckzSMSWIHgC23wFmp8J6SYtqZdvvAzPz/25JPX61fRdwR85vlXRSsbZ0Z4/dLoAMuNty0WuSzisMXAw8lf8fAnMk/VmexPY+wNvVTczK8RFJKwsbbxSx0j1AB0Cm2gdARPtPwGmStheLt1X5HekYslDSS/0CyvYC4OWc+0LScYWNEyoAEbQHAZEdMyNFawCrgcWpPNrH+FkD5vphGaRfzz0iaYls7wd8lcj6GdtbY78CRwWAC4Dn99YuE9i9IgBEybwoFWdJiljoiO0IxE6qAY9LuroNUNv3Rfqm7iJJkc61zQjSqBshzwWAzcDJOTBd0neF8s2ZxzHUE9WDgDTqwjWSHitsHgF8k/9bAkBUtCOBXZIOLw3bfhhYkmPzJL3V5gby9lZFRkVVbK6xHZ0zOunOAPBHdcp9q1a7WdKpDQAvZguO4WlV1P7QFsAEN7S1irsTKzftmRIA2biiL0TDWispKt+4YjuaWicdJ+2C0lix4ybgifgk/dLHBXVpHpt0ENoOt0SXWwNEBywl6ksNJNhSR2zH6aOrPjDpNLS9saJgZ6Tt6HQ35lc2uugbNZAox10ZthB1en6e5vpgPWlxpaSRbExRBwLMwY1beSFd0yl+w5bibl+3HQ0sgi+IqiOjJAVLqq/7WuCmatNuY8qpKEYrhm1GD0p6pdjkzmBC+b9UUnCDHrF9bvq95hQxv31K2nEyn7iFA7P41HS9DLqRoqbU4JYPQ0g+SkKypzyi7SAf4fOQxZIezRgpeWS95N6Mg23DUrJ7JN3aABAs+JMc2yFphu2orB8XelHaI4CDd3ZkMqR0rqSoaF2xvRa4PAfmA1cCQedQlTbNuOgLIK+tDS3/NHxateidtWHb8T4I7hcSbb0OuA2S5rYGkCDaPEyChM6v3PF3ASL4Q5fQ5vgMSTv+F4AE0eZpFhwyfLpa0qjtoPLxQK2lh4Y3QUzl43RU0pwEXr4hZkvqKb8liAkBFFc73vM8uES8B6+rHiNRZqPZRAAGIVklqS7T/TzAv522+ZUjWkAaAAAAAElFTkSuQmCC"
+            },
+            "type": "ia.display.image"
+          },
+          {
+            "custom": {
+              "toggled": false
+            },
+            "meta": {
+              "name": "Label",
+              "tooltip": {
+                "enabled": true
+              }
+            },
+            "position": {
+              "basis": "25px"
+            },
+            "props": {
+              "style": {
+                "color": "#FFFFFF"
+              },
+              "text": "Site View"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "custom": {
+          "toggled": true
+        },
+        "events": {
+          "dom": {
+            "onClick": [
+              {
+                "config": {
+                  "script": "\tsystem.perspective.navigate(\"/widget-view1\")"
+                },
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "\timport exchange.ColorareButonShareScript as script\n\tscript.runAction(self, event)"
+                },
+                "scope": "G",
+                "type": "script"
+              }
+            ]
+          }
+        },
+        "meta": {
+          "name": "flex_site_view_button"
+        },
+        "position": {
+          "height": 84,
+          "width": 96,
+          "x": 13,
+          "y": 16
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "style": {
+            "backgroundColor": "rgba(42, 42, 42, 1)",
+            "borderBottomLeftRadius": 15,
+            "borderBottomRightRadius": 15,
+            "borderTopLeftRadius": 15,
+            "borderTopRightRadius": 15,
+            "classes": "Shadow",
+            "cursor": "pointer"
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "custom": {
+          "toggled": false
+        },
+        "meta": {
+          "name": "status_filter_alarms"
+        },
+        "position": {
+          "height": 41,
+          "width": 274,
+          "x": 116.39025,
+          "y": 58.5
+        },
+        "props": {
+          "path": "Left Bar/status_filter",
+          "style": {
+            "backgroundColor": "transparent",
+            "borderBottomLeftRadius": 15,
+            "borderBottomRightRadius": 15,
+            "borderTopLeftRadius": 15,
+            "borderTopRightRadius": 15,
+            "boxShadow": "none",
+            "classes": "Shadow",
+            "cursor": "pointer",
+            "overflow": "auto"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "custom": {
+          "toggled": false
+        },
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "height": 1,
+          "width": 263,
+          "x": 125.61,
+          "y": 52
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "transparent",
+            "borderBottomLeftRadius": 15,
+            "borderBottomRightRadius": 15,
+            "borderTopLeftRadius": 15,
+            "borderTopRightRadius": 15,
+            "boxShadow": "none",
+            "classes": "Shadow",
+            "cursor": "pointer",
+            "overflow": "auto"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "custom": {
+          "toggled": false
+        },
+        "meta": {
+          "name": "checkbox_bess"
+        },
+        "position": {
+          "height": 36,
+          "width": 88,
+          "x": 295,
+          "y": 16
+        },
+        "propConfig": {
+          "props.selected": {
+            "onChange": {
+              "enabled": null,
+              "script": "\twind \u003d self.getSibling(\"checkbox_wind\").props.selected\n\tsolar \u003d self.getSibling(\"checkbox_solar\").props.selected\n\tbess \u003d self.getSibling(\"checkbox_bess\").props.selected\n\n\tif wind and solar and bess:\n\t    self.view.custom.farmFilter \u003d \"NONE\"  # Show all\n\telif wind and solar:\n\t    self.view.custom.farmFilter \u003d \"W,PV\"  # wind and solar\n\telif wind and bess:\n\t    self.view.custom.farmFilter \u003d \"W,B\"  # wind and battery\n\telif solar and bess:\n\t    self.view.custom.farmFilter \u003d \"PV,B\"  # wind and battery\n\telif wind:\n\t    self.view.custom.farmFilter \u003d \"W\"   # Only wind\n\telif solar:\n\t    self.view.custom.farmFilter \u003d \"PV\"  # Only solar\n\telif bess:\n\t    self.view.custom.farmFilter \u003d \"B\"  # Only bess    \n\telse:\n\t    self.view.custom.farmFilter \u003d None  # Show nothing"
+            }
+          }
+        },
+        "props": {
+          "checkedIcon": {
+            "color": {
+              "enabled": "#FFFFFF"
+            }
+          },
+          "selected": true,
+          "style": {
+            "backgroundColor": "transparent",
+            "borderBottomLeftRadius": 15,
+            "borderBottomRightRadius": 15,
+            "borderTopLeftRadius": 15,
+            "borderTopRightRadius": 15,
+            "boxShadow": "none",
+            "classes": "Shadow",
+            "cursor": "pointer",
+            "overflow": "auto"
+          },
+          "text": "Bess",
+          "uncheckedIcon": {
+            "color": {
+              "enabled": "#FF8A8A"
+            }
+          }
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "children": [
+          {
+            "custom": {
+              "clickedItem": {
+                "data": null,
+                "itemPath": [
+                  1
+                ],
+                "label": "Item 2"
+              },
+              "key": "value",
+              "toggled": false
+            },
+            "events": {
+              "component": {
+                "onItemClicked": [
+                  {
+                    "config": {
+                      "script": "\tdata \u003d event.get(\u0027data\u0027, {})\n\tclickedPath \u003d data.get(\u0027itemPath\u0027, None)\n\n\t# ✅ Handle placeholder node click (no itemPath)\n\tif data.get(\u0027action\u0027) \u003d\u003d \u0027select_all\u0027:\n\t    self.view.custom.windSelected \u003d True\n\t    self.view.custom.solarSelected \u003d True\n\t    return  # Skip the rest of the toggle logic\n\n\t# Helper: set icon on item and all descendants\n\tdef setIcon(item, iconPath):\n\t    if \"icon\" not in item or not isinstance(item[\"icon\"], dict):\n\t        item[\"icon\"] \u003d {}\n\t    item[\"icon\"][\"path\"] \u003d iconPath\n\t    item[\"icon\"][\"color\"] \u003d \"#e0ebe8\" if iconPath \u003d\u003d \"material/check_box\" else \"#CD5C5C\"\n\t    \n\t    if \"items\" in item:\n\t        for child in item[\"items\"]:\n\t            setIcon(child, iconPath)\n\n\t# Helper: toggle clicked item and all children icons\n\tdef toggleIcon(items):\n\t    for item in items:\n\t        itemPath \u003d item.get(\"data\", {}).get(\"itemPath\")\n\t        if itemPath \u003d\u003d clickedPath:\n\t            if \"icon\" not in item or not isinstance(item[\"icon\"], dict):\n\t                item[\"icon\"] \u003d {}\n\t            if \"path\" not in item[\"icon\"]:\n\t                item[\"icon\"][\"path\"] \u003d \"material/check_box_outline_blank\"\n\t            \n\t            current \u003d item[\"icon\"][\"path\"]\n\t            newIcon \u003d \"material/check_box\" if current !\u003d \"material/check_box\" else \"material/check_box_outline_blank\"\n\t            setIcon(item, newIcon)\n\t            return True\n\t        if \"items\" in item:\n\t            if toggleIcon(item[\"items\"]):\n\t                return True\n\t    return False\n\n\t# Helper: update parent icons based on children state recursively\n\tdef updateParentIcons(items):\n\t    for item in items:\n\t        if \"items\" in item and item[\"items\"]:\n\t            updateParentIcons(item[\"items\"])\n\t            \n\t            checked_count \u003d sum(\n\t                1 for child in item[\"items\"]\n\t                if child.get(\"icon\", {}).get(\"path\") \u003d\u003d \"material/check_box\"\n\t            )\n\t            total \u003d len(item[\"items\"])\n\t            item_icon \u003d item.setdefault(\"icon\", {})\n\t            \n\t            if checked_count \u003d\u003d total:\n\t                item_icon[\"path\"] \u003d \"material/check_box\"\n\t                item_icon[\"color\"] \u003d \"#e0ebe8\"\n\t            elif checked_count \u003d\u003d 0:\n\t                item_icon[\"path\"] \u003d \"material/check_box_outline_blank\"\n\t                item_icon[\"color\"] \u003d \"#CD5C5C\"\n\t            else:\n\t                item_icon[\"path\"] \u003d \"material/indeterminate_check_box\"\n\t                item_icon[\"color\"] \u003d \"#CD5C5C\"\n\n\t# Helper: update the \"Select All\" icon depending on all top-level nodes checked\n\tdef updateSelectAllIcon(items):\n\t    select_all \u003d items[0]\n\t    others \u003d select_all.get(\"items\", [])\n\t    \n\t    checked_count \u003d sum(\n\t        1 for node in others\n\t        if node.get(\"icon\", {}).get(\"path\") \u003d\u003d \"material/check_box\"\n\t    )\n\t    total \u003d len(others)\n\t    select_all_icon \u003d select_all.setdefault(\"icon\", {})\n\t    \n\t    if checked_count \u003d\u003d total:\n\t        select_all_icon[\"path\"] \u003d \"material/check_box\"\n\t        select_all_icon[\"color\"] \u003d \"#e0ebe8\"\n\t    elif checked_count \u003d\u003d 0:\n\t        select_all_icon[\"path\"] \u003d \"material/check_box_outline_blank\"\n\t        select_all_icon[\"color\"] \u003d \"#CD5C5C\"\n\t    else:\n\t        select_all_icon[\"path\"] \u003d \"material/indeterminate_check_box\"\n\t        select_all_icon[\"color\"] \u003d \"#CD5C5C\"\n\n\t# 1) Toggle clicked item\n\ttoggleIcon(self.props.items)\n\n\t# 2) Update parents icons to reflect children state\n\tif self.props.items and self.props.items[0].get(\"data\", {}).get(\"itemPath\") \u003d\u003d \"select_all\":\n\t    updateParentIcons(self.props.items[0].get(\"items\", []))\n\t    updateSelectAllIcon(self.props.items)\n\telse:\n\t    updateParentIcons(self.props.items)\n\n\t# 3) Force UI refresh\n\tself.props.items \u003d self.props.items\n\t\n\t################### added code ###################\n\t#repeater \u003d self.getSibling(\"Views/Widget View/myFlexRepeater\")  # .getChild(\"myFlexRepeater\")\n\t##instances \u003d list(repeater.props.instances)\n\t#system.perspective.print(str(repeater))\n\t\n\timport system.util\n\t# original_dict must be JSON serializable\n\tlist_of_children \u003d system.util.jsonDecode(system.util.jsonEncode(self.props.items))\n\ttry_again \u003d True\n\twhile try_again:\n\t\ttry_again \u003d False\n\t\tfor pos, child in enumerate(list_of_children):\n\t\t\t#system.perspective.print(\u0027pos: \u0027+ str(pos))\n\t\t\t#system.perspective.print(\u0027child items: \u0027+ str(child.items()))\n\t\t\tif len(child[\u0027items\u0027]) \u003e 0:\n\t\t\t\ttry_again \u003d True\n\t\t\t\tfor nested_child in child[\u0027items\u0027]:\n\t\t\t\t\tlist_of_children.append(nested_child)\n\t\t\t\tlist_of_children.pop(pos)\n\t#system.perspective.print(\u0027list_of_children: \u0027+ str(list_of_children))\n\t\n\tsystem.perspective.sendMessage(\"recieve_list_of_children\", {\"list\": list_of_children})\n\t\n\t\n\tinstances \u003d []\n\tfor elem in list_of_children:\n\t\tsystem.perspective.print(str(elem[\"label\"]))\n\t\tif elem[\u0027icon\u0027][\u0027path\u0027] \u003d\u003d \"material/check_box\":\n\t\t#system.perspective.print(\u0027elem path: \u0027+ str(elem[\u0027icon\u0027][\u0027path\u0027]))\n\t\t\tnew_instance \u003d {\n\t\t\t\"instanceStyle\": {\"classes\": \"\", \"marginBottom\": 10, \"marginLeft\": 10, \"marginTop\": 10}, \n\t\t\t\"instancePosition\": {}, \n\t\t\t\"widget_farm_id\": elem[\u0027data\u0027][\"farm_id\"],\n\t\t\t\"widget_site_id\": elem[\u0027data\u0027][\"site_id\"],\n\t\t\t\"widget_farm_type\": elem[\u0027data\u0027][\"farm_type\"]}\n\t\t\tsystem.perspective.print(\"new_instance: \" + str(new_instance))\n\t\t\tinstances.append(new_instance)\n\t        \n\t\n\t#repeater.props.instances \u003d instances\n\tself.session.custom.myFlexRepeater_session \u003d instances"
+                    },
+                    "scope": "G",
+                    "type": "script"
+                  },
+                  {
+                    "config": {
+                      "script": "\tclickedPath \u003d event[\u0027itemPath\u0027]\n\n\tdef toggleAndCascade(items, pathToMatch):\n\t\tfor item in items:\n\t\t    if item.get(\u0027itemPath\u0027) \u003d\u003d pathToMatch:\n\t\t        icon \u003d item.get(\u0027icon\u0027, {})\n\t\t        current \u003d icon.get(\u0027path\u0027, \u0027material/check_box_outline_blank\u0027)\n\t\t        newIcon \u003d \"material/check_box\" if current \u003d\u003d \"material/check_box_outline_blank\" else \"material/check_box_outline_blank\"\n\t\t\n\t\t        # Replace entire icon object\n\t\t        item[\u0027icon\u0027] \u003d {\n\t\t            \"path\": newIcon,\n\t\t            \"color\": icon.get(\u0027color\u0027, \u0027\u0027),\n\t\t            \"style\": icon.get(\u0027style\u0027, {})\n\t\t        }\n\t\t\n\t\t        # Apply to children\n\t\t        if \u0027items\u0027 in item:\n\t\t            cascadeToChildren(item[\u0027items\u0027], newIcon)\n\t\t\n\t\t    # Recursively search deeper\n\t\t    if \u0027items\u0027 in item:\n\t\t        toggleAndCascade(item[\u0027items\u0027], pathToMatch)\n\t\t\n\t\tdef cascadeToChildren(items, iconPath):\n\t\t\tfor item in items:\n\t\t\t    icon \u003d item.get(\u0027icon\u0027, {})\n\t\t\t    item[\u0027icon\u0027] \u003d {\n\t\t\t        \"path\": iconPath,\n\t\t\t        \"color\": icon.get(\u0027color\u0027, \u0027\u0027),\n\t\t\t        \"style\": icon.get(\u0027style\u0027, {})\n\t\t\t    }\n\t\t\t    if \u0027items\u0027 in item:\n\t\t\t        cascadeToChildren(item[\u0027items\u0027], iconPath)\n\t\t\t\n\t\t\titems \u003d self.props.items\n\t\t\ttoggleAndCascade(items, clickedPath)\n\t\t\tself.props.items \u003d items"
+                    },
+                    "scope": "G",
+                    "type": "script"
+                  }
+                ]
+              }
+            },
+            "meta": {
+              "name": "tree_assets"
+            },
+            "position": {
+              "height": "98%",
+              "width": "97%",
+              "x": 6.33,
+              "y": -0.08031876220702827
+            },
+            "propConfig": {
+              "props.items": {
+                "binding": {
+                  "config": {
+                    "parameters": {
+                      "param1": "{view.custom.farmFilter}"
+                    },
+                    "queryPath": "site_farm",
+                    "returnFormat": "json"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tfrom collections import defaultdict\n\n\t# ✅ Case 1: If dataset is empty, return a placeholder message node\n\tif not value or len(value) \u003d\u003d 0: #value.rowCount \u003d\u003d 0:\n\t    return [{\n\t        \"label\": \"Select the energy type\",\n\t        \"items\": [],\n\t        \"expanded\": False,\n\t        \"data\": {\n\t            \"itemPath\": \"Info\",\n\t            \"action\": \"select_all\"\n\t        },\n\t        \"icon\": {\n\t            \"path\": \"material/info\",     # ℹ️ icon\n\t            \"color\": \"#FFD700\",          # Gold color\n\t            \"style\": {}\n\t        },\n\t        \"style\": {\n\t            \"fontSize\": \"18px\",\n\t            \"fontWeight\": \"bold\",\n\t            \"color\": \"#444\",\n\t            \"backgroundColor\": \"#f4f4f4\",\n\t            \"textAlign\": \"center\",\n\t            \"padding\": \"12px\"\n\t        }\n\t    }]\n\t\n\t# ✅ Case 2: Data exists — build tree normally with checkboxes\n\ttree_nodes \u003d []\n\tsite_map \u003d defaultdict(list)\n\t#pyData \u003d system.dataset.toPyDataSet(value)\n\t\n\tfor row in value:\n\t\tlocation \u003d row[\u0027location\u0027]\n\t\tfarm_name \u003d str(row.get(\u0027farm_name\u0027, \u0027\u0027))\n\t\tfarmid \u003d row[\u0027farmid\u0027]\n\t\tsite_id \u003d row[\u0027site_id\u0027]\n\t\tfarm_type \u003d \u0027unknown\u0027\n\t\tif \u0027pv\u0027 in farm_name[:2].lower(): \n\t\t\tfarm_type \u003d \u0027pv\u0027\n\t\tif \u0027wt\u0027 in farm_name[:2].lower():\n\t\t\tfarm_type \u003d \u0027wt\u0027\n\t\tif farm_name:\n\t\t\tsite_map[location].append([farm_name, farmid, site_id, farm_type])\n\tfor location, farms in site_map.items():\n\t\tlocationPath \u003d \"site/%s\" % location.lower().replace(\u0027 \u0027, \u0027_\u0027)\n\t\tchildren \u003d []\n\t\tfor farm in farms:\n\t\t\tchildPath \u003d locationPath + \"/\" + farm[0].lower().replace(\u0027 \u0027, \u0027_\u0027)\n\t\t\tchildren.append({\n\t            \"label\": farm[0],\n\t            \"data\": {\"itemPath\": childPath, \"farm_id\": farm[1], \"site_id\": farm[2], \"farm_type\": farm[3]},\n\t            \"expanded\": False,  \n\t            \"items\": [],\n\t            \"icon\": {\n\t                \"path\": \"material/check_box_outline_blank\",\n\t                \"color\": \"#c1d7d2\",\n\t                \"style\": {},\n\t                \"value\": False\n\t            }\n\t        })\n\n\t\ttree_nodes.append({\n\t        \"label\": location,\n\t        \"data\": {\"itemPath\": locationPath},\n\t        \"expanded\": False,  \n\t        \"items\": children,\n\t        \"icon\": {\n\t            \"path\": \"material/check_box_outline_blank\",\n\t            \"color\": \"#CD5C5C\",\n\t            \"style\": {},\n\t            \"value\": False\n\t        }\n\t    })\n\t\t\n\t# ✅ Proper Select All node with checkbox\n\tselect_all_node \u003d {\n\t    \"label\": \"Select All\",\n\t    \"data\": {\"itemPath\": \"select_all\"},\n\t    \"expanded\": True,\n\t    \"items\": tree_nodes,\n\t    \"icon\": {\n\t        \"path\": \"material/check_box_outline_blank\",  # normal checkbox\n\t        \"color\": \"#CD5C5C\",\n\t        \"style\": {},\n\t        \"value\": False\n\t    }\n\t}\n\t\n\treturn [select_all_node]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "appearance": {
+                "defaultNodeIcons": {
+                  "collapsed": {
+                    "path": "material/folder"
+                  },
+                  "empty": {
+                    "path": "material/stop"
+                  },
+                  "expanded": {
+                    "path": "material/folder_open"
+                  }
+                },
+                "expandIcons": {
+                  "collapsed": {
+                    "path": "material/arrow_right"
+                  },
+                  "expanded": {
+                    "path": "material/arrow_drop_down"
+                  }
+                },
+                "selectedStyle": {
+                  "backgroundColor": "#ACAC00"
+                }
+              },
+              "selection": [
+                "0/7/0"
+              ],
+              "selectionData": [
+                {
+                  "itemPath": "0/7/0",
+                  "value": {
+                    "farm_id": 24,
+                    "farm_type": "pv",
+                    "itemPath": "site/ungheni/pv1_ungheni",
+                    "site_id": 12
+                  }
+                }
+              ],
+              "style": {
+                "backgroundColor": "transparent",
+                "borderBottomLeftRadius": 15,
+                "borderBottomRightRadius": 15,
+                "borderTopLeftRadius": 15,
+                "borderTopRightRadius": 15,
+                "boxShadow": "none",
+                "classes": "Shadow",
+                "cursor": "pointer",
+                "overflow": "auto"
+              }
+            },
+            "type": "ia.display.tree"
+          }
+        ],
+        "custom": {
+          "toggled": false
+        },
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "height": 645,
+          "width": 243,
+          "x": 116.87,
+          "y": 96.19
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "transparent",
+            "borderBottomLeftRadius": 15,
+            "borderBottomRightRadius": 15,
+            "borderTopLeftRadius": 15,
+            "borderTopRightRadius": 15,
+            "boxShadow": "none",
+            "classes": "Shadow",
+            "cursor": "pointer",
+            "overflow": "auto"
+          }
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "prediction (1)"
+            },
+            "props": {
+              "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAAXVBMVEVHcEz///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+EHRzTAAAAHnRSTlMABsUcr2iWfSz0Yxlc+aIU5zTPcUgNAvuJU7vbPYJGxjjfAAABsklEQVQ4y63U246kIBAGYBCkAQFRQMVDvf9jbmnP7rYTT5PMf6MJX6AKEUIIqRtJ8VGFsR0DI+cxE68IaUY78annF7KEgpF6hDHm2IJLu0EWDN3BbGERKgzgm09HBSizgwvApLxx0OtPmDhA2MEBMKFU0JcfrqOudWwHTQ/gsURQkXSZh6/CspNp34xE44UCKCrCWvDzNiT5/L1rYjwoZ2GKODyB2gpIIjDG6j3scuH95NYZYiGCCzheimZsW5F2cP1CDaPbepkSNogYuJR2K2YPv1K70K39vjwUSaoziGB4dxx7mOpTWC2cV3WMET+qKDQ5hQGAE4N7j9MmbOIQpo7GEUAQjVC81z+AtByFcPq1sBvIPK6He4cdv2FHKT2CdfHvhL2h4dw1RzXKEOkndIBH7rTrVFX1f2hPYXJty5m5h/V62Br9FF7PyLIx8gnUSlnxZOkSf5pn0P4cml+C/UOolcWuC9tP0ljbD1RYq4z0th+/7aPRWtKodU7bK2m0Nixlrf+elRVW5DbzKyOcw+s6M153LkBhFFxnIYYHhNHx6xj84bu1GXqT7uBKubns7/IHVKw6vu45mpIAAAAASUVORK5CYII\u003d"
+            },
+            "type": "ia.display.image"
+          },
+          {
+            "custom": {
+              "toggled": false
+            },
+            "meta": {
+              "name": "Label",
+              "tooltip": {
+                "enabled": true
+              }
+            },
+            "position": {
+              "basis": "25px"
+            },
+            "props": {
+              "style": {
+                "color": "#937D7D"
+              },
+              "text": "Forecast"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "custom": {
+          "toggled": false
+        },
+        "events": {
+          "dom": {
+            "onClick": [
+              {
+                "config": {
+                  "script": "\tsystem.perspective.navigate(\"/forecast\")"
+                },
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "\timport exchange.ColorareButonShareScript as script\n\tscript.runAction(self, event)"
+                },
+                "scope": "G",
+                "type": "script"
+              }
+            ]
+          }
+        },
+        "meta": {
+          "name": "flex_site_view_button_0"
+        },
+        "position": {
+          "height": 84,
+          "width": 96,
+          "x": 13,
+          "y": 471
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "style": {
+            "backgroundColor": "transparent",
+            "borderBottomLeftRadius": 15,
+            "borderBottomRightRadius": 15,
+            "borderTopLeftRadius": 15,
+            "borderTopRightRadius": 15,
+            "boxShadow": "none",
+            "classes": "Shadow",
+            "cursor": "pointer"
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "stock-market (1)"
+            },
+            "props": {
+              "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAAWlBMVEVHcEz///////////////////////////////////////////////////////////////////////////////////////////////////////////////////9f0VzKAAAAHXRSTlMAE/r2IbzYDoxRB2CeAii26YDJl64wPf1sSBp14Ro1QzMAAAG1SURBVDjLtZRJgoMgEEURRBCQKCiDyv2v2YCaYNK22fTfpFI8CqhBAP6WVCGEvr0GiDcs/bYwgoFeg1PfyC/ArnLxPHIPVqIPaB3YLVg3aRlXVyCro9g92LkmipIC7AxK1vB2s0dy9rKMSJzWeqiPI0mXQfwJnsVH8xXIxu0SGbQJnPMWkRLJeDxbU5+euDRBcVJGZF4EpKe8OxU7hDWaLmUAmRIEwMBVbsfxR2OjO5pDWoaxQciYrCY/sRb0uGE9WmtPIDBaCNGyrX3YkwtIoTP4azUjtzhk78DMMd/jT5CUkmPoHQPMyHeQLI9SyiYO5MIB36DQqy0ZhOYmeKnn7DUeRgUh8/+KIvugpTwr20vb5RlPzKAr9DZJfD7iiRncKsaDOxc7QQjtu0tO72WbUyfYkZzaut4kKUK6+hguNrVta9IO0exC8NkGBTitEELkog8fGUMv7mMKBUsv3uUJ+BM8fbrShqm7AjtSVVUeD52car4CpxFjrOdjFNB0BS552d+Dzzb7N1D+AsZMGJ6HFFLOXZ51OHC+rPn9jnOaQcwNUAhuhYnaLHhYyUC7SwEMwxeC6gceJD/M7oGTbAAAAABJRU5ErkJggg\u003d\u003d"
+            },
+            "type": "ia.display.image"
+          },
+          {
+            "custom": {
+              "toggled": false
+            },
+            "meta": {
+              "name": "Label",
+              "tooltip": {
+                "enabled": true
+              }
+            },
+            "position": {
+              "basis": "25px"
+            },
+            "props": {
+              "style": {
+                "color": "#937D7D"
+              },
+              "text": "Trading"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "custom": {
+          "toggled": false
+        },
+        "events": {
+          "dom": {
+            "onClick": [
+              {
+                "config": {
+                  "script": "\tsystem.perspective.navigate(\"/client-view\")"
+                },
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "\timport exchange.ColorareButonShareScript as script\n\tscript.runAction(self, event)"
+                },
+                "scope": "G",
+                "type": "script"
+              }
+            ]
+          }
+        },
+        "meta": {
+          "name": "flex_site_view_button_1"
+        },
+        "position": {
+          "height": 84,
+          "width": 96,
+          "x": 13,
+          "y": 562
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "style": {
+            "backgroundColor": "transparent",
+            "borderBottomLeftRadius": 15,
+            "borderBottomRightRadius": 15,
+            "borderTopLeftRadius": 15,
+            "borderTopRightRadius": 15,
+            "boxShadow": "none",
+            "classes": "Shadow",
+            "cursor": "pointer"
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root",
+      "tooltip": {
+        "width": "100%"
+      }
+    },
+    "position": {
+      "x": 6,
+      "y": 99.48661041259766
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "#0f1e30"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "postgresDB",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "682dc41ef7ce0bca75053ce3d93cfd283351b29f79339ca56202dea704f36929",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2025-12-12T12:47:22Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "DateFrom",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "DateTo",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "Market",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "Currency",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "Hour",
+        "sqlType": 2
+      }
+    ]
+  }
+}

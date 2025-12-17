@@ -1,0 +1,131 @@
+{
+  "custom": {},
+  "params": {
+    "date_input_end": 1756134000000,
+    "date_input_start": 1755712705000
+  },
+  "propConfig": {
+    "params.date_input_end": {
+      "binding": {
+        "config": {
+          "path": "/root/date_input_end.props.value"
+        },
+        "type": "property"
+      },
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.date_input_start": {
+      "binding": {
+        "config": {
+          "path": "/root/date_input_start.props.value"
+        },
+        "type": "property"
+      },
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 115,
+      "width": 281
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "label_start_date"
+        },
+        "position": {
+          "height": 32,
+          "width": 79,
+          "x": 10,
+          "y": 4
+        },
+        "props": {
+          "text": "start date"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "label_end_date"
+        },
+        "position": {
+          "height": 32,
+          "width": 79,
+          "x": 10,
+          "y": 43
+        },
+        "props": {
+          "text": "end date"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "date_input_start"
+        },
+        "position": {
+          "height": 32,
+          "width": 170,
+          "x": 97,
+          "y": 4
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "path": "session.custom.clicked_schedule_event.startDate"
+              },
+              "type": "property"
+            },
+            "onChange": {
+              "enabled": null,
+              "script": "\tself.session.custom.clicked_schedule_event.startDate \u003d currentValue\n\tsystem.perspective.print(self.session.custom.clicked_schedule_event.startDate)"
+            }
+          }
+        },
+        "props": {
+          "formattedValue": "Aug 20, 2025 8:58 PM"
+        },
+        "type": "ia.input.date-time-input"
+      },
+      {
+        "meta": {
+          "name": "date_input_end"
+        },
+        "position": {
+          "height": 32,
+          "width": 170,
+          "x": 97,
+          "y": 43
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "path": "session.custom.clicked_schedule_event.endDate"
+              },
+              "type": "property"
+            },
+            "onChange": {
+              "enabled": null,
+              "script": "\tself.session.custom.clicked_schedule_event.endDate \u003d currentValue"
+            }
+          }
+        },
+        "props": {
+          "formattedValue": "Aug 25, 2025 6:00 PM"
+        },
+        "type": "ia.input.date-time-input"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

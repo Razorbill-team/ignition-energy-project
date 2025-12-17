@@ -1,0 +1,45 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "postgresDB",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "ad5a9495f8959d6b9de3bc9b0d8a9897ba94ec46741be95935754b38e60a0651",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2025-12-10T20:05:49Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "DateTo",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "DateFrom",
+        "sqlType": 8
+      }
+    ]
+  }
+}

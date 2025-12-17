@@ -1,0 +1,24 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "doTrace.py",
+    "doPut.py",
+    "config.json",
+    "doHead.py",
+    "doPatch.py",
+    "doPost.py",
+    "doOptions.py",
+    "doGet.py",
+    "doDelete.py"
+  ],
+  "attributes": {
+    "lastModificationSignature": "f4805860aae23a13cdf9edde8fc9d25bf9ecf6150c36710775d1ce815fc527e1",
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2025-12-16T06:34:09Z"
+    }
+  }
+}

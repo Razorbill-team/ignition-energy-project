@@ -1,0 +1,924 @@
+{
+  "custom": {},
+  "params": {
+    "farm_pv_count": "",
+    "farm_pv_power": "",
+    "farm_wt_count": "",
+    "widget_farm_id": [
+      1
+    ],
+    "widget_site_id": ""
+  },
+  "propConfig": {
+    "params.farm_pv_count": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.farm_pv_power": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.farm_wt_count": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.widget_farm_id": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.widget_site_id": {
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 294,
+      "width": 310
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "TextField_3"
+        },
+        "position": {
+          "height": 23,
+          "width": 78,
+          "x": 40.209999999999994,
+          "y": 133.98
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#414141",
+            "borderColor": "#414141",
+            "fontSize": 11,
+            "fontWeight": "400"
+          },
+          "text": "Wind Power"
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "TextField_4"
+        },
+        "position": {
+          "height": 21,
+          "width": 102,
+          "x": 26.990399999999994,
+          "y": 62.9832
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#414141",
+            "borderColor": "#414141",
+            "color": "#E0E0E0",
+            "fontSize": 12,
+            "fontWeight": "400"
+          },
+          "text": "0 - Farm OK "
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "TextField_5"
+        },
+        "position": {
+          "height": 23,
+          "width": 81,
+          "x": 40.2068,
+          "y": 156.983
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#414141",
+            "borderColor": "#414141",
+            "fontSize": 11,
+            "fontWeight": "400"
+          },
+          "text": "PV Power"
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "TextField_6"
+        },
+        "position": {
+          "height": 24,
+          "width": 114,
+          "x": 40.209999999999994,
+          "y": 202.98
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#414141",
+            "borderColor": "#414141",
+            "fontSize": 11,
+            "fontWeight": "400"
+          },
+          "text": "Monthly Prodction"
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "TextField_7"
+        },
+        "position": {
+          "height": 23,
+          "width": 105,
+          "x": 40.209999999999994,
+          "y": 179.98
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#414141",
+            "borderColor": "#414141",
+            "fontSize": 11,
+            "fontWeight": "400"
+          },
+          "text": "Daily Production"
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "TextField_8"
+        },
+        "position": {
+          "height": 23,
+          "width": 102,
+          "x": 40.208,
+          "y": 225.983
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#414141",
+            "borderColor": "#414141",
+            "fontSize": 11,
+            "fontWeight": "400"
+          },
+          "text": "Daily Production"
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "TextField_9"
+        },
+        "position": {
+          "height": 23,
+          "width": 118,
+          "x": 40.208,
+          "y": 248.983
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#414141",
+            "borderColor": "#414141",
+            "fontSize": 11,
+            "fontWeight": "400"
+          },
+          "text": "Monthly Prodction"
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 25,
+          "width": 52,
+          "x": 216,
+          "y": 133.983
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "queryPath": "AC For each site"
+              },
+              "transforms": [
+                {
+                  "code": "    try:\n        # If using query binding, the result is a dataset\n        if hasattr(value, \"getValueAt\"):\n            # Get value from first row, first column\n            active_power \u003d value.getValueAt(0, 0)\n        elif isinstance(value, list) and len(value) \u003e 0:\n            active_power \u003d value[0].get(\u0027active_power\u0027, 0)\n        else:\n            active_power \u003d 0\n\n        return \"{} MW\".format(round(active_power))\n\n    except Exception as e:\n        return \"Error\"",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontFamily": "Roboto",
+            "fontSize": 11
+          },
+          "textStyle": {
+            "color": "#FFFFFF"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "height": 25,
+          "width": 39,
+          "x": 216,
+          "y": 202.983
+        },
+        "props": {
+          "style": {
+            "fontFamily": "Roboto",
+            "fontSize": 11
+          },
+          "text": 0,
+          "textStyle": {
+            "color": "#FFFFFF"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "height": 25,
+          "width": 39,
+          "x": 216,
+          "y": 179.983
+        },
+        "props": {
+          "style": {
+            "fontFamily": "Roboto",
+            "fontSize": 11
+          },
+          "text": 0,
+          "textStyle": {
+            "color": "#FFFFFF"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_3"
+        },
+        "position": {
+          "height": 25,
+          "width": 39,
+          "x": 216,
+          "y": 225.983
+        },
+        "props": {
+          "style": {
+            "fontFamily": "Roboto",
+            "fontSize": 11
+          },
+          "text": 0,
+          "textStyle": {
+            "color": "#FFFFFF"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_4"
+        },
+        "position": {
+          "height": 25,
+          "width": 39,
+          "x": 216,
+          "y": 248.983
+        },
+        "props": {
+          "style": {
+            "fontFamily": "Roboto",
+            "fontSize": 11
+          },
+          "text": 0,
+          "textStyle": {
+            "color": "#FFFFFF"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "height": 15,
+          "rotate": {
+            "anchor": "-680% -407%"
+          },
+          "width": 15,
+          "x": 31.990399999999994,
+          "y": 184.697
+        },
+        "props": {
+          "path": "material/play_circle_outline"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Icon_0"
+        },
+        "position": {
+          "height": 15,
+          "rotate": {
+            "anchor": "-680% -407%"
+          },
+          "width": 15,
+          "x": 31.990399999999994,
+          "y": 207.697
+        },
+        "props": {
+          "path": "material/stop_circle"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Icon_1"
+        },
+        "position": {
+          "height": 15,
+          "rotate": {
+            "anchor": "-680% -407%"
+          },
+          "width": 15,
+          "x": 31.990399999999994,
+          "y": 229.697
+        },
+        "props": {
+          "path": "material/error"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Icon_2"
+        },
+        "position": {
+          "height": 15,
+          "rotate": {
+            "anchor": "-680% -407%"
+          },
+          "width": 15,
+          "x": 31.990399999999994,
+          "y": 252.697
+        },
+        "props": {
+          "path": "material/highlight_off"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Icon_3"
+        },
+        "position": {
+          "height": 15,
+          "rotate": {
+            "anchor": "-680% -407%"
+          },
+          "width": 15,
+          "x": 31.990399999999994,
+          "y": 161.695
+        },
+        "props": {
+          "path": "material/fast_rewind"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Icon_4"
+        },
+        "position": {
+          "height": 15,
+          "rotate": {
+            "anchor": "-680% -407%"
+          },
+          "width": 15,
+          "x": 32.2068,
+          "y": 139.695
+        },
+        "props": {
+          "path": "material/power_settings_new"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "DateTimeInput"
+        },
+        "position": {
+          "height": 21,
+          "rotate": {
+            "anchor": "38% -13%"
+          },
+          "width": 116,
+          "x": 153.97,
+          "y": 62.9832
+        },
+        "props": {
+          "formattedValue": "Jul 23, 2025 12:00 AM",
+          "inputProps": {
+            "style": {
+              "backgroundColor": "#414141",
+              "borderStyle": "none",
+              "fontFamily": "Roboto",
+              "fontSize": 12
+            }
+          },
+          "style": {
+            "backgroundColor": "#736D5F",
+            "classes": "Shadow"
+          },
+          "value": {
+            "$": [
+              "ts",
+              0,
+              1753375703391
+            ],
+            "$ts": 1753218000000
+          }
+        },
+        "type": "ia.input.date-time-input"
+      },
+      {
+        "meta": {
+          "name": "Label_5"
+        },
+        "position": {
+          "height": 1,
+          "width": 240,
+          "x": 35.990399999999994,
+          "y": 135.221
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#555555"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_6"
+        },
+        "position": {
+          "height": 1,
+          "width": 240,
+          "x": 35.990399999999994,
+          "y": 158.693
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#555555"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_7"
+        },
+        "position": {
+          "height": 1,
+          "width": 240,
+          "x": 35.990399999999994,
+          "y": 226.697
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#555555"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_8"
+        },
+        "position": {
+          "height": 1,
+          "width": 240,
+          "x": 35.990399999999994,
+          "y": 202.697
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#555555"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_9"
+        },
+        "position": {
+          "height": 1,
+          "width": 240,
+          "x": 35.990399999999994,
+          "y": 181.694
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#555555"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_10"
+        },
+        "position": {
+          "height": 1,
+          "width": 240,
+          "x": 35.990399999999994,
+          "y": 249.697
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#555555"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_11"
+        },
+        "position": {
+          "height": 1,
+          "width": 240,
+          "x": 35.990399999999994,
+          "y": 272.697
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#555555"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_12"
+        },
+        "position": {
+          "height": 32,
+          "width": 99,
+          "x": 75.77000000000001,
+          "y": 23.46
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "site_id": "{view.params.widget_site_id}"
+                },
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "queryPath": "widget_site_name",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "\tif value and len(value) \u003e 0:\n\t\treturn value[0][\"location\"]\n\telse:\n\t\treturn \"Unknown site\"",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "color": "#D5D5D5"
+          },
+          "textStyle": {
+            "fontFamily": "Roboto",
+            "fontSize": 14,
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "new 4"
+        },
+        "position": {
+          "height": 45,
+          "rotate": {
+            "anchor": "11% 50%"
+          },
+          "width": 46,
+          "x": 27,
+          "y": 18
+        },
+        "props": {
+          "source": "/system/images/new 4.svg"
+        },
+        "type": "ia.display.image"
+      },
+      {
+        "meta": {
+          "name": "Label_14"
+        },
+        "position": {
+          "height": 1,
+          "width": 221,
+          "x": 35.990399999999994,
+          "y": 135.223
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#555555"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Icon_6"
+        },
+        "position": {
+          "height": 15,
+          "rotate": {
+            "anchor": "-680% -407%"
+          },
+          "width": 15,
+          "x": 31.990399999999994,
+          "y": 139.697
+        },
+        "props": {
+          "path": "material/power_settings_new"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Label_15"
+        },
+        "position": {
+          "height": 25,
+          "width": 52,
+          "x": 216,
+          "y": 87.983
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.farm_wt_count"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontFamily": "Roboto",
+            "fontSize": 11
+          },
+          "textStyle": {
+            "color": "#FFFFFF"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "TextField_12"
+        },
+        "position": {
+          "height": 22,
+          "width": 82,
+          "x": 39.209199999999996,
+          "y": 87.983
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#414141",
+            "borderColor": "#414141",
+            "fontSize": 11,
+            "fontWeight": "400"
+          },
+          "text": "Wind Farms"
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "Label_18"
+        },
+        "position": {
+          "height": 1,
+          "width": 240,
+          "x": 35.990399999999994,
+          "y": 82.983
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#555555"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Icon_7"
+        },
+        "position": {
+          "height": 15,
+          "rotate": {
+            "anchor": "-680% -407%"
+          },
+          "width": 15,
+          "x": 31.990399999999994,
+          "y": 91.983
+        },
+        "props": {
+          "path": "material/power_settings_new"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Label_19"
+        },
+        "position": {
+          "height": 25,
+          "width": 52,
+          "x": 216,
+          "y": 110.983
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.farm_pv_count"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontFamily": "Roboto",
+            "fontSize": 11
+          },
+          "textStyle": {
+            "color": "#FFFFFF"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "TextField_11"
+        },
+        "position": {
+          "height": 22,
+          "width": 83,
+          "x": 39.643,
+          "y": 110.983
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#414141",
+            "borderColor": "#414141",
+            "fontSize": 11,
+            "fontWeight": "400"
+          },
+          "text": "PV/invertors"
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "Icon_10"
+        },
+        "position": {
+          "height": 15,
+          "rotate": {
+            "anchor": "-680% -407%"
+          },
+          "width": 15,
+          "x": 31.990399999999994,
+          "y": 114.983
+        },
+        "props": {
+          "path": "material/power_settings_new"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Label_21"
+        },
+        "position": {
+          "height": 1,
+          "width": 240,
+          "x": 35.990399999999994,
+          "y": 108.223
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#555555"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_13"
+        },
+        "position": {
+          "height": 25,
+          "width": 72,
+          "x": 216,
+          "y": 156.94
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "site_id": "{view.params.widget_site_id}"
+                },
+                "queryPath": "test_ungheni",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "    try:\n        # If using query binding, the result is a dataset\n        if hasattr(value, \"getValueAt\"):\n            # Get value from first row, first column\n            active_power \u003d value.getValueAt(0, 0)\n        elif isinstance(value, list) and len(value) \u003e 0:\n            active_power \u003d value.get(\u0027active_power_per_site\u0027, 0)\n        else:\n            active_power \u003d 0\n\n        return \"{} MW\".format(round(active_power, 2))\n\n    except Exception as e:\n        return \"Error\"",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontFamily": "Roboto",
+            "fontSize": 11
+          },
+          "textStyle": {
+            "color": "#FFFFFF"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "sun1"
+        },
+        "position": {
+          "height": 44,
+          "width": 46,
+          "x": 26.968775,
+          "y": 18.93755
+        },
+        "props": {
+          "source": "/system/images/sun1.svg"
+        },
+        "type": "ia.display.image"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "#414141",
+        "borderBottomLeftRadius": 5,
+        "borderBottomRightRadius": 5,
+        "borderTopLeftRadius": 5,
+        "borderTopRightRadius": 5
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

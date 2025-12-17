@@ -1,0 +1,1 @@
+select ID as value, Setpoint_name as label from integration_schema.SETPOINTS_INDICATORS 

@@ -1,0 +1,582 @@
+{
+  "custom": {},
+  "params": {
+    "farms_sites": 0
+  },
+  "props": {
+    "defaultSize": {
+      "width": 1151
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\tif self.props.selected \u003d\u003d True:\n\t\tself.view.params.farms_sites \u003d 1\n\t\tself.getSibling(\"ToggleSwitch_0\").props.selected \u003d False\n\telse:\n\t\tself.view.params.farms_sites \u003d 0\n\t\tself.getSibling(\"ToggleSwitch_0\").props.selected \u003d True\n\t"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "ToggleSwitch"
+                    },
+                    "position": {
+                      "basis": "50%"
+                    },
+                    "props": {
+                      "color": {
+                        "selected": "#2ADB68",
+                        "unselected": "#EB3030"
+                      },
+                      "label": {
+                        "style": {
+                          "fontSize": 14
+                        },
+                        "text": "Activate Site"
+                      },
+                      "selected": true
+                    },
+                    "type": "ia.input.toggle-switch"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\tif self.props.selected \u003d\u003d True:\n\t\tself.view.params.farms_sites \u003d 1\n\t\tself.getSibling(\"ToggleSwitch\").props.selected \u003d False\n\telse:\n\t\tself.view.params.farms_sites \u003d 0\n\t\tself.getSibling(\"ToggleSwitch\").props.selected \u003d True\n\t"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "ToggleSwitch_0"
+                    },
+                    "position": {
+                      "basis": "50%"
+                    },
+                    "propConfig": {
+                      "props.selected": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.farms_sites1"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\treturn True",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "color": {
+                        "selected": "#2ADB68",
+                        "unselected": "#EB3030"
+                      },
+                      "label": {
+                        "style": {
+                          "fontSize": 14
+                        },
+                        "text": "Activate Farm"
+                      }
+                    },
+                    "type": "ia.input.toggle-switch"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_0"
+                },
+                "position": {
+                  "basis": "20%"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "text_area_start_date"
+                },
+                "position": {
+                  "basis": "16%"
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "#2D2D2D",
+                    "borderColor": "#555555",
+                    "borderStyle": "solid",
+                    "borderWidth": 0.1,
+                    "padding": 20,
+                    "textAlign": "center"
+                  },
+                  "text": "Select the event start date"
+                },
+                "type": "ia.input.text-area"
+              },
+              {
+                "meta": {
+                  "name": "test_area_end_date"
+                },
+                "position": {
+                  "basis": "16%"
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "#2D2D2D",
+                    "borderColor": "#555555",
+                    "borderStyle": "solid",
+                    "borderWidth": 0.1,
+                    "padding": 20,
+                    "textAlign": "center"
+                  },
+                  "text": "Select the event end date"
+                },
+                "type": "ia.input.text-area"
+              },
+              {
+                "meta": {
+                  "name": "Dropdown"
+                },
+                "position": {
+                  "basis": "16%"
+                },
+                "propConfig": {
+                  "props.options": {
+                    "binding": {
+                      "config": {
+                        "queryPath": "Reports/Setpoints",
+                        "returnFormat": "json"
+                      },
+                      "type": "query"
+                    }
+                  }
+                },
+                "props": {
+                  "maxMenuHeight": 100,
+                  "minMenuHeight": 50,
+                  "placeholder": {
+                    "color": "#FFFFFF",
+                    "text": "Select the indicator to setup"
+                  },
+                  "style": {
+                    "backgroundColor": "#2D2D2D"
+                  },
+                  "textAlign": "center"
+                },
+                "type": "ia.input.dropdown"
+              },
+              {
+                "children": [
+                  {
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\tself.parent.parent.getChild(\"PasswordContainerFlex\").getChild(\"PasswordField\").meta.visible \u003d True\n\tself.parent.parent.getChild(\"PasswordContainerFlex\").getChild(\"PasswordField\").props.text \u003d \"\"\n\tself.parent.parent.parent.getChild(\"FlexRightSide\").getChild(\"flexcontainer_psw_result\").getChild(\"label_psw_result\").meta.visible \u003d True\n\tself.parent.parent.parent.getChild(\"FlexRightSide\").getChild(\"flexcontainer_psw_result\").getChild(\"label_psw_result\").props.text \u003d \"\""
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Button"
+                    },
+                    "position": {
+                      "basis": "20%",
+                      "grow": 1
+                    },
+                    "props": {
+                      "image": {
+                        "height": 25,
+                        "icon": {
+                          "color": "#FFFFFF",
+                          "path": "material/check"
+                        },
+                        "position": "right",
+                        "width": 20
+                      },
+                      "style": {
+                        "backgroundColor": "#006B1E",
+                        "color": "#FFFF47"
+                      },
+                      "text": "Ok",
+                      "textStyle": {
+                        "backgroundColor": "#FFFFFF00",
+                        "color": "#FFFFFF"
+                      }
+                    },
+                    "type": "ia.input.button"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "13.4%"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "events": {
+                      "dom": {
+                        "onKeyPress": {
+                          "config": {
+                            "script": "\tif event.key \u003d\u003d \u0027Enter\u0027:\n\t\tentered_password \u003d self.props.text\n\t\tuser_id \u003d 1\n\t\tquery \u003d \"SELECT password FROM  integration_schema.users  WHERE id \u003d ?\"\n\t\tresults \u003d system.db.runPrepQuery(query, [user_id], \"postgresDB\")\n\t\trow \u003d results[0]  # Get first (and assumed only) row\n\t\tresult_dict \u003d {}\n\t\tfor column in results.getColumnNames():\n\t\t\tresult_dict[column] \u003d row[column]\n\t\tif entered_password \u003d\u003d result_dict[\"password\"]:\n\t\t\ttry:\n\t\t\t\t# Adjust these paths as needed to your component hierarchy\n\t\t\t\tdate_from \u003d self.parent.parent.parent.getChild(\"FlexRightSide\").getChild(\"datetime_input_start\").props.value\n\t\t\t\tdate_to \u003d self.parent.parent.parent.getChild(\"FlexRightSide\").getChild(\"datetime_input_end\").props.value\n\t\t\t\tsetpoint_id \u003d self.parent.parent.getChild(\"Dropdown\").props.value\n\t\t\t\tsetpoint_value \u003d self.parent.parent.parent.getChild(\"FlexRightSide\").getChild(\"entry_field_value\").props.value\n\t\t\t\tlocation_type \u003d self.view.params.farms_sites\n\t\t\t\tif location_type \u003d\u003d 0:\n\t\t\t\t\tsite_id \u003d self.parent.parent.parent.getChild(\"FlexRightSide\").getChild(\"Dropdown\").props.value\n\t\t\t\t\t\n\t\t\t\t\tmy_query \u003d \"\"\"SELECT location, farm_name, farmid, sites.siteid as site_id\n\t\t\t\t\t\t\t\tFROM sites\n\t\t\t\t\t\t\t\tLEFT JOIN farms ON sites.siteid \u003d farms.siteid\n\t\t\t\t\t\t\t\tWHERE sites.siteid \u003d ?\"\"\"\n\t\t\t\t\tmy_param \u003d [site_id]\n\t\t\t\t\tresult \u003d system.db.runPrepQuery(my_query, my_param, \"postgresDB\")\n\t\t\t\t\tlist_of_locations \u003d []\n\t\t\t\t\tfor row in result:\n\t\t\t\t\t\tlist_of_locations.append((site_id, row[\"farmid\"]))\n\t\t\t\t\t\n\t\t\t\telse:\n\t\t\t\t\t#site_id \u003d ????\n\t\t\t\t\tlist_of_farms \u003d self.parent.parent.parent.getChild(\"FlexRightSide\").getChild(\"Dropdown\").props.value\n\t\t\t\t\tplaceholders \u003d \",\".join([\"?\"] * len(list_of_farms))\n\t\t\t\t\tmy_query \u003d \"\"\"\n\t\t\t\t\t    SELECT location, farm_name, farmid, sites.siteid as site_id\n\t\t\t\t\t    FROM sites\n\t\t\t\t\t    LEFT JOIN farms ON sites.siteid \u003d farms.siteid\n\t\t\t\t\t    WHERE farmid IN ({})\n\t\t\t\t\t\"\"\".format(placeholders)\n\t\t\t\t\tresult \u003d system.db.runPrepQuery(my_query, list_of_farms, \"postgresDB\")\n\n\t\t\t\t\tlist_of_locations \u003d []\n\t\t\t\t\tfor row in result:\n\t\t\t\t\t\tsystem.perspective.print(row)\n\t\t\t\t\t\tlist_of_locations.append((row[\"site_id\"], row[\"farmid\"]))\n\t\t\t\t\n\t\t\t\t\n\t\t\t\tfor elem in list_of_locations:\n\t\t\t\t\tuser_id \u003d int(user_id)\n\t\t\t\t\tsite_id \u003d int(elem[0])\n\t\t\t\t\tfarm_id \u003d int(elem[1])\n\t\t\t\t\tlocation_type \u003d int(location_type)\n\t\n\t\t\t\t\tinsert_query \u003d \"\"\"\n\t\t\t\t\t\tINSERT INTO integration_schema.SETPOINTS_HISTORICAL_TABLE (\n\t\t\t\t\t\t\tSETPOINTID,\n\t\t\t\t\t\t\tISACTIVE,\n\t\t\t\t\t\t\tEVENT_TIME,\n\t\t\t\t\t\t\tUSERID,\n\t\t\t\t\t\t\tACTION_FROM,\n\t\t\t\t\t\t\tACTION_TO,\n\t\t\t\t\t\t\tSITEID,\n\t\t\t\t\t\t\tFARMID,\n\t\t\t\t\t\t\tSETPOINT_VALUE,\n\t\t\t\t\t\t\tLOCATION_TYPE\n\t\t\t\t\t\t) VALUES (?, ?, NOW(), ?, ?, ?, ?, ?, ?, ?)\"\"\"\n\t\t                  \n\t\t\t\t\tparams \u003d [\n\t\t\t\t\t\tsetpoint_id,\n\t\t\t\t\t\t1,          # ISACTIVE\n\t\t\t\t\t\tuser_id,\n\t\t\t\t\t\tdate_from,\n\t\t\t\t\t\tdate_to,\n\t\t\t\t\t\tsite_id,\n\t\t\t\t\t\tfarm_id,\n\t\t\t\t\t\tsetpoint_value,\n\t\t\t\t\t\tlocation_type\n\t\t\t\t\t]\n\t\t\t\t\tsystem.db.runPrepUpdate(insert_query, params, \"postgresDB\")\n\t\t\t\t\tsystem.perspective.print(\"Insert successful.\")\n\t\t\texcept Exception as e:\n\t\t\t\tsystem.perspective.print(\"Insert failed: %s\" % str(e))\n\t\t\tself.parent.parent.parent.getChild(\"FlexRightSide\").getChild(\"flexcontainer_psw_result\").getChild(\"label_psw_result\").props.text \u003d \u0027Event created!\u0027\n\t\telse:\n\t\t\tself.parent.parent.parent.getChild(\"FlexRightSide\").getChild(\"flexcontainer_psw_result\").getChild(\"label_psw_result\").props.text \u003d \u0027Password incorrect!\u0027\n"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "PasswordField"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "type": "ia.input.password-field"
+                  }
+                ],
+                "meta": {
+                  "name": "PasswordContainerFlex"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexLeftSide"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Dropdown"
+                },
+                "position": {
+                  "basis": "20%"
+                },
+                "propConfig": {
+                  "props.options": {
+                    "binding": {
+                      "config": {
+                        "parameters": {
+                          "farmid": "{session.custom.list_of_farms}",
+                          "farms_sites": "{view.params.farms_sites}",
+                          "param1": "{session.custom.farmFilter}"
+                        },
+                        "queryPath": "Reports/ForPopUpSelectionSiteId",
+                        "returnFormat": "json"
+                      },
+                      "type": "query"
+                    },
+                    "onChange": {
+                      "enabled": null,
+                      "script": "\treturn currentValue"
+                    }
+                  }
+                },
+                "props": {
+                  "dropdownOptionStyle": {
+                    "backgroundColor": "#3A3A3A",
+                    "fontSize": 14,
+                    "overflowWrap": "normal"
+                  },
+                  "placeholder": {
+                    "color": "#FFFFFF",
+                    "icon": {
+                      "path": "material/add_location"
+                    },
+                    "text": "Select the site"
+                  },
+                  "showClearIcon": true,
+                  "style": {
+                    "backgroundColor": "#3A3A3A",
+                    "borderColor": "#555555",
+                    "borderStyle": "solid",
+                    "borderWidth": 0.1
+                  },
+                  "textAlign": "center",
+                  "wrapMultiSelectValues": false
+                },
+                "type": "ia.input.dropdown"
+              },
+              {
+                "meta": {
+                  "name": "datetime_input_start"
+                },
+                "position": {
+                  "basis": "16%"
+                },
+                "propConfig": {
+                  "props.minDate": {
+                    "binding": {
+                      "config": {
+                        "expression": "now()"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "format": "DD.MM.YYYY HH:mm:ss",
+                  "formattedValue": "25.08.2025 20:11:36",
+                  "inputProps": {
+                    "style": {
+                      "backgroundColor": "#3A3A3A",
+                      "borderColor": "#555555",
+                      "borderStyle": "solid",
+                      "borderWidth": 0.1,
+                      "classes": ""
+                    }
+                  },
+                  "modalStyle": {
+                    "style": {
+                      "color": "#FFFFFF"
+                    }
+                  },
+                  "placeholder": "Select event DateTo",
+                  "style": {
+                    "borderColor": "#555555",
+                    "borderStyle": "solid",
+                    "borderWidth": 0
+                  },
+                  "value": {
+                    "$": [
+                      "ts",
+                      0,
+                      1756141896304
+                    ],
+                    "$ts": 1756141896690
+                  }
+                },
+                "type": "ia.input.date-time-input"
+              },
+              {
+                "meta": {
+                  "name": "datetime_input_end"
+                },
+                "position": {
+                  "basis": "16%"
+                },
+                "propConfig": {
+                  "props.minDate": {
+                    "binding": {
+                      "config": {
+                        "expression": "now()"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "format": "DD.MM.YYYY HH:mm:ss",
+                  "formattedValue": "25.08.2025 18:54:43",
+                  "inputProps": {
+                    "style": {
+                      "backgroundColor": "#3A3A3A",
+                      "borderColor": "#555555",
+                      "borderStyle": "solid",
+                      "borderWidth": 0.1,
+                      "classes": ""
+                    }
+                  },
+                  "modalStyle": {
+                    "style": {
+                      "color": "#FFFFFF"
+                    }
+                  },
+                  "placeholder": "Select event DateTo",
+                  "style": {
+                    "borderColor": "#555555",
+                    "borderStyle": "solid",
+                    "borderWidth": 0
+                  },
+                  "value": {
+                    "$": [
+                      "ts",
+                      192,
+                      1756137283695
+                    ],
+                    "$ts": 1756137283695
+                  }
+                },
+                "type": "ia.input.date-time-input"
+              },
+              {
+                "meta": {
+                  "name": "entry_field_value"
+                },
+                "position": {
+                  "basis": "16%"
+                },
+                "props": {
+                  "containerStyle": {
+                    "textAlign": "center"
+                  },
+                  "style": {
+                    "backgroundColor": "#3A3A3A",
+                    "fontSize": 16,
+                    "textAlign": "center"
+                  },
+                  "value": 0
+                },
+                "type": "ia.input.numeric-entry-field"
+              },
+              {
+                "children": [
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\tsystem.perspective.closePopup(\"create_event\")"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Button"
+                    },
+                    "position": {
+                      "basis": "20%",
+                      "grow": 1
+                    },
+                    "props": {
+                      "image": {
+                        "height": 25,
+                        "icon": {
+                          "color": "#FFFFFF",
+                          "path": "material/cancel"
+                        },
+                        "position": "right",
+                        "width": 20
+                      },
+                      "style": {
+                        "backgroundColor": "#6B0000",
+                        "color": "#FFFF47"
+                      },
+                      "text": "Cancel",
+                      "textStyle": {
+                        "backgroundColor": "#FFFFFF00",
+                        "color": "#FFFFFF"
+                      }
+                    },
+                    "type": "ia.input.button"
+                  }
+                ],
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tsystem.perspective.closePopup(\"TestPopUp\")"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "13.4%"
+                },
+                "props": {
+                  "style": {
+                    "borderColor": "#555555",
+                    "borderStyle": "solid",
+                    "borderWidth": 0.1
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "label_psw_result"
+                    },
+                    "position": {
+                      "basis": "305px"
+                    },
+                    "props": {
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "flexcontainer_psw_result"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "#3A3A3A"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexRightSide"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "PopUpFlex_0"
+        },
+        "position": {
+          "height": 415,
+          "width": 705,
+          "x": 84,
+          "y": 38
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "custom": {
+    "popup_is_open": true
+  },
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 41,
+      "width": 274
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "lblPrefix"
+                },
+                "position": {
+                  "basis": "58px"
+                },
+                "props": {
+                  "style": {
+                    "color": "#BDBDBD",
+                    "fontWeight": "500",
+                    "paddingLeft": 5
+                  },
+                  "text": "Status:"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "lblSummary"
+                },
+                "position": {
+                  "basis": "132px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "if(\r\n    len({session.custom.selectedStatuses}) \u003d 0,\r\n    concat(\r\n        \"All \",\r\n        toString(coalesce({view.custom.totalStatuses}, 0)),\r\n        \" statuses\"\r\n    ),\r\n    concat(\r\n        toString(len({session.custom.selectedStatuses})),\r\n        \" selected\"\r\n    )\r\n)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "color": "#FAFAFA",
+                    "fontWeight": "400"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": [
+                      {
+                        "config": {
+                          "script": "\n    if not self.view.custom.popup_is_open:\n        system.perspective.openPopup(\n            \"statusPopup\",\n            \"Left Bar/StatusPicker/Popup\",\n            showCloseIcon\u003dFalse,\n            showTitle\u003dFalse,\n            overlayDismiss\u003dFalse,\n            position\u003d{\"left\": 120, \"top\": 200},\n            width\u003d250,    # match your view\u0027s width (from Designer)\n            height\u003d230    # match your view\u0027s height (from Designer)\n            #anchor\u003dself.getSibling(\"statusTriggerBox\")  # Adjust path if needed!\n        )\n        self.view.custom.popup_is_open \u003d True\n        system.perspective.print(\"Popup opened. State: \" + str(self.view.custom.popup_is_open))\n    else:\n        system.perspective.closePopup(\"statusPopup\")\n        self.view.custom.popup_is_open \u003d False\n        system.perspective.print(\"Popup closed. State: \" + str(self.view.custom.popup_is_open))"
+                        },
+                        "scope": "G",
+                        "type": "script"
+                      },
+                      {
+                        "config": {
+                          "script": "    \"\"\"\n    Status bar onClick – toggles the status-picker popup\n    Compatible with Ignition versions that don\u0027t have system.perspective.isPopupOpen\n    \"\"\"\n\n    popup_id \u003d \"statusPopup\"            # keep this stable\n\n    # 1️⃣ Try to close it first (toggle behaviour)\n    try:\n        system.perspective.closePopup(popup_id)\n        return                           # it was open → now closed → we\u0027re done\n    except ValueError:\n        # closePopup throws ValueError if popup_id wasn\u0027t found → means it\u0027s not open yet\n        pass\n\n    # 2️⃣ Open it, anchored to the whole bar (event.source)\n    system.perspective.openPopup(\n        popupId     \u003d popup_id,\n        view        \u003d \"StatusPicker/Popup\",   # \u003c\u003c adjust if your path differs\n        target      \u003d event.source,           # anchor to the bar you clicked\n        anchor      \u003d \"southWest\",            # directly below, left-aligned\n        offsetY     \u003d 4,                      # small gap\n        modal       \u003d False,\n        draggable   \u003d False,\n        resizable   \u003d False,\n        shrinkToFit \u003d True\n    )\n   "
+                        },
+                        "enabled": false,
+                        "scope": "G",
+                        "type": "script"
+                      },
+                      {
+                        "config": {
+                          "script": "\t\"\"\"\n\tClick-to-toggle Status Picker popup\n\tAttach this to:  statusTriggerBox  (or iconCaret / rowContent – your choice)\n\t\"\"\"\n\n\tpopup_id \u003d \"statusPopup\"            # keep this ID stable\n\n\t# ── If it\u0027s already open, close it (toggle behaviour)\n\tif system.perspective.isPopupOpen(popup_id):\n\t    system.perspective.closePopup(popup_id)\n\t    return\n\n\t# ── Open it, anchored to the component that was clicked (event.source)\n\tsystem.perspective.openPopup(\n\t    popupId     \u003d popup_id,\n\t    view        \u003d \"StatusPicker/Popup\",   # \u003c-- your popup view path\n\t    title       \u003d \"Pick statuses\",\n\t    target      \u003d event.source,           # anchor *this* component\n\t    anchor      \u003d \"southWest\",            # just below, left-aligned\n\t    offsetX     \u003d 0,                      # tweak gap if you like\n\t    offsetY     \u003d 4,\n\t    modal       \u003d False,\n\t    draggable   \u003d False,\n\t    resizable   \u003d False,\n\t    shrinkToFit \u003d True                    # auto-size to content\n\t)"
+                        },
+                        "enabled": false,
+                        "scope": "G",
+                        "type": "script"
+                      },
+                      {
+                        "config": {
+                          "script": "    \"\"\"\n    Attach this onClick to the caret icon, but anchor the popup to the parent row.\n    \"\"\"\n    popup_id \u003d \"statusPopup\"\n\n    if system.perspective.isPopupOpen(popup_id):\n        system.perspective.closePopup(popup_id)\n        return\n\n    # \u0027self.parent\u0027 is rowContent; use \u0027self.parent.parent\u0027 if you need statusTriggerBox\n    system.perspective.openPopup(\n        popupId     \u003d popup_id,\n        view        \u003d \"StatusPicker/Popup\",\n        title       \u003d \"Pick statuses\",\n        target      \u003d self.parent,       # anchor to the *row*, not the tiny icon\n        anchor      \u003d \"southWest\",\n        offsetY     \u003d 4,\n        modal       \u003d False,\n        draggable   \u003d False,\n        resizable   \u003d False,\n        shrinkToFit \u003d True\n    )"
+                        },
+                        "enabled": false,
+                        "scope": "G",
+                        "type": "script"
+                      },
+                      {
+                        "config": {
+                          "script": "    \"\"\"\n    iconCaret.onClick – opens / closes the status picker\n\n    • keeps toggle behaviour\n    • anchors popup to the *row* so it starts under the bar, not out in space\n    \"\"\"\n\n    popup_id \u003d \"statusPopup\"           # stable ID\n\n    # Toggle: close if it’s already open\n    if system.perspective.isPopupOpen(popup_id):\n        system.perspective.closePopup(popup_id)\n        return\n\n    # Anchor to the row (one or two levels up – adjust if needed)\n    anchor_component \u003d self.parent        # rowContent\n    # If rowContent is still too small/narrow, use the full bar:\n    # anchor_component \u003d self.parent.parent   # statusTriggerBox\n\n    system.perspective.openPopup(\n        popupId     \u003d popup_id,\n        view        \u003d \"StatusPicker/Popup\",   # path to your popup view\n        title       \u003d \"Pick statuses\",\n        target      \u003d anchor_component,\n        anchor      \u003d \"southWest\",            # directly under, left-aligned\n        offsetY     \u003d 4,                      # small vertical gap\n        modal       \u003d False,\n        draggable   \u003d False,\n        resizable   \u003d False,\n        shrinkToFit \u003d True\n    )"
+                        },
+                        "enabled": false,
+                        "scope": "G",
+                        "type": "script"
+                      },
+                      {
+                        "config": {
+                          "script": "    popup_id \u003d \"statusPopup\"            # stable id\n\n    # Toggle behaviour: close if already open\n    if system.perspective.isPopupOpen(popup_id):\n        system.perspective.closePopup(popup_id)\n        return\n\n    system.perspective.openPopup(\n        popupId     \u003d popup_id,\n        view        \u003d \"StatusPicker/Popup\",   # path to your popup view\n        title       \u003d \"Pick statuses\",\n        target \u003d self.parent,  # rowContent  (or self.parent.parent for statusTriggerBox)\n        anchor      \u003d \"southWest\",            # popup under \u0026 left-aligned\n        offsetY     \u003d 4,                      # small vertical gap\n        modal       \u003d False,\n        draggable   \u003d False,\n        resizable   \u003d False,\n        shrinkToFit \u003d True\n    )"
+                        },
+                        "enabled": false,
+                        "scope": "G",
+                        "type": "script"
+                      },
+                      {
+                        "config": {
+                          "script": "\tsystem.perspective.print(\"1.\" + str(self.view.custom.popup_is_open))\n\tif not self.view.custom.popup_is_open:\n\t\tsystem.perspective.openPopup(\n\t\t\"statusPopup\",             # popupId\n\t\t\"StatusPicker/Popup\",      # folder/view path—must match your tree\n\t\tshowCloseIcon\u003dTrue,\n\t\t#modal\u003dFalse,\n\t\toverlayDismiss\u003dTrue,\n\t\tposition \u003d {\"left\": event.pageX, \"top\": event.pageY + 8},\n\t\t#hideOnOutsideClick \u003d True\n\t\t)\n\t\tself.view.custom.popup_is_open \u003d True\n\t\tsystem.perspective.print(\"2.\" + str(self.view.custom.popup_is_open))\n\telif self.view.custom.popup_is_open:\n\t\tsystem.perspective.print(\"hernea\")\n\t\tsystem.perspective.closePopup(\"statusPopup\", \"StatusPicker/Popup\")\n\t\tsystem.perspective.print(\"3.\" + str(self.view.custom.popup_is_open))\n\t\tself.view.custom.popup_is_open \u003d False\n\t\tsystem.perspective.print(\"4.\" + str(self.view.custom.popup_is_open))"
+                        },
+                        "enabled": false,
+                        "scope": "G",
+                        "type": "script"
+                      },
+                      {
+                        "config": {
+                          "script": "    if not self.view.custom.popup_is_open:\n     system.perspective.openPopup(\n        \"statusPopup\",\n        \"StatusPicker/Popup\",\n        showCloseIcon\u003dTrue,\n        overlayDismiss\u003dTrue,\n        #position\u003d{\"left\": event.pageX, \"top\": event.pageY + 8},\n     )\n     self.view.custom.popup_is_open \u003d True\n     system.perspective.print(\"Popup opened. State: \" + str(self.view.custom.popup_is_open))\n    else:\n     system.perspective.closePopup(\"statusPopup\")\n     self.view.custom.popup_is_open \u003d False\n     system.perspective.print(\"Popup closed. State: \" + str(self.view.custom.popup_is_open))"
+                        },
+                        "enabled": false,
+                        "scope": "G",
+                        "type": "script"
+                      }
+                    ]
+                  }
+                },
+                "meta": {
+                  "name": "iconCaret"
+                },
+                "position": {
+                  "basis": "30px"
+                },
+                "props": {
+                  "color": "#BDBDBD",
+                  "path": "material/arrow_drop_down",
+                  "style": {
+                    "fontSize": 12,
+                    "marginRight": 2
+                  }
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "meta": {
+              "name": "rowContent"
+            },
+            "position": {
+              "height": 30,
+              "width": 253,
+              "x": 3,
+              "y": 3
+            },
+            "props": {
+              "alignItems": "center",
+              "justify": "space-between"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": [
+              {
+                "config": {
+                  "script": "    system.perspective.openPopup(\n    \"statusPopup\",             # popupId\n    \"StatusPicker/Popup\",      # folder/view path—must match your tree\n    params \u003d {},\n    position \u003d {\"left\": event.pageX, \"top\": event.pageY + 8},\n    hideOnOutsideClick \u003d True\n)"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "\t# Opens (or toggles) the StatusPicker/Popup inside a modal 300×420.\n    system.perspective.openPopup(\n    id\u003d\"statusPopup\",\n    view\u003d\"StatusPicker/Popup\",\n    params\u003d{},\n    title\u003d\"Pick statuses\",\n    modal\u003dTrue,\n    draggable\u003dFalse,\n    resizable\u003dFalse,\n    width\u003d300,\n    height\u003d420\n)"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "    popup_id \u003d \"statusPopup\"          # stable id\n\n    if system.perspective.isPopupOpen(popup_id):\n        system.perspective.closePopup(popup_id)\n        return\n\n    system.perspective.openPopup(\n        popupId     \u003d popup_id,\n        view        \u003d \"StatusPicker/Popup\",   # path to popup view\n        title       \u003d \"Pick statuses\",\n        target      \u003d event.source,           # ← the full bar\n        anchor      \u003d \"southWest\",            # under + left-aligned\n        offsetY     \u003d 4,\n        modal       \u003d False,\n        draggable   \u003d False,\n        resizable   \u003d False,\n        shrinkToFit \u003d True\n    )"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "    popup_id \u003d \"statusPopup\"\n\n    if system.perspective.isPopupOpen(popup_id):\n        system.perspective.closePopup(popup_id)\n        return\n\n    system.perspective.openPopup(\n        popupId  \u003d popup_id,\n        view     \u003d \"StatusPicker/Popup\",\n        position \u003d {\n            \"left\": event.pageX,          # mouse X\n            \"top\":  event.pageY + 8       # mouse Y + 8 px\n        },\n        modal       \u003d False,\n        draggable   \u003d False,\n        resizable   \u003d False,\n        shrinkToFit \u003d True\n    )"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "    popup_id \u003d \"statusPopup\"\n\n    # ► Toggle close/open\n    try:\n        system.perspective.closePopup(popup_id)\n        return\n    except:\n        pass\n\n    # ► Open anchored to this bar\n    system.perspective.openPopup(\n        popupId            \u003d popup_id,\n        view               \u003d \"StatusPicker/Popup\",\n        title              \u003d \"Pick statuses\",\n        target             \u003d self,           # \u003c- the bar itself\n        anchor             \u003d \"southWest\",    # below \u0026 left-aligned\n        offsetY            \u003d 4,\n        hideOnOutsideClick \u003d True,\n        modal              \u003d False,\n        draggable          \u003d False,\n        resizable          \u003d False,\n        shrinkToFit        \u003d True\n    )"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              }
+            ]
+          }
+        },
+        "meta": {
+          "name": "statusTriggerBox",
+          "tooltip": {
+            "style": {
+              "backgroundColor": "#212121",
+              "opacity": "0.02"
+            }
+          }
+        },
+        "position": {
+          "height": 37,
+          "width": 260,
+          "x": 1,
+          "y": 2
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#0f1e30",
+            "borderColor": "#FF0000",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "#0f1e30"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

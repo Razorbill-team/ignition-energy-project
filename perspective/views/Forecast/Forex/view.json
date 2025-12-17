@@ -1,0 +1,457 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 960
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "height": 53,
+          "width": "100%",
+          "x": -4
+        },
+        "props": {
+          "alignContent": "space-around",
+          "alignItems": "baseline",
+          "direction": "row-reverse",
+          "justify": "space-evenly",
+          "style": {
+            "backgroundColor": "#182d47",
+            "borderBottomColor": "#555555",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 0.6
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "IFrame"
+        },
+        "position": {
+          "height": "99%",
+          "width": "99%",
+          "x": -3.5,
+          "y": 53
+        },
+        "props": {
+          "src": "http://localhost:8088/system/webdev/the_project_1_2025-12-04_2202/aggrid_forex/prices/ui2"
+        },
+        "type": "ia.display.iframe"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "action": "Toggle",
+                "type": "View"
+              },
+              "scope": "C",
+              "type": "fullscreen"
+            }
+          }
+        },
+        "meta": {
+          "name": "Icon",
+          "tooltip": {
+            "enabled": true,
+            "style": {
+              "backgroundColor": "#695252",
+              "color": "#D5D5D5",
+              "fontFamily": "Roboto",
+              "fontSize": 12,
+              "textAlign": "center"
+            },
+            "text": "Full Screen"
+          }
+        },
+        "position": {
+          "height": 36,
+          "width": 51,
+          "x": 301.71,
+          "y": 74.21
+        },
+        "props": {
+          "path": "material/fullscreen",
+          "tooltip": "auzi ai pula"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true,
+                    "width": "50px"
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Dashboard View",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/dashboardf\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_5"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomWidth": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Anicillary Market",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/ancillary_services_market\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_11"
+            },
+            "position": {
+              "basis": "150px"
+            },
+            "props": {
+              "alignContent": "space-around",
+              "alignItems": "flex-end",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomWidth": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Forex ",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/forex\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_7"
+            },
+            "position": {
+              "basis": "100px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomColor": "#FFFFFF",
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": 2,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Cross Border",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/cross_border\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_10"
+            },
+            "position": {
+              "basis": "130px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomWidth": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Market Prices",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/market_prices\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_9"
+            },
+            "position": {
+              "basis": "130px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomWidth": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Available Power",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/forecast\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_8"
+            },
+            "position": {
+              "basis": "130px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomColor": "#FFFFFF",
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_1"
+        },
+        "position": {
+          "height": 53,
+          "rotate": {
+            "anchor": "43% 25%"
+          },
+          "width": 801,
+          "x": -3.5
+        },
+        "props": {
+          "alignContent": "space-around",
+          "alignItems": "baseline",
+          "direction": "row-reverse",
+          "justify": "space-evenly",
+          "style": {
+            "backgroundColor": "#182d47",
+            "borderBottomColor": "#555555",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 0.6
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

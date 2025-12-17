@@ -1,0 +1,5 @@
+{
+  "resource-type": "text-resource",
+  "content-type": "text/html",
+  "text": "<!DOCTYPE html>\n<html>\n<head>\n<title>Page Title</title>\n</head>\n<body>\n\n<h1>My First Heading</h1>\n<p>My first paragraph.</p>\n\n</body>\n</html>\n"
+}

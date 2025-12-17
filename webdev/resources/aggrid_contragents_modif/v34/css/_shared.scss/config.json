@@ -1,0 +1,5 @@
+{
+  "resource-type": "text-resource",
+  "text": "// mixins shared between the our themes and the public API\n\n// Apply styles to all text fields. Usage:\n// @include ag.text-input {\n//     border: solid dashed red;\n// }\n@mixin text-input {\n    input[class^='ag-']:not([type]),\n    input[class^='ag-'][type='text'],\n    input[class^='ag-'][type='number'],\n    input[class^='ag-'][type='tel'],\n    input[class^='ag-'][type='date'],\n    input[class^='ag-'][type='datetime-local'],\n    textarea[class^='ag-'] {\n        @content;\n    }\n}\n",
+  "content-type": "text/css"
+}

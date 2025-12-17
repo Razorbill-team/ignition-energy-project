@@ -1,0 +1,107 @@
+{
+  "custom": {},
+  "params": {
+    "max": 50,
+    "unit": "Hz",
+    "value": 5.1
+  },
+  "propConfig": {
+    "params.max": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.unit": {
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.value": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 27,
+      "width": 80
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Progress"
+        },
+        "position": {
+          "height": 0.6667,
+          "width": 0.9625,
+          "y": 0.1481
+        },
+        "propConfig": {
+          "props.max": {
+            "binding": {
+              "config": {
+                "expression": "if(isNull({view.params.max}) || {view.params.max} \u003c\u003d 0, 1, {view.params.max})\r\n"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "path": "view.params.value"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "bar": {
+            "color": "#8F0810AD"
+          }
+        },
+        "type": "ia.display.progress"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 0.3704,
+          "rotate": {
+            "anchor": "-114% 75%"
+          },
+          "width": 0.7625,
+          "x": 0.0875,
+          "y": 0.2963
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "numberFormat(toDouble({view.params.value}), \"#,##0.0\")\r\n+ if(isNull({view.params.unit}) || {view.params.unit} \u003d \"\", \"\", \" \" + {view.params.unit})\r\n\r\n\r\n\r\n\r\n\r\n"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 11
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "mode": "percent",
+      "style": {
+        "paddingLeft": 15,
+        "paddingRight": 1
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

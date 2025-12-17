@@ -20,14 +20,15 @@ def onStartup():
 			# Check if tag already exists by trying to read it
 			tag_data = system.tag.read(tag_path)
 			
-			# If tag exists and has good quality, skip creation
+			# If tag exists (even with bad quality), skip creation
 			if tag_data is not None:
 				system.util.getLogger("Startup").info(
 					"Tag '{}' already exists, skipping creation".format(tag_path)
 				)
 				continue
-		except:
-			# Tag doesn't exist, proceed with creation
+		except Exception, e:
+			# Tag doesn't exist or read failed - proceed with creation
+			# This is expected when tag doesn't exist, so we don't log it
 			pass
 		
 		try:

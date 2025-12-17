@@ -1,0 +1,258 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 1600
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onAddEvent": {
+              "config": {
+                "script": "\tsystem.perspective.print(event)"
+              },
+              "scope": "G",
+              "type": "script"
+            },
+            "onClickEvent": [
+              {
+                "config": {
+                  "script": "\tscheduled \u003d self.props.scheduledEvents\n\tformat \u003d \"yyyy-MM-dd HH:mm:ss z\"\n\tlocale \u003d \"en-us\"\n\tfor count, toFind in enumerate(scheduled):\n\t    if toFind.eventId \u003d\u003d event.eventId and toFind.itemId \u003d\u003d event.itemId:\n\t    \t#system.perspective.print(scheduled[count])\n\t        #self.custom.clicked_event_id \u003d scheduled[count]\n\t        self.session.custom.clicked_schedule_event \u003d scheduled[count]\n\t        break"
+                },
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "draggable": true,
+                  "id": "bMWmdeCR",
+                  "modal": false,
+                  "overlayDismiss": false,
+                  "position": {
+                    "relativeLocation": "center"
+                  },
+                  "positionType": "relative",
+                  "resizable": true,
+                  "showCloseIcon": true,
+                  "type": "toggle",
+                  "viewParams": {
+                    "date_input_end": "{session.custom.clicked_schedule_event.endDate}",
+                    "date_input_start": "{session.custom.clicked_schedule_event.startDate}"
+                  },
+                  "viewPath": "Control/exact_time_popup",
+                  "viewportBound": false
+                },
+                "scope": "C",
+                "type": "popup"
+              }
+            ],
+            "onMoveEvent": {
+              "config": {
+                "script": "\titemId \u003d event.itemId\n\teventId \u003d event.eventId\n\tstart \u003d event.start\n\tend \u003d event.end\n\t#system.perspective.print(type(start))\n\t#system.perspective.print(event)\n\t#system.perspective.print(self.props.scheduledEvents)\n\t\n\ttry:\n\t\tstartDate \u003d system.date.parse(start, \"yyyy-MM-dd HH:mm:ss\")\n\texcept:\n\t\t# If it\u0027s already a java.util.Date, keep it\n\t\tstartDate \u003d start\n\t\n\ttry:\n\t\tendDate \u003d system.date.parse(end, \"yyyy-MM-dd HH:mm:ss\")\n\texcept:\n\t\tendDate \u003d end\n\t\n\tnew_events \u003d []\n\tfor sch_event in self.props.scheduledEvents:\n\t\te \u003d dict(sch_event)\n\t\tif e[\"itemId\"] \u003d\u003d itemId and e[\"eventId\"] \u003d\u003d eventId:\n\t\t\te[\"startDate\"] \u003d startDate\n\t\t\te[\"endDate\"] \u003d endDate\n\t\tnew_events.append(e)\n\t\n\t# overwrite with updated list\n\tself.props.scheduledEvents \u003d new_events\n\t"
+              },
+              "scope": "G",
+              "type": "script"
+            },
+            "onResizeEvent": {
+              "config": {
+                "script": "\titemId \u003d event.itemId\n\teventId \u003d event.eventId\n\tstart \u003d event.start\n\tend \u003d event.end\n\t#system.perspective.print(type(start))\n\t#system.perspective.print(event)\n\t#system.perspective.print(self.props.scheduledEvents)\n\t\n\ttry:\n\t\tstartDate \u003d system.date.parse(start, \"yyyy-MM-dd HH:mm:ss\")\n\texcept:\n\t\t# If it\u0027s already a java.util.Date, keep it\n\t\tstartDate \u003d start\n\t\n\ttry:\n\t\tendDate \u003d system.date.parse(end, \"yyyy-MM-dd HH:mm:ss\")\n\texcept:\n\t\tendDate \u003d end\n\t\n\tnew_events \u003d []\n\tfor sch_event in self.props.scheduledEvents:\n\t\te \u003d dict(sch_event)\n\t\tif e[\"itemId\"] \u003d\u003d itemId and e[\"eventId\"] \u003d\u003d eventId:\n\t\t\te[\"startDate\"] \u003d startDate\n\t\t\te[\"endDate\"] \u003d endDate\n\t\tnew_events.append(e)\n\t\n\t# overwrite with updated list\n\tself.props.scheduledEvents \u003d new_events"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          },
+          "dom": {
+            "onSelect": {
+              "config": {
+                "script": "\tsystem.perspective.print(event)\n\tsystem.perspective.openPopup(\n            \"qqq\",\n            \"Control/exact_time_popup\",\n            showCloseIcon\u003dFalse,\n            showTitle\u003dFalse,\n            overlayDismiss\u003dFalse,\n            position\u003d{\"left\": 1280, \"top\": 2000},\n            width\u003d250,    # match your view\u0027s width (from Designer)\n            height\u003d230    # match your view\u0027s height (from Designer)\n            #anchor\u003dself.getSibling(\"statusTriggerBox\")  # Adjust path if needed!\n        )"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "contextMenu": {
+            "items": [
+              {
+                "children": [],
+                "icon": {
+                  "color": "",
+                  "path": "material/360",
+                  "style": {}
+                },
+                "link": {
+                  "target": "self",
+                  "url": ""
+                },
+                "message": {
+                  "payload": {},
+                  "scope": "page",
+                  "type": ""
+                },
+                "method": {
+                  "name": "",
+                  "params": {}
+                },
+                "style": {
+                  "classes": ""
+                },
+                "text": "menu-item",
+                "type": "link"
+              }
+            ]
+          },
+          "name": "EquipmentSchedule",
+          "visible": false
+        },
+        "position": {
+          "height": 690,
+          "width": 1500,
+          "x": 10,
+          "y": 55
+        },
+        "propConfig": {
+          "props.items": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "farm_id_list": "{session.custom.list_of_farms}",
+                  "today_date": "now()"
+                },
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "queryPath": "events_table",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "\tlist_of_items \u003d []\n\tseen \u003d set()  # to track unique (farmid, setpointid)\n\n\tfor row in value:\n\t\tkey \u003d (row[\"farmid\"], row[\"setpointid\"])\n\t\tif key in seen:\n\t\t\tcontinue  # skip duplicates\n\t\tseen.add(key)\n\n\t\tnew_entry \u003d {\n\t\t\t\"id\": str(row[\"farmid\"]) + \"_\" + str(row[\"setpointid\"]),\n\t\t\t\"label\": row[\"farm_name\"] + \"\\n\" + row[\"setpoint_name\"],\n\t\t\t\"iconConfig\": {\n\t\t\t\t\"path\": \"\",\n\t\t\t\t\"color\": \"\",\n\t\t\t\t\"style\": {}\n\t\t\t},\n\t\t\t\"headerStyle\": {\n\t\t\t\t\"classes\": \"\"\n\t\t\t},\n\t\t\t\"rowStyle\": {\n\t\t\t\t\"classes\": \"\"\n\t\t\t}\n\t\t}\n\t\tlist_of_items.append(new_entry)\n\n\treturn list_of_items",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          },
+          "props.scheduledEvents": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "farm_id_list": "{session.custom.list_of_farms}",
+                  "today_date": "now()"
+                },
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "queryPath": "events_table",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "\tlist_of_items \u003d []\n\tseen \u003d set()  # to track unique (farmid, setpointid)\n\n\tfor row in value:\n\t\t\"\"\"\n\t\tkey \u003d (row[\"farmid\"], row[\"setpointid\"])\n\t\tif key in seen:\n\t\t\tcontinue  # skip duplicates\n\t\tseen.add(key)\"\"\"\n\n\t\tnew_entry \u003d {\n\t\t  \"itemId\": str(row[\"farmid\"]) + \"_\" + str(row[\"setpointid\"]),\n\t\t  \"eventId\": row[\"setpointid\"],\n\t\t  \"startDate\": row[\"action_from\"],\n\t\t  \"endDate\": row[\"action_to\"],\n\t\t  \"label\": row[\"setpoint_value\"],\n\t\t  \"leadTime\": 0,\n\t\t  \"leadStyle\": {\n\t\t    \"classes\": \"\"\n\t\t  },\n\t\t  \"percentDone\": 0,\n\t\t  \"style\": {\n\t\t    \"classes\": \"\"\n\t\t  },\n\t\t  \"data\": {\n\t\t  \t\"site_id\": row[\"siteid\"],\n\t\t  \t\"farm_id\": row[\"farmid\"],\n\t\t  \t\"setpoint_value\": row[\"setpoint_value\"],\n\t\t  \t\"location_type\": row[\"location_type\"]\n\t\t  }\n\t\t}\n\t\tlist_of_items.append(new_entry)\n\treturn list_of_items",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          },
+          "props.scheduledEvents[0].endDate": {
+            "binding": {
+              "config": {
+                "path": "session.custom.clicked_schedule_event.endDate"
+              },
+              "type": "property"
+            }
+          },
+          "props.scheduledEvents[0].startDate": {
+            "binding": {
+              "config": {
+                "path": "session.custom.clicked_schedule_event.startDate"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "dateRange": {
+            "endDate": {
+              "$": [
+                "ts",
+                0,
+                1756220104119
+              ],
+              "$ts": 1756673940000
+            },
+            "startDate": {
+              "$": [
+                "ts",
+                0,
+                1756305963144
+              ],
+              "$ts": 1756292400000
+            }
+          },
+          "defaultZoom": "3-hr",
+          "selectedEvent": {
+            "eventId": 1,
+            "itemId": "15_1"
+          }
+        },
+        "type": "ia.display.equipmentschedule"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "draggable": true,
+                "id": "create_event",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "type": "open",
+                "viewPath": "TestPopUpControl",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "height": 35,
+          "width": 92,
+          "x": 10,
+          "y": 10
+        },
+        "props": {
+          "text": "Add event"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "x": 6,
+      "y": 0
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "#182d47"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

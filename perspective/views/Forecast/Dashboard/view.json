@@ -1,0 +1,998 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 894,
+      "width": 1196
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "height": 53,
+          "width": "100%",
+          "x": -3.5,
+          "y": 0.21875
+        },
+        "props": {
+          "alignContent": "space-around",
+          "alignItems": "baseline",
+          "direction": "row-reverse",
+          "justify": "space-evenly",
+          "style": {
+            "backgroundColor": "#182d47",
+            "borderBottomColor": "#555555",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 0.6
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "apexchart_1"
+        },
+        "position": {
+          "height": 398,
+          "width": "100%",
+          "x": -3.49,
+          "y": 53.44
+        },
+        "propConfig": {
+          "custom.forecast": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "param_farmids": "{session.custom.list_of_farms}"
+                },
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "queryPath": "forecast for dashborad",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "\n    rows \u003d []\n    try:\n        rows \u003d value.toDict()\n    except Exception:\n        try:\n            import system\n            pyData \u003d system.dataset.toPyDataSet(value)\n            rows \u003d [dict(row) for row in pyData]\n        except Exception:\n            try:\n                rows \u003d [dict(row) for row in value]\n            except Exception:\n                return []\n    if not rows:\n        return []\n\n    # Select the source you want in the chart\n    source \u003d \u0027Source 1\u0027  # Change this line for another source\n\n    # x-axis categories (should be bound separately)\n    categories \u003d sorted({str(row[\u0027time_label\u0027]) for row in rows if \u0027time_label\u0027 in row})\n\n    # Build data array for the selected source, aligned to time labels\n    data \u003d []\n    for t in categories:\n        match \u003d next((row for row in rows if row.get(\u0027source_name\u0027) \u003d\u003d source and str(row.get(\u0027time_label\u0027)) \u003d\u003d t), None)\n        data.append(match[\u0027forecasted_power_kw\u0027] if match and \u0027forecasted_power_kw\u0027 in match else None)\n\n    return [{\n        \u0027name\u0027: source,\n        \u0027data\u0027: data\n    }]",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          },
+          "custom.forecast_1": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "param_farmids": "{session.custom.list_of_farms}"
+                },
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "queryPath": "forecast for dashborad",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "\n    rows \u003d []\n    try:\n        rows \u003d value.toDict()\n    except Exception:\n        try:\n            import system\n            pyData \u003d system.dataset.toPyDataSet(value)\n            rows \u003d [dict(row) for row in pyData]\n        except Exception:\n            try:\n                rows \u003d [dict(row) for row in value]\n            except Exception:\n                return []\n    if not rows:\n        return []\n\n    # Select the source you want in the chart\n    source \u003d \u0027Source 2\u0027  # Change this line for another source\n\n    # x-axis categories (should be bound separately)\n    categories \u003d sorted({str(row[\u0027time_label\u0027]) for row in rows if \u0027time_label\u0027 in row})\n\n    # Build data array for the selected source, aligned to time labels\n    data \u003d []\n    for t in categories:\n        match \u003d next((row for row in rows if row.get(\u0027source_name\u0027) \u003d\u003d source and str(row.get(\u0027time_label\u0027)) \u003d\u003d t), None)\n        data.append(match[\u0027forecasted_power_kw\u0027] if match and \u0027forecasted_power_kw\u0027 in match else None)\n\n    return [{\n        \u0027name\u0027: source,\n        \u0027data\u0027: data\n    }]",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          },
+          "custom.forecast_3": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "param_farmids": "{session.custom.list_of_farms}"
+                },
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "queryPath": "forecast for dashborad",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "\n    rows \u003d []\n    try:\n        rows \u003d value.toDict()\n    except Exception:\n        try:\n            import system\n            pyData \u003d system.dataset.toPyDataSet(value)\n            rows \u003d [dict(row) for row in pyData]\n        except Exception:\n            try:\n                rows \u003d [dict(row) for row in value]\n            except Exception:\n                return []\n    if not rows:\n        return []\n\n    # Select the source you want in the chart\n    source \u003d \u0027Source 3\u0027  # Change this line for another source\n\n    # x-axis categories (should be bound separately)\n    categories \u003d sorted({str(row[\u0027time_label\u0027]) for row in rows if \u0027time_label\u0027 in row})\n\n    # Build data array for the selected source, aligned to time labels\n    data \u003d []\n    for t in categories:\n        match \u003d next((row for row in rows if row.get(\u0027source_name\u0027) \u003d\u003d source and str(row.get(\u0027time_label\u0027)) \u003d\u003d t), None)\n        data.append(match[\u0027forecasted_power_kw\u0027] if match and \u0027forecasted_power_kw\u0027 in match else None)\n\n    return [{\n        \u0027name\u0027: source,\n        \u0027data\u0027: data\n    }]",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          },
+          "custom.forecast_4": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "param_farmids": "{session.custom.list_of_farms}"
+                },
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "queryPath": "forecast avg for dashbaord",
+                "returnFormat": "json"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\n    rows \u003d []\n    try:\n        rows \u003d value.toDict()\n    except Exception:\n        try:\n            import system\n            pyData \u003d system.dataset.toPyDataSet(value)\n            rows \u003d [dict(row) for row in pyData]\n        except Exception:\n            try:\n                rows \u003d [dict(row) for row in value]\n            except Exception:\n                return []\n    if not rows:\n        return []\n\n    # No source_name in your SQL result, so just one series line\n    source \u003d \u0027avg_power\u0027  # For label/name in chart\n\n    # Sorted list of time labels\n    categories \u003d sorted({str(row[\u0027time_label\u0027]) for row in rows if \u0027time_label\u0027 in row})\n\n    # Build data array aligned to categories\n    data \u003d []\n    for t in categories:\n        match \u003d next((row for row in rows if str(row.get(\u0027time_label\u0027)) \u003d\u003d t), None)\n        data.append(match[\u0027avg_power\u0027] if match and \u0027avg_power\u0027 in match else None)\n\n    return [{\u0027name\u0027: source, \u0027data\u0027: data}]",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          },
+          "props.options.xaxis.categories": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "param_farmids": "{session.custom.list_of_farms}"
+                },
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "queryPath": "forecast for dashborad",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "\n    # Try all dataset conversions\n    rows \u003d []\n    try:\n        # Perspective - preferred\n        rows \u003d value.toDict()\n    except Exception:\n        try:\n            # Vision/gateway dataset\n            import system\n            pyData \u003d system.dataset.toPyDataSet(value)\n            rows \u003d [dict(row) for row in pyData]\n        except Exception:\n            # Direct list conversion\n            try:\n                rows \u003d [dict(row) for row in value]\n            except Exception:\n                return []\n    if not rows:\n        return []\n\n    # Use \u0027time_label\u0027 if present, or fallback to \u0027hour\u0027\n    key \u003d \u0027time_label\u0027 if \u0027time_label\u0027 in rows[0] else \u0027hour\u0027\n    categories \u003d sorted({str(row[key]) for row in rows if key in row})\n    return categories",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          },
+          "props.options.yaxis.max": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "param_farmids": "{session.custom.list_of_farms}"
+                },
+                "queryPath": "forecast for dashborad",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "\timport math\n\n\tmaxv \u003d 0\n\tfor row in value:\n\t    if row[\"forecasted_power_kw\"] \u003e maxv:\n\t        maxv \u003d row[\"forecasted_power_kw\"] + 0.3 * row[\"forecasted_power_kw\"]\n\t\n\t# Round up to the nearest 1,000\n\trounded \u003d math.ceil(maxv / 1000.0) * 1000\n\t\n\treturn int(rounded)",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          },
+          "props.series[0].data": {
+            "binding": {
+              "config": {
+                "path": "this.custom.forecast[0].data"
+              },
+              "type": "property"
+            }
+          },
+          "props.series[1].data": {
+            "binding": {
+              "config": {
+                "path": "this.custom.forecast_1[0].data"
+              },
+              "type": "property"
+            }
+          },
+          "props.series[2].data": {
+            "binding": {
+              "config": {
+                "path": "this.custom.forecast_3[0].data"
+              },
+              "type": "property"
+            }
+          },
+          "props.series[3].data": {
+            "binding": {
+              "config": {
+                "path": "this.custom.forecast_4[0].data"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "options": {
+            "chart": {
+              "dropShadow": {
+                "blur": 10,
+                "color": "#000",
+                "enabled": false,
+                "left": 7,
+                "opacity": 0.2,
+                "top": 18
+              },
+              "events": {
+                "animationEnd": false,
+                "beforeMount": false,
+                "beforeResetZoom": false,
+                "beforeZoom": false,
+                "brushScrolled": false,
+                "click": true,
+                "dataPointMouseEnter": true,
+                "dataPointMouseLeave": true,
+                "dataPointSelection": true,
+                "legendClick": false,
+                "markerClick": false,
+                "mounted": false,
+                "mouseLeave": true,
+                "mouseMove": true,
+                "scrolled": true,
+                "selection": true,
+                "updated": false,
+                "xAxisLabelClick": false,
+                "zoomed": true
+              },
+              "height": 350,
+              "toolbar": {
+                "show": false
+              },
+              "type": "line"
+            },
+            "colors": [
+              "#32CD32",
+              "#FFD732",
+              "#4682FF",
+              "#FF0000"
+            ],
+            "dataLabels": {
+              "enabled": false
+            },
+            "grid": {
+              "borderColor": "#e7e7e7",
+              "row": {
+                "colors": [
+                  "#575353"
+                ],
+                "opacity": 0.5
+              }
+            },
+            "legend": {
+              "color": "#FFFFFF",
+              "floating": false,
+              "horizontalAlign": "right",
+              "horizontalalign": "centre",
+              "labels": {
+                "colors": "#FFFFFF"
+              },
+              "offsetX": -5,
+              "offsetY": -15,
+              "position": "top"
+            },
+            "markers": {
+              "size": 0
+            },
+            "stroke": {
+              "curve": "smooth",
+              "dashArray": 0,
+              "width": 3
+            },
+            "title": {
+              "align": "centre",
+              "style": {
+                "color": "#FFFFFF",
+                "fontSize": "13px"
+              },
+              "text": "Avalaible Power per Hour\n"
+            },
+            "tooltip": {
+              "theme": "light"
+            },
+            "xaxis": {
+              "labels": {
+                "rotate": -90,
+                "style": {
+                  "colors": "#FFFFFF",
+                  "fontSize": "10px"
+                }
+              },
+              "title": {
+                "text": " "
+              }
+            },
+            "yaxis": {
+              "fontsize": "15px",
+              "labels": {
+                "style": {
+                  "colors": "#FFFFFF",
+                  "fontSize": "10px"
+                }
+              },
+              "min": -1000,
+              "title": {
+                "text": " "
+              }
+            }
+          },
+          "series": [
+            {
+              "name": "Source 1"
+            },
+            {
+              "name": "Source 2"
+            },
+            {
+              "name": "Source 3"
+            },
+            {
+              "name": "Avg Power"
+            }
+          ],
+          "style": {
+            "backgroundColor": "#3F495E"
+          }
+        },
+        "type": "kyvislabs.display.apexchart"
+      },
+      {
+        "meta": {
+          "name": "apexchart_5"
+        },
+        "position": {
+          "height": 386,
+          "width": "100%",
+          "x": -3.32,
+          "y": 443.52
+        },
+        "propConfig": {
+          "custom.iradiation_forecast_source_1": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "param_farmids": "{session.custom.list_of_farms}"
+                },
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "queryPath": "iradiation forecast source 1",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "\n    rows \u003d []\n    try:\n        rows \u003d value.toDict()\n    except Exception:\n        try:\n            import system\n            pyData \u003d system.dataset.toPyDataSet(value)\n            rows \u003d [dict(row) for row in pyData]\n        except Exception:\n            try:\n                rows \u003d [dict(row) for row in value]\n            except Exception:\n                return []\n    if not rows:\n        return []\n\n    # No source_name in your SQL result, so just one series line\n    source \u003d \u0027source 1\u0027  # For label/name in chart\n\n    # Sorted list of time labels\n    categories \u003d sorted({str(row[\u0027time_label\u0027]) for row in rows if \u0027time_label\u0027 in row})\n\n    # Build data array aligned to categories\n    data \u003d []\n    for t in categories:\n        match \u003d next((row for row in rows if str(row.get(\u0027time_label\u0027)) \u003d\u003d t), None)\n        data.append(match[\u0027irradiation\u0027] if match and \u0027irradiation\u0027 in match else None)\n\n    return [{\u0027name\u0027: source, \u0027data\u0027: data}]",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          },
+          "custom.iradiation_forecast_source_2": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "param_farmids": "{session.custom.list_of_farms}"
+                },
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "queryPath": "iradiation forecast source 2",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "\n    rows \u003d []\n    try:\n        rows \u003d value.toDict()\n    except Exception:\n        try:\n            import system\n            pyData \u003d system.dataset.toPyDataSet(value)\n            rows \u003d [dict(row) for row in pyData]\n        except Exception:\n            try:\n                rows \u003d [dict(row) for row in value]\n            except Exception:\n                return []\n    if not rows:\n        return []\n\n    # No source_name in your SQL result, so just one series line\n    source \u003d \u0027source 2\u0027  # For label/name in chart\n\n    # Sorted list of time labels\n    categories \u003d sorted({str(row[\u0027time_label\u0027]) for row in rows if \u0027time_label\u0027 in row})\n\n    # Build data array aligned to categories\n    data \u003d []\n    for t in categories:\n        match \u003d next((row for row in rows if str(row.get(\u0027time_label\u0027)) \u003d\u003d t), None)\n        data.append(match[\u0027irradiation\u0027] if match and \u0027irradiation\u0027 in match else None)\n\n    return [{\u0027name\u0027: source, \u0027data\u0027: data}]",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          },
+          "custom.iradiation_forecast_source_3": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "param_farmids": "{session.custom.list_of_farms}"
+                },
+                "polling": {
+                  "enabled": true,
+                  "rate": "1"
+                },
+                "queryPath": "iradiation forecast source 3",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "\n    rows \u003d []\n    try:\n        rows \u003d value.toDict()\n    except Exception:\n        try:\n            import system\n            pyData \u003d system.dataset.toPyDataSet(value)\n            rows \u003d [dict(row) for row in pyData]\n        except Exception:\n            try:\n                rows \u003d [dict(row) for row in value]\n            except Exception:\n                return []\n    if not rows:\n        return []\n\n    # No source_name in your SQL result, so just one series line\n    source \u003d \u0027source 3\u0027  # For label/name in chart\n\n    # Sorted list of time labels\n    categories \u003d sorted({str(row[\u0027time_label\u0027]) for row in rows if \u0027time_label\u0027 in row})\n\n    # Build data array aligned to categories\n    data \u003d []\n    for t in categories:\n        match \u003d next((row for row in rows if str(row.get(\u0027time_label\u0027)) \u003d\u003d t), None)\n        data.append(match[\u0027irradiation\u0027] if match and \u0027irradiation\u0027 in match else None)\n\n    return [{\u0027name\u0027: source, \u0027data\u0027: data}]",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          },
+          "props.options.xaxis.categories": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "param_farmids": "{session.custom.list_of_farms}"
+                },
+                "queryPath": "forecast for dashborad",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "\n    # Try all dataset conversions\n    rows \u003d []\n    try:\n        # Perspective - preferred\n        rows \u003d value.toDict()\n    except Exception:\n        try:\n            # Vision/gateway dataset\n            import system\n            pyData \u003d system.dataset.toPyDataSet(value)\n            rows \u003d [dict(row) for row in pyData]\n        except Exception:\n            # Direct list conversion\n            try:\n                rows \u003d [dict(row) for row in value]\n            except Exception:\n                return []\n    if not rows:\n        return []\n\n    # Use \u0027time_label\u0027 if present, or fallback to \u0027hour\u0027\n    key \u003d \u0027time_label\u0027 if \u0027time_label\u0027 in rows[0] else \u0027hour\u0027\n    categories \u003d sorted({str(row[key]) for row in rows if key in row})\n    return categories",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          },
+          "props.series[0].data": {
+            "binding": {
+              "config": {
+                "path": "this.custom.iradiation_forecast_source_1[0].data"
+              },
+              "type": "property"
+            }
+          },
+          "props.series[1].data": {
+            "binding": {
+              "config": {
+                "path": "this.custom.iradiation_forecast_source_2[0].data"
+              },
+              "type": "property"
+            }
+          },
+          "props.series[2].data": {
+            "binding": {
+              "config": {
+                "path": "this.custom.iradiation_forecast_source_3[0].data"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "options": {
+            "chart": {
+              "dropShadow": {
+                "blur": 10,
+                "color": "#000",
+                "enabled": false,
+                "left": 7,
+                "opacity": 0.2,
+                "top": 18
+              },
+              "events": {
+                "animationEnd": true,
+                "beforeMount": true,
+                "beforeResetZoom": false,
+                "beforeZoom": false,
+                "brushScrolled": false,
+                "click": true,
+                "dataPointMouseEnter": true,
+                "dataPointMouseLeave": true,
+                "dataPointSelection": true,
+                "legendClick": true,
+                "markerClick": false,
+                "mounted": false,
+                "mouseLeave": true,
+                "mouseMove": true,
+                "scrolled": true,
+                "selection": true,
+                "updated": false,
+                "xAxisLabelClick": false,
+                "zoomed": true
+              },
+              "height": 350,
+              "toolbar": {
+                "show": false
+              },
+              "type": "line"
+            },
+            "colors": [
+              "#ed683c",
+              "#ed683c",
+              "#ed683c"
+            ],
+            "dataLabels": {
+              "enabled": false
+            },
+            "grid": {
+              "borderColor": "#e7e7e7",
+              "row": {
+                "colors": [
+                  "#575353"
+                ],
+                "opacity": 0.5
+              }
+            },
+            "legend": {
+              "color": "#FFFFFF",
+              "floating": false,
+              "horizontalAlign": "right",
+              "horizontalalign": "centre",
+              "labels": {
+                "colors": "#FFFFFF"
+              },
+              "offsetX": -5,
+              "offsetY": -15,
+              "position": "top"
+            },
+            "markers": {
+              "size": 0
+            },
+            "plotOptions": {
+              "heatmap": {
+                "colorScale": {
+                  "ranges": [
+                    {
+                      "color": "#fff33b",
+                      "from": 0,
+                      "to": 200
+                    },
+                    {
+                      "color": "#fdc70c",
+                      "from": 201,
+                      "to": 400
+                    },
+                    {
+                      "color": "#f3903f",
+                      "from": 401,
+                      "to": 600
+                    },
+                    {
+                      "color": "#ed683c",
+                      "from": 601,
+                      "to": 900
+                    },
+                    {
+                      "color": "#e93e3a",
+                      "from": 901,
+                      "to": 1000
+                    }
+                  ]
+                }
+              }
+            },
+            "stroke": {
+              "curve": "smooth",
+              "dashArray": 0,
+              "width": 3
+            },
+            "title": {
+              "align": "centre",
+              "style": {
+                "color": "#FFFFFF",
+                "fontSize": "13px"
+              },
+              "text": "Avalaible Power per Hour\n"
+            },
+            "tooltip": {
+              "theme": "light"
+            },
+            "xaxis": {
+              "labels": {
+                "rotate": -90,
+                "style": {
+                  "colors": "#FFFFFF",
+                  "fontSize": "10px"
+                }
+              },
+              "title": {
+                "text": " "
+              }
+            },
+            "yaxis": {
+              "labels": {
+                "style": {
+                  "colors": "#FFFFFF"
+                }
+              },
+              "max": 1000,
+              "min": 0,
+              "title": {
+                "text": " "
+              }
+            }
+          },
+          "series": [
+            {
+              "name": "Source 1"
+            },
+            {
+              "name": "Source 2"
+            },
+            {
+              "name": "Source 3"
+            }
+          ],
+          "style": {
+            "backgroundColor": "#3F495E"
+          },
+          "type": "heatmap"
+        },
+        "type": "kyvislabs.display.apexchart"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true,
+                    "width": "50px"
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Dashboard View",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/dashboardf\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_5"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomColor": "#FFFFFF",
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": 2,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Anicillary Market",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/ancillary_services_market\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_11"
+            },
+            "position": {
+              "basis": "150px"
+            },
+            "props": {
+              "alignContent": "space-around",
+              "alignItems": "flex-end",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomWidth": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Forex ",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/forex\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_7"
+            },
+            "position": {
+              "basis": "100px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomWidth": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Cross Border",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/cross_border\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_10"
+            },
+            "position": {
+              "basis": "130px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomWidth": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Market Prices",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/market_prices\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_9"
+            },
+            "position": {
+              "basis": "130px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomColor": "#FFFFFF",
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Available Power",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/forecast\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_8"
+            },
+            "position": {
+              "basis": "130px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomColor": "#FFFFFF",
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_1"
+        },
+        "position": {
+          "height": 53,
+          "rotate": {
+            "anchor": "43% 25%"
+          },
+          "width": 801,
+          "x": -3.5
+        },
+        "props": {
+          "alignContent": "space-around",
+          "alignItems": "baseline",
+          "direction": "row-reverse",
+          "justify": "space-evenly",
+          "style": {
+            "backgroundColor": "#182d47",
+            "borderBottomColor": "#555555",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 0.6
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "#182d47"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

@@ -1,0 +1,398 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 1359
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Map View"
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/map-view\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_6"
+            },
+            "position": {
+              "basis": "103px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomColor": "#FFFFFF",
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": 2,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "style": {
+                    "color": "#B0B3B8"
+                  },
+                  "text": "Dashboard View"
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/dashboard-view\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_8"
+            },
+            "position": {
+              "basis": "150px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomWidth": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true,
+                    "width": "50px"
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Tabelar View",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/tabelar-view\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_5"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomWidth": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Widget View",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/widget-view1\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_7"
+            },
+            "position": {
+              "basis": "130px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomWidth": 0,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "height": 53,
+          "rotate": {
+            "anchor": "43% 25%"
+          },
+          "width": 516,
+          "x": -3.5
+        },
+        "props": {
+          "alignContent": "space-around",
+          "alignItems": "baseline",
+          "direction": "row-reverse",
+          "justify": "space-evenly",
+          "style": {
+            "backgroundColor": "#182d47",
+            "borderBottomColor": "#555555",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 0.6
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "height": 53,
+          "width": 985,
+          "x": 512
+        },
+        "props": {
+          "alignContent": "space-around",
+          "alignItems": "baseline",
+          "direction": "row-reverse",
+          "justify": "space-evenly",
+          "style": {
+            "backgroundColor": "#182d47",
+            "borderBottomColor": "#555555",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 0.6
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Map"
+        },
+        "position": {
+          "height": 798,
+          "width": 1506,
+          "x": 9,
+          "y": 64.5
+        },
+        "propConfig": {
+          "props.layers.ui.marker": {
+            "binding": {
+              "config": {
+                "parameters": {
+                  "site_ids": "{session.custom.list_of_sites}"
+                },
+                "queryPath": "sites_gps",
+                "returnFormat": "json"
+              },
+              "transforms": [
+                {
+                  "code": "\t\n\t# Create a lookup dictionary from list2\n\tlookup \u003d {item[\"widget_site_id\"]: item for item in self.session.custom.sites_info}\n\t# Merge based on \u0027id\u0027\n\tmerged \u003d []\n\tfor item in value:\n\t    merged_item \u003d dict(item)\n\t    if item[\"siteid\"] in lookup:\n\t        merged_item.update(lookup[item[\"siteid\"]])\n\t    merged.append(merged_item)\n\treturn merged",
+                  "type": "script"
+                },
+                {
+                  "code": "\tpins_list \u003d []\n\tfor elem in value:\n\t\tsite_id \u003d elem[\"siteid\"]\n\t\tlocation \u003d elem[\"location\"]\n\t\tlatitude \u003d elem[\"latitude\"]\n\t\tlongitude \u003d elem[\"longitude\"]\n\t\tfarm_id \u003d elem[\"widget_farm_id\"]\n\t\tfarm_pv_count \u003d elem[\"farm_pv_count\"]\n\t\tfarm_wt_count \u003d elem[\"farm_wt_count\"]\t\n\t\t\n\t\tnew_elem \u003d {\n\t\t\t\"name\": location,\n\t\t\t\"properties\": {},\n\t\t\t\"enabled\": True,\n\t\t\t\"lat\": float(latitude),\n\t\t\t\"lng\": float(longitude),\n\t\t\t\"opacity\": 1,\n\t\t\t\"icon\": {\n\t\t\t\"path\": \"material/location_on\",\n\t\t\t\"color\": \"#4190F7\",\n\t\t\t\"rotate\": 0,\n\t\t\t\"size\": {\n\t\t\t\"width\": 36,\n\t\t\t\"height\": 36\n\t\t\t},\n\t\t\t\"style\": {\n\t\t\t\"classes\": \"\"\n\t\t\t}\n\t\t\t},\n\t\t\t\"event\": {\n\t\t\t\"stopPropagation\": False\n\t\t\t},\n\t\t\t\"tooltip\": {\n\t\t\t\"content\": {\n\t\t\t\"text\": \"\",\n\t\t\t\"view\": {\n\t\t\t\"path\": \"\",\n\t\t\t\"params\": {}\n\t\t\t}\n\t\t\t},\n\t\t\t\"direction\": \"auto\",\n\t\t\t\"permanent\": False,\n\t\t\t\"sticky\": False,\n\t\t\t\"opacity\": 1\n\t\t\t},\n\t\t\t\"popup\": {\n\t\t\t\t\"enabled\": False,\n\t\t\t\t\"content\": {\n\t\t\t\t\t\"text\": location,\n\t\t\t\t\t\"view\": {\n\t\t\t\t\t\t\"path\": \"Site View/f_widget_view/site_widget_view\",\n\t\t\t\t\t\t\"params\": {\"widget_site_id\": site_id, \"farm_pv_count\": farm_pv_count, \"farm_wt_count\": farm_wt_count}\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t\"width\": {\n\t\t\t\t\t\"max\": 300,\n\t\t\t\t\t\"min\": 50\n\t\t\t\t},\n\t\t\t\t\"height\": {\n\t\t\t\t\t\"max\": 300\n\t\t\t\t},\n\t\t\t\t\"pan\": {\n\t\t\t\t\t\"auto\": True\n\t\t\t\t},\n\t\t\t\t\"closeButton\": True,\n\t\t\t\t\"autoClose\": True,\n\t\t\t\t\"closeOnEscapeKey\": True,\n\t\t\t\t\"closeOnClick\": True}}\n\t\tpins_list.append(new_elem)\n\treturn pins_list",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "init": {
+            "center": {
+              "lat": 47,
+              "lng": 28.7
+            },
+            "zoom": 8
+          },
+          "layers": {
+            "raster": {
+              "tile": [
+                {
+                  "WMS": {
+                    "format": "image/jpeg",
+                    "layers": "",
+                    "styles": "",
+                    "transparent": false,
+                    "uppercase": false,
+                    "version": "1.1.1"
+                  },
+                  "options": {
+                    "attribution": "Map data \u0026copy; \u003ca href\u003d\u0027https://www.openstreetmap.org/\u0027\u003eOpenStreetMap\u003c/a\u003e contributors, \u003ca href\u003d\u0027https://creativecommons.org/licenses/by-sa/2.0/\u0027\u003eCC-BY-SA\u003c/a\u003e",
+                    "crossOrigin": false,
+                    "detectRetina": false,
+                    "errorTileUrl": "",
+                    "opacity": 1,
+                    "subdomains": [
+                      "a",
+                      "b",
+                      "c"
+                    ],
+                    "tileSize": {
+                      "height": 256,
+                      "width": 256
+                    },
+                    "tms": false,
+                    "update": {
+                      "interval": 200,
+                      "whenIdle": false,
+                      "whenZooming": true
+                    },
+                    "zIndex": 1,
+                    "zoom": {
+                      "max": 18,
+                      "min": 0,
+                      "native": {
+                        "max": null,
+                        "min": null
+                      },
+                      "offset": 0,
+                      "reverse": false
+                    }
+                  },
+                  "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                  "urlTemplateParams": {}
+                }
+              ]
+            },
+            "ui": {}
+          },
+          "location": {
+            "enabled": true
+          }
+        },
+        "type": "ia.display.map"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "x": -77,
+      "y": 23
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "#182d47"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

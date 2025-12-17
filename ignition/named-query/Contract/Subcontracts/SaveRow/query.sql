@@ -1,0 +1,58 @@
+INSERT INTO contract.subcontracts (
+    subcontract_id,
+    contract_id,
+    slot_date,
+    slot_hour,
+    datetime_from,
+    datetime_to,
+    quantity_kwh,
+    price_mwh,
+    price_eq_mdl,
+    contract_currencyid,
+    x_border_contract,
+    notes,
+    sign_date,
+    datetime,
+    created_at,
+    created_by,
+    updated_at,
+    updated_by
+)
+VALUES (
+    :p_subcontract_id,
+    :p_contract_id,
+    :p_slot_date::date,
+    :p_slot_hour::int,
+    :p_datetime_from::timestamp,
+    :p_datetime_to::timestamp,
+    :p_quantity_kwh,
+    :p_price_mwh,
+    :p_price_eq_mdl,
+    :p_contract_currencyid,
+    COALESCE(:p_x_border_contract, 0),
+    :p_notes,
+    :p_sign_date::date,
+    now(),
+    now(),
+    :p_user,
+    now(),
+    :p_user
+)
+ON CONFLICT (subcontract_id) DO UPDATE
+SET
+    contract_id         = EXCLUDED.contract_id,
+    slot_date           = EXCLUDED.slot_date,
+    slot_hour           = EXCLUDED.slot_hour,
+    datetime_from       = EXCLUDED.datetime_from,
+    datetime_to         = EXCLUDED.datetime_to,
+    quantity_kwh        = EXCLUDED.quantity_kwh,
+    price_mwh           = EXCLUDED.price_mwh,
+    price_eq_mdl        = EXCLUDED.price_eq_mdl,
+    contract_currencyid = EXCLUDED.contract_currencyid,
+    x_border_contract   = EXCLUDED.x_border_contract,
+    notes               = EXCLUDED.notes,
+    sign_date           = EXCLUDED.sign_date,
+    datetime            = now(),
+    updated_at          = now(),
+    updated_by          = :p_user
+RETURNING subcontract_id;

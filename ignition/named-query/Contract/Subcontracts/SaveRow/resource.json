@@ -1,0 +1,105 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "b19ece6b8ad0da247357b555eddf04ae9dd3752a04a3ae1b75b00a834b9f040b",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2025-12-12T12:27:04Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "p_subcontract_id",
+        "sqlType": 3
+      },
+      {
+        "type": "Parameter",
+        "identifier": "p_contract_id",
+        "sqlType": 3
+      },
+      {
+        "type": "Parameter",
+        "identifier": "p_slot_date",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "p_slot_hour",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "p_datetime_from",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "p_datetime_to",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "p_quantity_kwh",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "p_price_mwh",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "p_price_eq_mdl",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "p_contract_currencyid",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "p_x_border_contract",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "p_notes",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "p_sign_date",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "p_user",
+        "sqlType": 7
+      }
+    ]
+  }
+}

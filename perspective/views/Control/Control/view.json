@@ -1,0 +1,278 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 954,
+      "width": 1600
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "draggable": true,
+                "id": "create_event",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "type": "open",
+                "viewPath": "TestPopUpControl",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "height": 35,
+          "width": 92,
+          "x": 10,
+          "y": 73
+        },
+        "props": {
+          "text": "Add event"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "IFrame"
+        },
+        "position": {
+          "height": 311,
+          "width": 1482,
+          "x": 10,
+          "y": 117
+        },
+        "propConfig": {
+          "props.src": {
+            "binding": {
+              "config": {
+                "expression": "concat(\"http://localhost:8088/system/webdev/DemoVersion_16_09_2025_Final/test_calendar/events?farms\u003d\",{session.custom.list_of_farms})"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#FFFFFFFC"
+          }
+        },
+        "type": "ia.display.iframe"
+      },
+      {
+        "events": {
+          "component": {
+            "onFileReceived": {
+              "config": {
+                "script": "    import system\n    log \u003d system.util.getLogger(\"xlsx-upload\")\n\n    # ---- uploaded file (use indexing, no .get) ----\n    f \u003d event.file\n    if not f:\n        log.error(\"No file in event\")\n        return\n\n    try:\n        name \u003d f[\"name\"]\n        data \u003d f[\"data\"]          # Java byte[] from Perspective\n        # size/type are optional; not required for insert\n        # size \u003d int(f[\"size\"]) if \"size\" in f else 0\n        # mime \u003d f[\"type\"] if \"type\" in f else \"\"\n    except Exception as e:\n        log.error(\"File object missing expected keys: %s\" % e)\n        return\n\n    if not name.lower().endswith(\".xlsx\"):\n        log.error(\"Only .xlsx supported. Got: %s\" % name)\n        return\n\n    # ---- Apache POI (Ignition 8 / Jython 2.7 safe) ----\n    try:\n        from java.io import ByteArrayInputStream\n        from org.apache.poi.ss.usermodel import WorkbookFactory, DataFormatter\n    except Exception as e:\n        log.error(\"Apache POI not available on Gateway. Install Reporting module or POI jars. %s\" % e)\n        return\n\n    is_ \u003d None\n    wb  \u003d None\n    try:\n        is_ \u003d ByteArrayInputStream(data)     # data is Java byte[]\n        wb  \u003d WorkbookFactory.create(is_)    # handles .xlsx\n        sheet \u003d wb.getSheetAt(0)\n        if sheet is None or sheet.getLastRowNum() \u003c 1:\n            log.info(\"Empty/short sheet\")\n            return\n\n        fmt \u003d DataFormatter()\n\n        # ---- header map (row 0), case-insensitive ----\n        header \u003d sheet.getRow(0)\n        if header is None:\n            log.error(\"Missing header row (row 0)\")\n            return\n\n        headers \u003d {}\n        last_cell \u003d header.getLastCellNum() or 0\n        for c in range(int(last_cell)):\n            cell \u003d header.getCell(c)\n            key  \u003d (fmt.formatCellValue(cell) or \"\").strip().lower()\n            if key:\n                headers[key] \u003d c\n\n        def idx(*cands):\n            for k in cands:\n                if k in headers:\n                    return headers[k]\n            return None\n\n        i_json \u003d idx(\"json attribute\",\"json_attribute\",\"jsonattribute\")\n        i_col  \u003d idx(\"sql column\",\"sql_column\",\"sqlcolumn\")\n        i_type \u003d idx(\"sql type\",\"sql_type\",\"sqltype\")\n        i_desc \u003d idx(\"description\",\"desc\")\n\n        missing \u003d [lab for lab, ix in [\n            (\"JSON Attribute\", i_json),\n            (\"SQL Column\",     i_col),\n            (\"SQL Type\",       i_type),\n            (\"Description\",    i_desc),\n        ] if ix is None]\n\n        if missing:\n            log.error(\"Missing header(s): \" + \", \".join(missing))\n            return\n\n        def cell_text(row, ix):\n            try:\n                cell \u003d row.getCell(ix)\n                return (fmt.formatCellValue(cell) or \"\").strip()\n            except:\n                return \"\"\n\n        # ---- collect rows ----\n        params \u003d []\n        last_row \u003d sheet.getLastRowNum()\n        for r in range(1, last_row + 1):\n            row \u003d sheet.getRow(r)\n            if row is None:\n                continue\n            ja \u003d cell_text(row, i_json)\n            sc \u003d cell_text(row, i_col)\n            st \u003d cell_text(row, i_type)\n            de \u003d cell_text(row, i_desc)\n\n            # skip fully blank\n            if not (ja or sc or st or de):\n                continue\n            # require json_attribute \u0026 sql_column\n            if not (ja and sc):\n                continue\n\n            params.append([ja, sc, st, de])\n\n        if not params:\n            log.info(\"No valid rows found\")\n            return\n\n        # ---- insert batch into Postgres ----\n        sql \u003d \"\"\"\n            INSERT INTO integration_schema.to_delete_table_1\n                (json_attribute, sql_column, sql_type, description)\n            VALUES (?, ?, ?, ?)\n        \"\"\"\n        system.db.runPrepBatch(sql, params, \"postgresDB\")\n        log.info(\"Inserted %d rows from %s\" % (len(params), name))\n\n    except Exception as e:\n        log.error(\"XLSX import failed: %s\" % e)\n    finally:\n        try:\n            if wb:  wb.close()\n        except: pass\n        try:\n            if is_: is_.close()\n        except: pass"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "FileUpload"
+        },
+        "position": {
+          "height": 145,
+          "width": 400,
+          "x": 10,
+          "y": 442
+        },
+        "type": "ia.input.fileupload"
+      },
+      {
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "height": 53,
+          "width": 1210,
+          "x": 287
+        },
+        "props": {
+          "alignContent": "space-around",
+          "alignItems": "baseline",
+          "direction": "row-reverse",
+          "justify": "space-evenly",
+          "style": {
+            "backgroundColor": "#182d47",
+            "borderBottomColor": "#555555",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 0.6
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true,
+                    "width": "50px"
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Dashboard View",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/tabelar_view\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_5"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomColor": "#FFFFFF",
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomWidth": 2,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "48px"
+                },
+                "props": {
+                  "text": "Control View",
+                  "textStyle": {
+                    "color": "#B0B3B8"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\"/Control\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FlexContainer_7"
+            },
+            "position": {
+              "basis": "130px"
+            },
+            "props": {
+              "alignContent": "center",
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "center",
+              "style": {
+                "borderBottomColor": "#FFFFFF",
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": 2,
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "classes": "Shadow"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "height": 53,
+          "rotate": {
+            "anchor": "43% 25%"
+          },
+          "width": 297,
+          "x": -3.5
+        },
+        "props": {
+          "alignContent": "space-around",
+          "alignItems": "baseline",
+          "direction": "row-reverse",
+          "justify": "space-evenly",
+          "style": {
+            "backgroundColor": "#182d47",
+            "borderBottomColor": "#555555",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 0.6
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "x": 162,
+      "y": -38
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "#182d47"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

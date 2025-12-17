@@ -1,0 +1,61 @@
+/* Direct stylesheet authoring is an advanced feature. Knowledge of CSS required.*/
+
+.my-hover-container {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.my-hover-container:hover {
+  transform: scale(1.05) rotateX(0deg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+/* ensure the sticky group stays above normal header cells */
+.ia_table__header .ia_table__groupCell.frozen-group {
+  z-index: 4 !important;
+}
+
+/* The following rules are for Sticky columns in tables */
+
+.tc[style*="position: sticky"] {
+  z-index: 2 !important;
+  /* box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);  horizontal shadow */
+}
+
+.ia_table__headerCell[style*="position: sticky"] {
+  z-index: 2 !important;
+  background-color: inherit;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);  vertical shadow for header */
+}
+
+/*div.flexBodyInnerScrollContainer,
+div.ia_table__rowGroup,
+div.ia_table__row {
+  overflow: clip !important;
+  
+}*/
+/* For step 3.*/
+div.ReactVirtualized__Grid__innerScrollContainer,
+div.flexBodyInnerScrollContainer,
+div.ia_table__rowGroup,
+div.ia_table__row {
+  overflow: clip !important;
+  
+  /* For step 5. so its child can inherit too! */
+div.ia_table__row {
+  background-color: inherit;
+}
+}
+
+
+----FOR APEX CHARTS FORECAST
+.apexcharts-tooltip, 
+.apexcharts-tooltip .apexcharts-tooltip-series-group {
+  background: #222222 !important;   /* Dark background */
+  color: #ffffff !important;        /* White text */
+  border: none !important;
+}
+
+/* Adjust text elements for clarity */
+.apexcharts-tooltip-title {
+  background: #222222 !important;
+  color: #ffffff !important;
+}

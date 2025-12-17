@@ -1,0 +1,558 @@
+{
+  "custom": {
+    "filterTable": 1,
+    "totalStatuses": 5
+  },
+  "events": {
+    "system": {
+      "onStartup": [
+        {
+          "config": {
+            "script": "\n    if not hasattr(self.session.custom, \"filterTable\"):\n        self.session.custom.filterTable \u003d []"
+          },
+          "scope": "G",
+          "type": "script"
+        },
+        {
+          "config": {
+            "script": "    ft \u003d getattr(self.session.custom, \"filterTable\", None)\n    # If it doesn\u0027t exist or is a list from older code, normalize to dict\n    if not isinstance(ft, dict):\n        ft \u003d {}\n    if \"parameters\" not in ft or not isinstance(ft[\"parameters\"], list):\n        ft[\"parameters\"] \u003d []\n    self.session.custom.filterTable \u003d ft\t"
+          },
+          "enabled": false,
+          "scope": "G",
+          "type": "script"
+        }
+      ]
+    }
+  },
+  "params": {},
+  "propConfig": {
+    "custom.filterTable": {
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 270,
+      "width": 258
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "lblHeader"
+        },
+        "position": {
+          "height": 22,
+          "width": 220,
+          "x": 20,
+          "y": 8
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "concat(\r\n    toString({view.custom.totalStatuses}),      // you set this in the transform\r\n    \" parameters/ \",\r\n    toString(len({session.custom.filterTable})), \r\n    \" selected\"\r\n)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "color": "#BDBDBD",
+            "fontSize": 14,
+            "fontWeight": "600",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Separator",
+          "tooltip": {
+            "style": {
+              "borderColor": "#AAAAAA"
+            }
+          }
+        },
+        "position": {
+          "height": 2,
+          "width": 240,
+          "x": 10,
+          "y": 36
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#424242",
+            "color": "#D5D5D5"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Ch2"
+        },
+        "position": {
+          "height": 8,
+          "width": 8,
+          "x": 221,
+          "y": 60
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "path": "../treeStatus.props.items[0].data.selected"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "checkedIcon": {
+            "library": "",
+            "style": {
+              "margin": 18,
+              "padding": 2
+            }
+          },
+          "indeterminateIcon": {
+            "enabled": false,
+            "style": {
+              "margin": 18,
+              "padding": 2
+            }
+          },
+          "text": "",
+          "uncheckedIcon": {
+            "style": {
+              "margin": 18,
+              "padding": 2
+            }
+          }
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "meta": {
+          "name": "Ch3"
+        },
+        "position": {
+          "height": 8,
+          "width": 8,
+          "x": 221,
+          "y": 89
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "path": "../treeStatus.props.items[0].items[0].data.selected"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "checkedIcon": {
+            "style": {
+              "margin": 18,
+              "padding": 2
+            }
+          },
+          "text": "",
+          "uncheckedIcon": {
+            "style": {
+              "margin": 18,
+              "padding": 2
+            }
+          }
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "custom": {
+          "itemPath": "\"status/disconnected\"",
+          "statusId": 27
+        },
+        "meta": {
+          "name": "Ch4"
+        },
+        "position": {
+          "height": 8,
+          "width": 8,
+          "x": 221,
+          "y": 118
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "path": "../treeStatus.props.items[0].items[1].data.selected"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "checkedIcon": {
+            "style": {
+              "margin": 18,
+              "padding": 2
+            }
+          },
+          "text": "",
+          "uncheckedIcon": {
+            "style": {
+              "margin": 18,
+              "padding": 2
+            }
+          }
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "meta": {
+          "name": "Ch5"
+        },
+        "position": {
+          "height": 8,
+          "width": 8,
+          "x": 221,
+          "y": 147
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "path": "../treeStatus.props.items[0].items[2].data.selected"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "checkedIcon": {
+            "style": {
+              "margin": 18,
+              "padding": 2
+            }
+          },
+          "text": "",
+          "uncheckedIcon": {
+            "style": {
+              "margin": 18,
+              "padding": 2
+            }
+          }
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "meta": {
+          "name": "Ch6"
+        },
+        "position": {
+          "height": 8,
+          "rotate": {
+            "anchor": "-134% -133%"
+          },
+          "width": 8,
+          "x": 221,
+          "y": 176
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "path": "../treeStatus.props.items[0].items[3].data.selected"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "checkedIcon": {
+            "style": {
+              "margin": 18,
+              "padding": 2
+            }
+          },
+          "text": "",
+          "uncheckedIcon": {
+            "style": {
+              "margin": 18,
+              "padding": 2
+            }
+          }
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "meta": {
+          "name": "Ch7"
+        },
+        "position": {
+          "height": 8,
+          "rotate": {
+            "anchor": "220% 183%"
+          },
+          "width": 8,
+          "x": 221,
+          "y": 205
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "path": "../treeStatus.props.items[0].items[4].data.selected"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "checkedIcon": {
+            "style": {
+              "margin": 18,
+              "padding": 2
+            }
+          },
+          "indeterminateIcon": {
+            "color": {
+              "disabled": "#00FFFF",
+              "enabled": "#FF0000"
+            }
+          },
+          "text": "",
+          "uncheckedIcon": {
+            "style": {
+              "margin": 18,
+              "padding": 2
+            }
+          }
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "events": {
+          "component": {
+            "onItemClicked": [
+              {
+                "config": {
+                  "script": "\t# Toggle ALL / NONE when the sentinel node (data \u003d\u003d -1) is clicked\n    if event.data \u003d\u003d -1:\n     all_paths \u003d [[i] for i in range(1, len(self.props.items))]   # every real row\n     sel_paths \u003d [list(p) for p in self.props.selection]          # current selection\n\n    if set(map(tuple, sel_paths)) \u003e\u003d set(map(tuple, all_paths)):\n        self.props.selection \u003d []          # everything was selected → clear all\n    else:\n        self.props.selection \u003d all_paths   # not all selected → select every row"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "\n    \"\"\"\n    Builds the Dropdown\u0027s options array with:\n      • label   -\u003e \"Error (2)\"\n      • value   -\u003e statusId\n      • icon    -\u003e object {path, color, size}\n      • style   -\u003e object {backgroundColor, borderRadius, ...}  (avatar dot)\n    \"\"\"\n    import system\n    if value is None or value.getRowCount() \u003d\u003d 0:\n        return []\n\n    rows \u003d system.dataset.toPyDataSet(value)\n\n    # ---- colour \u0026 icon tables ------------------------------------------------\n    color \u003d {\n        \u0027Error\u0027:               \u0027#F44336\u0027,\n        \u0027Full stop reduction\u0027: \u0027#FF00FF\u0027,\n        \u0027Warning\u0027:             \u0027#FFB300\u0027,\n        \u0027Minor warning\u0027:       \u0027#C0CA33\u0027,\n        \u0027Curtailment\u0027:         \u0027#00E676\u0027,\n        \u0027Production\u0027:          \u0027#00C853\u0027,\n        \u0027In service\u0027:          \u0027#2962FF\u0027,\n        \u0027Disconnected\u0027:        \u0027#9E9E9E\u0027\n    }\n    icon \u003d {\n        \u0027Error\u0027:               \u0027material/error\u0027,\n        \u0027Full stop reduction\u0027: \u0027material/pause_circle_filled\u0027,\n        \u0027Warning\u0027:             \u0027material/warning\u0027,\n        \u0027Minor warning\u0027:       \u0027material/report_problem\u0027,\n        \u0027Curtailment\u0027:         \u0027material/trending_down\u0027,\n        \u0027Production\u0027:          \u0027material/flash_on\u0027,\n        \u0027In service\u0027:          \u0027material/build\u0027,          # wrench‑spanner icon\n        \u0027Disconnected\u0027:        \u0027material/sync_disabled\u0027\n    }\n\n    # ---- build option objects -----------------------------------------------\n    opts \u003d []\n    for r in rows:\n        name \u003d r[\u0027status_name\u0027]\n        opts.append({\n            \u0027label\u0027: \"{} ({})\".format(name, r[\u0027count\u0027]),\n            \u0027value\u0027: r[\u0027statusId\u0027],\n            \u0027icon\u0027:  {                      # schema‑approved\n                \u0027path\u0027:  icon.get(name),\n                \u0027color\u0027: color.get(name),\n                \u0027size\u0027:  16\n            },\n            \u0027style\u0027: {                     # avatar dot\n                \u0027backgroundColor\u0027: color.get(name),\n                \u0027borderRadius\u0027:   \u002750%\u0027,\n                \u0027width\u0027:          12,\n                \u0027height\u0027:         12,\n                \u0027marginRight\u0027:     6\n            }\n        })\n\n    return opts"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "\t# Toggle ALL / NONE when data \u003d\u003d -1 (sentinel node)\n    if item[\u0027data\u0027] \u003d\u003d -1:\n     real_ids \u003d [node[\u0027data\u0027] for node in self.props.data if node[\u0027data\u0027] !\u003d -1]\n\n    if set(self.props.selection.data) \u003e\u003d set(real_ids):   # all selected\n        self.props.selection.data \u003d []                    # → deselect all\n    else:                                                 # some missing\n        self.props.selection.data \u003d real_ids              # → select all"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "\tselected \u003d list(event.selection)       # copy list of statusIds\nsession.custom.selectedStatuses \u003d selected\n\n# optional: close popup when user clicks outside\n# system.perspective.closePopup(\"statusPopup\")"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "\tdata \u003d event.get(\u0027data\u0027, {})\n\tclickedPath \u003d data.get(\u0027itemPath\u0027, None)\n\n\t# ✅ Handle placeholder node click (no itemPath)\n\tif data.get(\u0027action\u0027) \u003d\u003d \u0027select_all\u0027:\n\t    self.view.custom.windSelected \u003d True\n\t    self.view.custom.solarSelected \u003d True\n\t    return  # Skip the rest of the toggle logic\n\n\t# Helper: set icon on item and all descendants\n\tdef setIcon(item, iconPath):\n\t    if \"icon\" not in item or not isinstance(item[\"icon\"], dict):\n\t        item[\"icon\"] \u003d {}\n\t    item[\"icon\"][\"path\"] \u003d iconPath\n\t    item[\"icon\"][\"color\"] \u003d \"#e0ebe8\" if iconPath \u003d\u003d \"material/check_box\" else \"#CD5C5C\"\n\t    \n\t    if \"items\" in item:\n\t        for child in item[\"items\"]:\n\t            setIcon(child, iconPath)\n\n\t# Helper: toggle clicked item and all children icons\n\tdef toggleIcon(items):\n\t    for item in items:\n\t        itemPath \u003d item.get(\"data\", {}).get(\"itemPath\")\n\t        if itemPath \u003d\u003d clickedPath:\n\t            if \"icon\" not in item or not isinstance(item[\"icon\"], dict):\n\t                item[\"icon\"] \u003d {}\n\t            if \"path\" not in item[\"icon\"]:\n\t                item[\"icon\"][\"path\"] \u003d \"material/check_box_outline_blank\"\n\t            \n\t            current \u003d item[\"icon\"][\"path\"]\n\t            newIcon \u003d \"material/check_box\" if current !\u003d \"material/check_box\" else \"material/check_box_outline_blank\"\n\t            setIcon(item, newIcon)\n\t            return True\n\t        if \"items\" in item:\n\t            if toggleIcon(item[\"items\"]):\n\t                return True\n\t    return False\n\n\t# Helper: update parent icons based on children state recursively\n\tdef updateParentIcons(items):\n\t    for item in items:\n\t        if \"items\" in item and item[\"items\"]:\n\t            updateParentIcons(item[\"items\"])\n\t            \n\t            checked_count \u003d sum(\n\t                1 for child in item[\"items\"]\n\t                if child.get(\"icon\", {}).get(\"path\") \u003d\u003d \"material/check_box\"\n\t            )\n\t            total \u003d len(item[\"items\"])\n\t            item_icon \u003d item.setdefault(\"icon\", {})\n\t            \n\t            if checked_count \u003d\u003d total:\n\t                item_icon[\"path\"] \u003d \"material/check_box\"\n\t                item_icon[\"color\"] \u003d \"#e0ebe8\"\n\t            elif checked_count \u003d\u003d 0:\n\t                item_icon[\"path\"] \u003d \"material/check_box_outline_blank\"\n\t                item_icon[\"color\"] \u003d \"#CD5C5C\"\n\t            else:\n\t                item_icon[\"path\"] \u003d \"material/indeterminate_check_box\"\n\t                item_icon[\"color\"] \u003d \"#CD5C5C\"\n\n\t# Helper: update the \"Select All\" icon depending on all top-level nodes checked\n\tdef updateSelectAllIcon(items):\n\t    select_all \u003d items[0]\n\t    others \u003d select_all.get(\"items\", [])\n\t    \n\t    checked_count \u003d sum(\n\t        1 for node in others\n\t        if node.get(\"icon\", {}).get(\"path\") \u003d\u003d \"material/check_box\"\n\t    )\n\t    total \u003d len(others)\n\t    select_all_icon \u003d select_all.setdefault(\"icon\", {})\n\t    \n\t    if checked_count \u003d\u003d total:\n\t        select_all_icon[\"path\"] \u003d \"material/check_box\"\n\t        select_all_icon[\"color\"] \u003d \"#e0ebe8\"\n\t    elif checked_count \u003d\u003d 0:\n\t        select_all_icon[\"path\"] \u003d \"material/check_box_outline_blank\"\n\t        select_all_icon[\"color\"] \u003d \"#CD5C5C\"\n\t    else:\n\t        select_all_icon[\"path\"] \u003d \"material/indeterminate_check_box\"\n\t        select_all_icon[\"color\"] \u003d \"#CD5C5C\"\n\n\t# 1) Toggle clicked item\n\ttoggleIcon(self.props.items)\n\n\t# 2) Update parents icons to reflect children state\n\tif self.props.items and self.props.items[0].get(\"data\", {}).get(\"itemPath\") \u003d\u003d \"select_all\":\n\t    updateParentIcons(self.props.items[0].get(\"items\", []))\n\t    updateSelectAllIcon(self.props.items)\n\telse:\n\t    updateParentIcons(self.props.items)\n\n\t# 3) Force UI refresh\n\tself.props.items \u003d self.props.items"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "    if event.item.value \u003d\u003d \"select_all\":\n     tree \u003d self\n    # Are there already any selections?\n    sel \u003d set(tree.props.selectionData or [])\n    status_values \u003d [child[\"value\"] for child in tree.props.items[0][\"items\"]]\n    if sel:\n        # something is selected → clear all\n        tree.props.selectionData \u003d []\n    else:\n        # none selected → select everything under the wrapper\n        tree.props.selectionData \u003d status_values"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "\n    \"\"\"\n    Perspective Tree • onItemClicked\n    Custom checkbox logic that mirrors the built‑in tri‑state behaviour\n    but uses icons instead of the native checkboxes.\n\n    Every node is expected to carry:\n        node[\u0027data\u0027][\u0027itemPath\u0027]   ← unique identifier\n        node[\u0027icon\u0027][\u0027path\u0027]       ← current checkbox icon\n    \"\"\"\n\n    # -------------------------------- helpers -------------------------------\n    def set_icon(node, path, colour\u003dNone):\n        icon \u003d node.setdefault(\"icon\", {})\n        icon[\"path\"] \u003d path\n        if colour is not None:\n            icon[\"color\"] \u003d colour\n\n    def cascade(nodes, path):\n        \"\"\"Apply the same icon to an entire subtree.\"\"\"\n        colour \u003d \"#e0ebe8\" if path \u003d\u003d \"material/check_box\" else \"#CD5C5C\"\n        for n in nodes:\n            set_icon(n, path, colour)\n            if n.get(\"items\"):\n                cascade(n[\"items\"], path)\n\n    def toggle_clicked(nodes):\n        \"\"\"Find the clicked node, toggle it, and cascade to children.\"\"\"\n        for n in nodes:\n            if n.get(\"data\", {}).get(\"itemPath\") \u003d\u003d clicked_path:\n                current \u003d n.get(\"icon\", {}).get(\"path\", \"material/check_box_outline_blank\")\n                checked \u003d (current \u003d\u003d \"material/check_box\")\n                new_path \u003d \"material/check_box_outline_blank\" if checked else \"material/check_box\"\n                set_icon(n, new_path, \"#e0ebe8\" if not checked else \"#CD5C5C\")\n                cascade(n.get(\"items\", []), new_path)\n                return True\n            if n.get(\"items\") and toggle_clicked(n[\"items\"]):\n                return True\n        return False\n\n    def refresh_parents(nodes):\n        \"\"\"Recursively set parent icons based on children states.\"\"\"\n        for n in nodes:\n            if n.get(\"items\"):\n                refresh_parents(n[\"items\"])\n                child_icons \u003d [c.get(\"icon\", {}).get(\"path\") for c in n[\"items\"]]\n                if all(p \u003d\u003d \"material/check_box\" for p in child_icons):\n                    set_icon(n, \"material/check_box\", \"#e0ebe8\")\n                elif all(p \u003d\u003d \"material/check_box_outline_blank\" for p in child_icons):\n                    set_icon(n, \"material/check_box_outline_blank\", \"#CD5C5C\")\n                else:\n                    set_icon(n, \"material/indeterminate_check_box\", \"#CD5C5C\")\n\n    # ------------------------------- main logic -----------------------------\n    clicked_path \u003d event.item.get(\"data\", {}).get(\"itemPath\")\n    if not clicked_path:\n        return                                   # no data → nothing to do\n\n    top_items \u003d self.props.items                # (Select All wrapper first)\n\n    # 1️⃣ toggle the clicked node (and its subtree)\n    toggle_clicked(top_items)\n\n    # 2️⃣ refresh all parent / wrapper icons\n    refresh_parents(top_items)\n\n    # 3️⃣ force UI redraw\n    self.props.items \u003d top_items"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "\n    \"\"\"\n    Perspective Tree  •  onItemClicked\n    Tri‑state icon logic + multi‑select list\n    — works on every 8.1 build by looking for event[\u0027item\u0027] first\n      and falling back to getattr(event, \u0027item\u0027, None).\n    \"\"\"\n\n    # ------------------------------------------------------------------ #\n    #  0)  ROBUST way to fetch the clicked node                           #\n    # ------------------------------------------------------------------ #\n    clicked_node \u003d None\n    try:\n        # Newer builds – event behaves like a dict\n        clicked_node \u003d event[\u0027item\u0027]\n    except Exception:\n        # Older builds – use attribute access\n        clicked_node \u003d getattr(event, \"item\", None)\n\n    if not clicked_node:\n        return   # nothing to do\n\n    clicked_path \u003d clicked_node.get(\u0027data\u0027, {}).get(\u0027itemPath\u0027)\n    if not clicked_path:\n        return   # custom data missing → ignore\n\n    # ------------------------------------------------------------------ #\n    #  helper functions (unchanged)                                       #\n    # ------------------------------------------------------------------ #\n    def set_icon(node, path, colour\u003dNone):\n        icon \u003d node.setdefault(\"icon\", {})\n        icon[\"path\"] \u003d path\n        if colour is not None:\n            icon[\"color\"] \u003d colour\n\n    def cascade(nodes, path):\n        colour \u003d \"#e0ebe8\" if path \u003d\u003d \"material/check_box\" else \"#CD5C5C\"\n        for n in nodes:\n            set_icon(n, path, colour)\n            if n.get(\"items\"):\n                cascade(n[\"items\"], path)\n\n    def toggle_clicked(nodes):\n        for n in nodes:\n            if n.get(\"data\", {}).get(\"itemPath\") \u003d\u003d clicked_path:\n                current \u003d n.get(\"icon\", {}).get(\"path\",\n                                                \"material/check_box_outline_blank\")\n                checked \u003d (current \u003d\u003d \"material/check_box\")\n                new_path \u003d (\"material/check_box_outline_blank\"\n                            if checked else \"material/check_box\")\n                set_icon(n, new_path, \"#e0ebe8\" if not checked else \"#CD5C5C\")\n                cascade(n.get(\"items\", []), new_path)\n                return True\n            if n.get(\"items\") and toggle_clicked(n[\"items\"]):\n                return True\n        return False\n\n    def refresh_parents(nodes):\n        for n in nodes:\n            if n.get(\"items\"):\n                refresh_parents(n[\"items\"])\n                child_icons \u003d [c.get(\"icon\", {}).get(\"path\") for c in n[\"items\"]]\n                if all(p \u003d\u003d \"material/check_box\" for p in child_icons):\n                    set_icon(n, \"material/check_box\", \"#e0ebe8\")\n                elif all(p \u003d\u003d \"material/check_box_outline_blank\" for p in child_icons):\n                    set_icon(n, \"material/check_box_outline_blank\", \"#CD5C5C\")\n                else:\n                    set_icon(n, \"material/indeterminate_check_box\", \"#CD5C5C\")\n\n    def collect_selected(nodes, acc):\n        for n in nodes:\n            if n.get(\"icon\", {}).get(\"path\") \u003d\u003d \"material/check_box\":\n                if \"value\" in n:\n                    acc.append(n[\"value\"])\n            if n.get(\"items\"):\n                collect_selected(n[\"items\"], acc)\n        return acc\n\n    # ------------------------------------------------------------------ #\n    #  main logic                                                         #\n    # ------------------------------------------------------------------ #\n    items \u003d self.props.items\n\n    toggle_clicked(items)          # 1 toggle\n    refresh_parents(items)         # 2 tri‑state parents\n\n    # 3 rebuild multi‑select list\n    selected \u003d collect_selected(items, [])\n    self.props.selectionData \u003d selected\n    session.custom.selectedStatuses \u003d list(selected)\n\n    # 4 force UI redraw\n    self.props.items \u003d items"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "\tsystem.perspective.print(event)\n\t\n\tpath_list \u003d event[\"itemPath\"]\n\tif len(path_list) \u003d\u003d 1:\n\t\tparent \u003d path_list[0]\n\t\tif self.props.items[parent].data.selected \u003d\u003d False:\n\t\t\tself.props.items[parent].data.selected \u003d True\n\t\t\tif self.props.items[parent].items \u003e 0:\n\t\t\t\tfor child in self.props.items[parent].items:\n\t\t\t\t\tchild.data.selected \u003d True\n\t\telif self.props.items[parent].data.selected \u003d\u003d True:\n\t\t\tself.props.items[parent].data.selected \u003d False\n\t\t\tif self.props.items[parent].items \u003e 0:\n\t\t\t\tfor child in self.props.items[parent].items:\n\t\t\t\t\tchild.data.selected \u003d False\n\tif len(path_list) \u003d\u003d 2:\n\t\tparent \u003d path_list[0]\n\t\tchild \u003d path_list[1]\n\t\tif self.props.items[parent].items[child].data.selected \u003d\u003d False:\n\t\t\tself.props.items[parent].items[child].data.selected \u003d True\n\t\telif self.props.items[parent].items[child].data.selected \u003d\u003d True:\n\t\t\tself.props.items[parent].items[child].data.selected \u003d False\n\t\n\t\"\"\"\n\tif event[\"data\"][\"selected\"] \u003d\u003d True:\n\t\t#event.data.selected \u003d False\n\t\tself.props.items[0].data.selected \u003d False\n\t\t#event[\"data\"][\"selected\"] \u003d False\n\telif event[\"data\"][\"selected\"] \u003d\u003d False:\n\t\t#event.data.selected \u003d True\n\t\tself.props.items[0].data.selected \u003d True\n\t\t#event[\"data\"][\"selected\"] \u003d True\n\t\"\"\""
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "\t\"\"\"\n\tTree checkbox – parent/child multi-select\n\t(Merged original toggle logic with list_of_children flattening)\n\tIgnition 8.1.48 | Jython 2.7\n\t\"\"\"\n\timport system, system.util\n\n\t# ------------------------------------------------------------------\n\t# 0️⃣  Handy shortcuts\n\tclicked_path \u003d [int(p) for p in event[\"itemPath\"]]   # e.g. [2] or [3,0]\n\n\t# ------------------------------------------------------------------\n\t# 1️⃣  Work on a pure-Python copy of props.items\n\tpy_items \u003d system.util.jsonDecode(system.util.jsonEncode(self.props.items))\n\n\t# ------------------------------------------------------------------\n\t# 2️⃣  Build a flat list (your original loop, slightly tightened)\n\tlist_of_children \u003d py_items[:]      # start with top level\n\tidx \u003d 0\n\twhile idx \u003c len(list_of_children):\n\t    node \u003d list_of_children[idx]\n\t    if node.get(\"items\"):\n\t        list_of_children.extend(node[\"items\"])\n\t    idx +\u003d 1\n\t#  --\u003e  list_of_children now contains **every** node once\n\n\t# ------------------------------------------------------------------\n\t# 3️⃣  Helper to locate a node by itemPath in the Python copy\n\tdef node_at(path):\n\t    n \u003d py_items[path[0]]\n\t    for i in path[1:]:\n\t        n \u003d n[\"items\"][i]\n\t    return n\n\n\t# ------------------------------------------------------------------\n\t# 4️⃣  Original toggle logic, but working on py_items\n\tdef cascade_to_children(node, state):\n\t    for ch in node.get(\"items\", []):\n\t        ch[\"data\"][\"selected\"] \u003d state\n\t        cascade_to_children(ch, state)\n\n\tdef refresh_parent(path):\n\t    if not path:\n\t        return\n\t    p_path \u003d path[:-1]\n\t    parent \u003d node_at(p_path) if p_path else None\n\t    if parent:\n\t        parent[\"data\"][\"selected\"] \u003d all(c[\"data\"][\"selected\"] for c in parent[\"items\"])\n\t        refresh_parent(p_path)\n\n\tclicked \u003d node_at(clicked_path)\n\tnew_state \u003d not clicked[\"data\"][\"selected\"]\n\tclicked[\"data\"][\"selected\"] \u003d new_state\n\n\t# If a parent, push state to all children\n\tif clicked.get(\"items\"):\n\t    cascade_to_children(clicked, new_state)\n\telse:\n\t    # child clicked → update parents’ state\n\t    refresh_parent(clicked_path)\n\n\t# ------------------------------------------------------------------\n\t# 5️⃣  Push the modified structure back into the component\n\tself.props.items \u003d py_items"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "    \"\"\"\n    Perspective Tree – onItemClicked (Ignition 8.1.48)\n    \"\"\"\n    import system, system.util\n\n    # 1️⃣ make a pure-Python copy\n    py_items \u003d system.util.jsonDecode(system.util.jsonEncode(self.props.items))\n\n    # helper to reach a node\n    clicked_path \u003d [int(p) for p in event[\"itemPath\"]]\n    def node_at(path):\n        n \u003d py_items[path[0]]\n        for idx in path[1:]:\n            n \u003d n[\"items\"][idx]\n        return n\n\n    # cascade / bubble helpers\n    def cascade(node, state):\n        for ch in node.get(\"items\", []):\n            ch[\"data\"][\"selected\"] \u003d state\n            cascade(ch, state)\n\n    def bubble(path):\n        if not path:\n            return\n        p_path \u003d path[:-1]\n        parent \u003d node_at(p_path) if p_path else None\n        if parent:\n            parent[\"data\"][\"selected\"] \u003d all(c[\"data\"][\"selected\"]\n                                             for c in parent[\"items\"])\n            bubble(p_path)\n\n    # 2️⃣ toggle clicked node\n    clicked \u003d node_at(clicked_path)\n    new_state \u003d not clicked[\"data\"][\"selected\"]\n    clicked[\"data\"][\"selected\"] \u003d new_state\n    cascade(clicked, new_state) if clicked.get(\"items\") else bubble(clicked_path)\n\n    # 3️⃣ gather every checked node\n    checked \u003d []\n    def walk(nodes):\n        for n in nodes:\n            if n[\"data\"][\"selected\"]:\n                checked.append(n.get(\"value\", n[\"data\"].get(\"itemPath\")))\n            walk(n.get(\"items\", []))\n    walk(py_items)\n\n    # 4️⃣ store list \u0026 update header\n    session \u003d self.session                             # ← fixed\n    session.custom.selectedStatuses \u003d checked\n\n    total \u003d getattr(self.view.custom, \"totalStatuses\",\n                    len(py_items[0].get(\"items\", [])))\n    lbl \u003d self.view.getChild(\"lblHeader\")              # adjust path if needed\n    if lbl:\n        lbl.props.text \u003d \"%d statuses / %d selected\" % (total, len(checked))\n\n    # 5️⃣ write the modified tree back\n    self.props.items \u003d py_items"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "    \"\"\"\n    Perspective Tree – onItemClicked   (Ignition 8.1.48)\n\n    • Toggles parent / child check-state\n    • Keeps parents in sync (tri-state)\n    • Builds a session-wide list of checked **real** statuses\n    • Updates the header label (“N statuses / M selected”)\n\n    Assumptions\n    \u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n      • Wrapper node (“Select All”) has data.itemPath \u003d\u003d \"select_all\"\n      • Every status node has:\n            data.selected  (bool)\n            data.itemPath  (string)\n            value          (unique ID)   ← optional; falls back to itemPath\n      • Your transform sets  view.custom.totalStatuses  once on load\n      • Header label in this view is called  lblHeader\n    \"\"\"\n    import system, system.util\n\n    # ──────────────────────────────────────────────────────────────\n    # 1️⃣  Work on a pure-Python copy (avoid PyProperty type issues)\n    py_items \u003d system.util.jsonDecode(system.util.jsonEncode(self.props.items))\n\n    # ---------- helpers ----------\n    clicked_path \u003d [int(p) for p in event[\"itemPath\"]]\n\n    def node_at(path):\n        node \u003d py_items[path[0]]\n        for idx in path[1:]:\n            node \u003d node[\"items\"][idx]\n        return node\n\n    def cascade(node, state):\n        \"\"\"Push state down to every descendant.\"\"\"\n        for ch in node.get(\"items\", []):\n            ch[\"data\"][\"selected\"] \u003d state\n            cascade(ch, state)\n\n    def bubble(path):\n        \"\"\"Re-evaluate parents until root.\"\"\"\n        if not path:\n            return\n        parent_path \u003d path[:-1]\n        parent \u003d node_at(parent_path) if parent_path else None\n        if parent:\n            parent[\"data\"][\"selected\"] \u003d all(c[\"data\"][\"selected\"] \n                                             for c in parent[\"items\"])\n            bubble(parent_path)\n\n    def is_real_status(node):\n        \"\"\"Exclude the Select-All wrapper from counts/lists.\"\"\"\n        return node.get(\"data\", {}).get(\"itemPath\") !\u003d \"select_all\"\n\n    # ──────────────────────────────────────────────────────────────\n    # 2️⃣  Toggle clicked node and propagate\n    clicked \u003d node_at(clicked_path)\n    new_state \u003d not clicked[\"data\"][\"selected\"]\n    clicked[\"data\"][\"selected\"] \u003d new_state\n\n    if clicked.get(\"items\"):\n        cascade(clicked, new_state)   # parent clicked\n    else:\n        bubble(clicked_path)          # child clicked\n\n    # ──────────────────────────────────────────────────────────────\n    # 3️⃣  Build list of *checked* real statuses\n    checked \u003d []\n    def walk(nodes):\n        for n in nodes:\n            if n[\"data\"][\"selected\"] and is_real_status(n):\n                checked.append(n.get(\"value\", n[\"data\"].get(\"itemPath\")))\n            walk(n.get(\"items\", []))\n    walk(py_items)\n\n    # ──────────────────────────────────────────────────────────────\n    # 4️⃣  Store list globally and update header label\n    session \u003d self.session\n    session.custom.filterTable \u003d checked\n\n    total \u003d getattr(self.view.custom, \"totalStatuses\",\n                    len(py_items[0].get(\"items\", [])))   # fallback count\n\n    lbl \u003d self.view.getChild(\"lblHeader\")   # ⚠️ adjust if your label path differs\n    if lbl:\n        lbl.props.text \u003d \"{} parameters / {} selected\".format(total, len(checked))\n\n    # ──────────────────────────────────────────────────────────────\n    # 5️⃣  Apply the modified tree back to the component\n    self.props.items \u003d py_items\n    #self.props.items \u003d system.util.jsonDecode(system.util.jsonEncode(py_items))"
+                },
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "script": "\n    \"\"\"\n    Perspective Tree – onItemClicked (Ignition 8.1.48)\n    • Two-state only (checked/unchecked) – no tri-state visuals\n    • Toggles parent/child selected flags\n    • Persists selected values to session.custom.selectedStatuses\n    • Updates header label (“N statuses / M selected”) if lblHeader exists\n    • Syncs Tree props.selection with checked children (assumes 1-level under wrapper)\n    Assumptions:\n      • Wrapper node has data.itemPath \u003d\u003d \"select_all\"\n      • Status nodes have:\n            data.selected (bool)\n            data.itemPath (string)\n            value         (optional unique ID; falls back to id/itemPath)\n      • view.custom.totalStatuses is set by your transform on load\n    \"\"\"\n    import system, system.util\n\n    # 1) Pure-Python copy\n    items \u003d system.util.jsonDecode(system.util.jsonEncode(self.props.items))\n    if not items:\n        return\n\n    # 2) Parse clicked path (\"0/3[/…]\")\n    raw_path \u003d getattr(event, \"itemPath\", None)\n    if raw_path is None:\n        return\n    try:\n        try:\n            basestring  # Jython 2.7\n            is_str \u003d isinstance(raw_path, basestring)\n        except NameError:\n            is_str \u003d isinstance(raw_path, str)\n        clicked_path \u003d [int(p) for p in (raw_path.split(\"/\") if is_str else raw_path) if p !\u003d \"\"]\n    except Exception:\n        return\n    if not clicked_path:\n        return\n\n    # ---------- helpers ----------\n    def node_at(path):\n        try:\n            node \u003d items[path[0]]\n            for idx in path[1:]:\n                node \u003d node[\"items\"][idx]\n            return node\n        except Exception:\n            return None\n\n    def cascade(node, state):\n        for ch in node.get(\"items\", []):\n            ch.setdefault(\"data\", {})\n            ch[\"data\"][\"selected\"] \u003d state\n            cascade(ch, state)\n\n    def bubble(path):\n        if len(path) \u003c 2:\n            return\n        parent_path \u003d path[:-1]\n        parent \u003d node_at(parent_path)\n        if parent is None:\n            return\n        kids \u003d parent.get(\"items\", [])\n        parent.setdefault(\"data\", {})\n        parent[\"data\"][\"selected\"] \u003d all(k.get(\"data\", {}).get(\"selected\", False) for k in kids)\n        bubble(parent_path)\n\n    def is_real_status(n):\n        return n.get(\"data\", {}).get(\"itemPath\") !\u003d \"select_all\"\n\n    def node_value(n):\n        d \u003d n.get(\"data\", {})\n        # prefer top-level value, then data.id, then itemPath\n        return n.get(\"value\", d.get(\"id\", d.get(\"itemPath\")))\n\n    # 3) Toggle clicked node + propagate\n    clicked \u003d node_at(clicked_path)\n    if clicked is None:\n        return\n\n    clicked.setdefault(\"data\", {})\n    new_state \u003d not clicked[\"data\"].get(\"selected\", False)\n    clicked[\"data\"][\"selected\"] \u003d new_state\n\n    if clicked.get(\"items\"):\n        cascade(clicked, new_state)      # parent/wrapper clicked\n    else:\n        bubble(clicked_path)             # child clicked\n\n    # 4) Build list of checked real statuses (unique, ordered)\n    checked, seen \u003d [], set()\n    def walk(nodes):\n        for n in nodes:\n            if n.get(\"data\", {}).get(\"selected\", False) and is_real_status(n):\n                v \u003d node_value(n)\n                if v is not None and v not in seen:\n                    seen.add(v)\n                    checked.append(v)\n            ch \u003d n.get(\"items\", [])\n            if ch:\n                walk(ch)\n    walk(items)\n    self.session.custom.selectedStatuses \u003d checked\n\n    # 5) Update header label (if present)\n    total \u003d getattr(self.view.custom, \"totalStatuses\", len(items[0].get(\"items\", [])))\n    try:\n        lbl \u003d self.view.getChild(\"lblHeader\")\n        if lbl:\n            lbl.props.text \u003d \"{} statuses / {} selected\".format(total, len(checked))\n    except:\n        pass\n\n    # 6) Wrapper visuals: strictly two states (no indeterminate)\n    if items and items[0].get(\"items\"):\n        kids \u003d items[0][\"items\"]\n        all_selected \u003d all(k.get(\"data\", {}).get(\"selected\", False) for k in kids) if kids else False\n\n        items[0].setdefault(\"data\", {})\n        items[0][\"data\"][\"selected\"] \u003d all_selected\n\n        icon \u003d items[0].setdefault(\"icon\", {})\n        icon[\"path\"]  \u003d \"material/check_box\" if all_selected else \"material/check_box_outline_blank\"\n        icon[\"color\"] \u003d \"#29B6F6\" if all_selected else \"#9E9E9E\"\n\n        # Compute selection paths from updated model\n        new_selection \u003d [\"0/{}\".format(i) for i, n in enumerate(kids) if n.get(\"data\", {}).get(\"selected\", False)]\n    else:\n        new_selection \u003d []\n\n    # 7) Push items first, then selection (prevents brief mismatch)\n    self.props.items \u003d items\n    self.props.selection \u003d new_selection"
+                },
+                "enabled": false,
+                "scope": "G",
+                "type": "script"
+              }
+            ]
+          },
+          "dom": {
+            "onSelect": {
+              "config": {
+                "script": "\n    import system\n\n    # \"0/4\" -\u003e node dict\n    def node_at(path_str):\n        idxs \u003d [int(x) for x in str(path_str).split(\"/\")] if path_str else []\n        node \u003d self.props.items[idxs[0]]\n        for i in idxs[1:]:\n            node \u003d node[\"items\"][i]\n        return node\n\n    # Persist selected IDs\n    ids \u003d []\n    for path in (event.selection or []):\n        try:\n            ids.append(int(node_at(path)[\"data\"][\"id\"]))\n        except:\n            pass\n    self.session.custom.selectedStatuses \u003d ids\n\n    # Mirror selection into items[].data.selected and update wrapper visual\n    items \u003d system.util.jsonDecode(system.util.jsonEncode(self.props.items))\n    for n in items[0][\"items\"]:\n        n[\"data\"][\"selected\"] \u003d (int(n[\"data\"][\"id\"]) in ids)\n\n    all_selected \u003d len(items[0][\"items\"]) \u003e 0 and all(n[\"data\"][\"selected\"] for n in items[0][\"items\"])\n    items[0][\"data\"][\"selected\"] \u003d all_selected\n    items[0][\"icon\"][\"path\"] \u003d \"material/check_box\" if all_selected else \"material/check_box_outline_blank\"\n    items[0][\"icon\"][\"color\"] \u003d \"#29B6F6\" if all_selected else \"#9E9E9E\"\n\n    self.props.items \u003d items"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "treeStatus"
+        },
+        "position": {
+          "height": 193,
+          "width": 230,
+          "x": 10,
+          "y": 49
+        },
+        "propConfig": {
+          "props.items": {
+            "binding": {
+              "config": {
+                "queryPath": "Filter for table"
+              },
+              "transforms": [
+                {
+                  "code": "\n    \"\"\"\n    Parameters → Tree JSON (Ignition 8.1.48)\n    - Restores selection across reopen from session.custom.filterTable.parameters\n    - Keeps icon colors (material/lens per item, like Script 2)\n    - Uses only keys allowed by 8.1.48 schema\n    \"\"\"\n    import system\n\n    # 1) Guard: empty dataset\n    if value is None or getattr(value, \"getRowCount\", lambda: 0)() \u003d\u003d 0:\n        self.view.custom.totalStatuses \u003d 0\n        return []\n\n    rows \u003d system.dataset.toPyDataSet(value)\n\n    # 2) Colors + icon map (mirror Script 2’s pattern)\n    color_map \u003d {\n        \"Source1\": \"#00C853\",\n        \"Source2\": \"#9CCC65\",\n        \"Source3\": \"#FF00FF\",\n        \"Auto correction\": \"#FFB300\",\n        \"Manual correction\": \"#C0CA33\",\n    }\n    icon_map \u003d dict((k, \"material/push_pin\") for k in color_map)\n\n    def key_of(lbl):\n        return lbl.strip().lower().replace(\" \", \"_\")\n\n    # 3) Read labels from single column \u0027parameters\u0027\n    try:\n        labels \u003d [str(r[\"parameters\"]) for r in rows]\n    except Exception:\n        colnames \u003d list(value.getColumnNames())\n        labels \u003d [str(r[colnames[0]]) for r in rows]\n\n    # 4) Restore saved selection from session.custom.filterTable.parameters (list of keys)\n    ft \u003d getattr(self.session.custom, \"filterTable\", None)\n    if not isinstance(ft, dict):\n        ft \u003d {}\n        self.session.custom.filterTable \u003d ft\n    saved \u003d list(ft.get(\"parameters\", []))  # normalized keys\n\n    # 5) Build children (like Script 2: icon path fixed to lens, color from map, data.selected bool)\n    tree_nodes \u003d []\n    for lbl in labels:\n        k \u003d key_of(lbl)\n        is_sel \u003d (k in saved)\n        tree_nodes.append({\n            \"label\": lbl,\n            \"expanded\": False,\n            \"items\": [],\n            \"icon\": {\n                \"path\": icon_map.get(lbl, \"material/push_pin\"),\n                \"color\": color_map.get(lbl, \"#BDBDBD\")\n            },\n            # only custom data here; no top-level \"value\"/\"style\"\n            \"data\": {\n                \"itemPath\": \"parameters/{}\".format(k),\n                \"name\": lbl,\n                \"key\": k,\n                \"selected\": bool(is_sel)\n            }\n        })\n\n    self.view.custom.totalStatuses \u003d len(tree_nodes)\n\n    # 6) Parent (\"Select All\") mirrors Script 2 (icon path fixed, color fixed)\n    all_selected \u003d len(tree_nodes) \u003e 0 and all(n[\"data\"][\"selected\"] for n in tree_nodes)\n    select_all \u003d {\n        \"label\": \"Select All\",\n        \"expanded\": True,\n        \"items\": tree_nodes,\n        \"icon\": {\n            \"path\": \"material/select_all\" if all_selected else \"material/select_all\",\n            \"color\": \"#CD5C5C\" if all_selected else \"#CD5C5C\"\n        },\n        \"data\": {\"itemPath\": \"select_all\", \"selected\": all_selected}\n    }\n\n    # 7) Neutralize highlight (same as Script 2)\n    self.props.appearance.selectedStyle \u003d {\n        \"backgroundColor\": \"transparent\",\n        \"borderColor\": \"transparent\",\n        \"boxShadow\": \"none\"\n    }\n\n    # 8) Re-apply visual selection as STRING paths under wrapper (like Script 2)\n    self.props.selection \u003d [[0, i] for i, n in enumerate(tree_nodes) if n[\"data\"][\"selected\"]]\n\n    return [select_all]",
+                  "type": "script"
+                }
+              ],
+              "type": "query"
+            }
+          }
+        },
+        "props": {
+          "appearance": {
+            "checkboxAlignment": "leading",
+            "defaultNodeIcons": {
+              "collapsed": {
+                "path": "material/folder"
+              },
+              "empty": {
+                "color": "#FFFF47",
+                "path": "material/stop"
+              },
+              "expanded": {
+                "path": "material/folder_open"
+              }
+            },
+            "expandIcons": {
+              "collapsed": {
+                "path": "material/arrow_right"
+              },
+              "expanded": {
+                "path": "material/arrow_drop_down"
+              }
+            },
+            "selectedStyle": {
+              "backgroundColor": "transparent",
+              "borderColor": "transparent",
+              "boxShadow": "none"
+            },
+            "unselectedStyle": {
+              "fontSize": 16,
+              "paddingTop": 5
+            }
+          },
+          "branchNodeSelectable": false,
+          "interactable": false,
+          "selectionData": [
+            {
+              "itemPath": "0/0",
+              "value": {
+                "count": 1,
+                "itemPath": "status/alarm",
+                "selected": true,
+                "statusName": "Alarm",
+                "value": 5
+              }
+            }
+          ],
+          "style": {
+            "color": "#FFFFFF",
+            "opacity": "0.74"
+          }
+        },
+        "type": "ia.display.tree"
+      }
+    ],
+    "meta": {
+      "name": "root",
+      "tooltip": {
+        "style": {
+          "backgroundColor": "#424242",
+          "margin": 0,
+          "padding": 0
+        }
+      }
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "#3A3A3A",
+        "margin": 0,
+        "padding": 0
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

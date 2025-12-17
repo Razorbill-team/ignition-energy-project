@@ -1,0 +1,71 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 928
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "IFrame_0"
+        },
+        "position": {
+          "height": "100%",
+          "width": "100%"
+        },
+        "props": {
+          "allowFullScreen": true,
+          "referrerPolicy": "origin",
+          "src": "http://localhost:8088/system/webdev/the_project_1_2025-12-04_2202/aggrid_market_prices/prices/ui"
+        },
+        "type": "ia.display.iframe"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "action": "Toggle",
+                "type": "View"
+              },
+              "scope": "C",
+              "type": "fullscreen"
+            }
+          }
+        },
+        "meta": {
+          "name": "Icon",
+          "tooltip": {
+            "enabled": true,
+            "style": {
+              "backgroundColor": "#695252",
+              "color": "#D5D5D5",
+              "fontFamily": "Roboto",
+              "fontSize": 12,
+              "textAlign": "center"
+            },
+            "text": "Full Screen"
+          }
+        },
+        "position": {
+          "height": 36,
+          "width": 51,
+          "x": 327,
+          "y": 10.21
+        },
+        "props": {
+          "path": "material/fullscreen",
+          "tooltip": "auzi ai pula"
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}
